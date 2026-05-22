@@ -1,49 +1,114 @@
 import yfinance as yf
 import json
 import datetime
+from datetime import date, timedelta
 
+# ============ PATRIMONY WEIGHTS (Marco) ============
+PATRIMONY_EUR = 6_000_000
+WEIGHT_CHF = 0.55
+WEIGHT_EUR = 0.40
+WEIGHT_USD = 0.05
+
+# ============ HELPERS ============
 def fmt(v, dec=2):
-    if v is None:
-        return None
-    try:
-        return round(float(v), dec)
-    except:
-        return None
+    if v is None: return None
+    try: return round(float(v), dec)
+    except: return None
 
-def get_quotes(symbols):
-    result = []
+def pct(curr, ref):
+    if curr is None or ref is None or ref == 0: return None
+    return fmt(((curr - ref) / ref) * 100, 2)
+
+# ============ TICKER REGISTRY ============
+TICKERS = {
+    # FX
+    "CHFEUR=X":   {"label":"CHF / EUR",      "section":"fx",      "decimals":4},
+    "EURUSD=X":   {"label":"USD / EUR",      "section":"fx",      "decimals":4, "invert":True},
+    "GBPEUR=X":   {"label":"GBP / EUR",      "section":"fx",      "decimals":4},
+    # Indices
+    "^GSPC":      {"label":"S&P 500",        "section":"indices", "decimals":0},
+    "^IXIC":      {"label":"Nasdaq",         "section":"indices", "decimals":0},
+    "^STOXX50E":  {"label":"EuroStoxx 50",   "section":"indices", "decimals":0},
+    "FTSEMIB.MI": {"label":"FTSE MIB",       "section":"indices", "decimals":0},
+    "^GDAXI":     {"label":"DAX",            "section":"indices", "decimals":0},
+    "^FCHI":      {"label":"CAC 40",         "section":"indices", "decimals":0},
+    "^SSMI":      {"label":"SMI",            "section":"indices", "decimals":0},
+    "^FTSE":      {"label":"FTSE 100",       "section":"indices", "decimals":0},
+    "^N225":      {"label":"Nikkei 225",     "section":"indices", "decimals":0},
+    "^HSI":       {"label":"Hang Seng",      "section":"indices", "decimals":0},
+    "000300.SS":  {"label":"CSI 300",        "section":"indices", "decimals":0},
+    # Energy
+    "BZ=F":       {"label":"Brent USD/bbl",  "section":"energy",  "decimals":2},
+    "CL=F":       {"label":"WTI USD/bbl",    "section":"energy",  "decimals":2},
+    "TTF=F":      {"label":"TTF EUR/MWh",    "section":"energy",  "decimals":2},
+    "NG=F":       {"label":"Nat Gas USD",    "section":"energy",  "decimals":2},
+    # Metals & Crypto
+    "GC=F":       {"label":"Gold USD/oz",    "section":"crypto",  "decimals":0},
+    "SI=F":       {"label":"Silver USD/oz",  "section":"crypto",  "decimals":2},
+    "BTC-EUR":    {"label":"Bitcoin EUR",    "section":"crypto",  "decimals":0},
+    "ETH-EUR":    {"label":"Ethereum EUR",   "section":"crypto",  "decimals":0},
+    # Rates & risk
+    "^VIX":       {"label":"VIX",            "section":"rates",   "decimals":2},
+    "^TNX":       {"label":"US 10Y yield",   "section":"rates",   "decimals":2},
+    "^TYX":       {"label":"US 30Y yield",   "section":"rates",   "decimals":2},
+}
+
+# ============ FETCH HISTORICAL DATA ============
+def fetch_history(symbols):
+    """Get 2Y daily history for all symbols — single batch call."""
+    print(f"Downloading 2Y history for {len(symbols)} symbols...")
+    data = yf.download(
+        tickers=" ".join(symbols),
+        period="2y",
+        interval="1d",
+        group_by="ticker",
+        auto_adjust=True,
+        progress=False,
+        threads=True
+    )
+    return data
+
+def get_close(hist_df, sym, target_date):
+    """Get close price on or just before target_date."""
     try:
-        tickers = yf.Tickers(" ".join(symbols))
-        for sym in symbols:
-            try:
-                t = tickers.tickers[sym]
-                info = t.fast_info
-                price = fmt(info.last_price)
-                prev  = fmt(info.previous_close)
-                chg   = fmt(((price - prev) / prev * 100) if price and prev else 0)
-                result.append({"symbol": sym, "price": price, "change1d": chg})
-            except Exception as e:
-                print(f"  Warning {sym}: {e}")
-                result.append({"symbol": sym, "price": None, "change1d": 0})
+        if len(symbols_to_fetch) == 1:
+            df = hist_df
+        else:
+            df = hist_df[sym] if sym in hist_df.columns.levels[0] else None
+        if df is None or df.empty: return None
+        df = df.dropna(subset=["Close"])
+        # last close on/before target_date
+        df_idx = df.index.date if hasattr(df.index, 'date') else df.index
+        mask = [d <= target_date for d in df_idx]
+        filtered = df[mask]
+        if filtered.empty: return None
+        return float(filtered["Close"].iloc[-1])
     except Exception as e:
-        print(f"get_quotes error: {e}")
-    return result
-
-def get_chart(sym, period="1y", interval="1mo"):
-    try:
-        t = yf.Ticker(sym)
-        hist = t.history(period=period, interval=interval)
-        if hist.empty:
-            return None
-        closes = [fmt(v) for v in hist["Close"].tolist()]
-        labels = [d.strftime("%b %y") for d in hist.index.to_pydatetime()]
-        valid  = [v for v in closes if v is not None]
-        chg1y  = fmt(((valid[-1] - valid[0]) / valid[0] * 100) if len(valid) >= 2 else 0, 1)
-        return {"labels": labels, "values": closes, "change1y": chg1y}
-    except Exception as e:
-        print(f"  Chart error {sym}: {e}")
         return None
 
+# ============ DATE REFERENCES ============
+today = date.today()
+yesterday = today - timedelta(days=1)
+# Month-to-date: last close of previous month
+first_of_month = today.replace(day=1)
+mtd_ref = first_of_month - timedelta(days=1)
+# Quarter-to-date: last close of previous quarter
+quarter = (today.month - 1) // 3
+first_quarter_month = quarter * 3 + 1
+first_of_quarter = today.replace(month=first_quarter_month, day=1)
+qtd_ref = first_of_quarter - timedelta(days=1)
+# Year-to-date
+ytd_ref = date(today.year - 1, 12, 31)
+# 2Y
+two_y_ref = today - timedelta(days=730)
+
+print(f"References: 1D={yesterday} MTD={mtd_ref} QTD={qtd_ref} YTD={ytd_ref} 2Y={two_y_ref}")
+
+# ============ FETCH ALL ============
+symbols_to_fetch = list(TICKERS.keys())
+hist = fetch_history(symbols_to_fetch)
+
+# ============ ECB FX ============
 def get_fx_ecb():
     import urllib.request
     try:
@@ -52,119 +117,262 @@ def get_fx_ecb():
             d = json.loads(r.read())
         rates = d.get("rates", {})
         return {
-            "CHFEUR": fmt(1/rates["CHF"], 4) if rates.get("CHF") else None,
-            "USDEUR": fmt(1/rates["USD"], 4) if rates.get("USD") else None,
-            "GBPEUR": fmt(1/rates["GBP"], 4) if rates.get("GBP") else None,
+            "CHFEUR=X": 1/rates["CHF"] if rates.get("CHF") else None,
+            "EURUSD=X": rates.get("USD"),  # EUR->USD direct
+            "GBPEUR=X": 1/rates["GBP"] if rates.get("GBP") else None,
         }
     except Exception as e:
         print(f"  ECB FX error: {e}")
         return {}
 
+print("Fetching ECB FX...")
+fx_ecb = get_fx_ecb()
+
+# ============ BUILD INSTRUMENT DATA ============
+def get_series(sym):
+    """Return (timestamps_dates, close_values) for symbol."""
+    try:
+        if len(symbols_to_fetch) == 1:
+            df = hist
+        else:
+            df = hist[sym]
+        df = df.dropna(subset=["Close"])
+        if df.empty: return [], []
+        dates = [d.date() for d in df.index.to_pydatetime()]
+        closes = [float(v) for v in df["Close"].tolist()]
+        return dates, closes
+    except Exception as e:
+        print(f"  series error {sym}: {e}")
+        return [], []
+
+def build_instrument(sym):
+    meta = TICKERS[sym]
+    dates, closes = get_series(sym)
+    if not closes:
+        return None
+
+    current = closes[-1]
+    invert = meta.get("invert", False)
+    if invert: current = 1 / current
+
+    # find references
+    def find_close(ref_date):
+        for i in range(len(dates)-1, -1, -1):
+            if dates[i] <= ref_date:
+                v = closes[i]
+                return (1/v) if invert else v
+        return None
+
+    prev_close = closes[-2] if len(closes) >= 2 else None
+    if prev_close and invert: prev_close = 1/prev_close
+
+    ref_1d  = prev_close
+    ref_mtd = find_close(mtd_ref)
+    ref_qtd = find_close(qtd_ref)
+    ref_ytd = find_close(ytd_ref)
+    ref_2y  = find_close(two_y_ref)
+
+    # ECB override for FX (price only, not changes)
+    if sym in fx_ecb and fx_ecb[sym]:
+        current_display = fx_ecb[sym]
+    else:
+        current_display = current
+
+    return {
+        "symbol": sym,
+        "label": meta["label"],
+        "section": meta["section"],
+        "decimals": meta["decimals"],
+        "current": fmt(current_display, meta["decimals"]),
+        "raw_current": current,
+        "changes": {
+            "1D":  pct(current, ref_1d),
+            "MTD": pct(current, ref_mtd),
+            "QTD": pct(current, ref_qtd),
+            "YTD": pct(current, ref_ytd),
+            "2Y":  pct(current, ref_2y),
+        },
+        "series_1y": serialize_series(dates, closes, "1y", invert),
+        "series_2y": serialize_series(dates, closes, "2y", invert),
+    }
+
+def serialize_series(dates, closes, span, invert):
+    """Subsample series to ~52 weekly points (1y) or ~104 weekly (2y)."""
+    if not dates or not closes: return {"labels":[],"values":[]}
+    cutoff = today - (timedelta(days=365) if span=="1y" else timedelta(days=730))
+    pairs = [(d, c) for d, c in zip(dates, closes) if d >= cutoff]
+    if not pairs: return {"labels":[],"values":[]}
+    # weekly resampling (every ~5 trading days)
+    step = max(1, len(pairs) // 60)
+    sampled = pairs[::step]
+    if sampled[-1] != pairs[-1]: sampled.append(pairs[-1])
+    labels = [d.strftime("%b %y") for d, _ in sampled]
+    values = [(1/c if invert else c) for _, c in sampled]
+    return {"labels": labels, "values": [round(v, 4) for v in values]}
+
+print("Building instruments...")
+instruments = {}
+for sym in TICKERS:
+    print(f"  {sym}")
+    inst = build_instrument(sym)
+    if inst:
+        instruments[sym] = inst
+
+def get(sym):
+    return instruments.get(sym)
+
+# ============ PATRIMONY CALCULATION ============
+def calc_patrimony():
+    chf_eur = instruments.get("CHFEUR=X", {}).get("raw_current")
+    usd_eur_raw = instruments.get("EURUSD=X", {}).get("raw_current")
+    if not chf_eur or not usd_eur_raw: return None
+    usd_eur = 1 / usd_eur_raw  # because we inverted display but kept raw
+
+    # Patrimony components in their currencies (computed at "base" using current FX so it's stable display)
+    chf_value_in_chf = (PATRIMONY_EUR * WEIGHT_CHF) / chf_eur  # CHF amount
+    eur_value = PATRIMONY_EUR * WEIGHT_EUR
+    usd_value_in_usd = (PATRIMONY_EUR * WEIGHT_USD) / usd_eur
+
+    # Current EUR value
+    current_eur = chf_value_in_chf * chf_eur + eur_value + usd_value_in_usd * usd_eur
+
+    # Compute change vs each reference using FX series
+    def patrimony_at(ref_pct_chf, ref_pct_usd):
+        """Apply % change from CHF and USD vs current to recompute patrimony then."""
+        if ref_pct_chf is None or ref_pct_usd is None: return None
+        chf_then = chf_eur / (1 + ref_pct_chf/100)
+        usd_then = usd_eur / (1 + ref_pct_usd/100)
+        return chf_value_in_chf * chf_then + eur_value + usd_value_in_usd * usd_then
+
+    chf_changes = instruments.get("CHFEUR=X", {}).get("changes", {})
+    usd_changes = instruments.get("EURUSD=X", {}).get("changes", {})
+    # for USD/EUR display we inverted, so changes are already in USD/EUR terms — perfect
+
+    def chg_pct(period):
+        then = patrimony_at(chf_changes.get(period), usd_changes.get(period))
+        return pct(current_eur, then) if then else None
+
+    return {
+        "current_eur": round(current_eur),
+        "chf_amount": round(chf_value_in_chf),
+        "eur_amount": round(eur_value),
+        "usd_amount": round(usd_value_in_usd),
+        "changes": {p: chg_pct(p) for p in ["1D","MTD","QTD","YTD","2Y"]}
+    }
+
+print("Computing patrimony...")
+patrimony = calc_patrimony()
+
+# ============ CHARTS REGISTRY (which to show per section) ============
+SECTION_CHARTS = {
+    "fx":      ["CHFEUR=X","EURUSD=X","GBPEUR=X"],
+    "indices": ["^GSPC","^GDAXI","FTSEMIB.MI","^N225"],
+    "energy":  ["BZ=F","CL=F","TTF=F"],
+    "crypto":  ["GC=F","BTC-EUR"],
+    "rates":   ["^VIX","^TNX"],
+}
+
+# ============ COMMENTARY (rule-based) ============
+def commentary_for_section(section_key, items):
+    """Generate a one-line commentary based on movements."""
+    if not items: return ""
+    changes_1d = [i["changes"].get("1D") for i in items if i["changes"].get("1D") is not None]
+    if not changes_1d: return ""
+    avg_1d = sum(changes_1d) / len(changes_1d)
+    pos = sum(1 for c in changes_1d if c > 0)
+    neg = sum(1 for c in changes_1d if c < 0)
+    # max move
+    items_with_chg = [(i, i["changes"].get("1D")) for i in items if i["changes"].get("1D") is not None]
+    items_with_chg.sort(key=lambda x: abs(x[1]), reverse=True)
+    top = items_with_chg[0] if items_with_chg else None
+
+    direction = "broadly positive" if avg_1d > 0.2 else "broadly negative" if avg_1d < -0.2 else "mixed"
+    parts = [
+        f"Section {direction} today ({pos} up / {neg} down, avg {avg_1d:+.2f}%)."
+    ]
+    if top:
+        parts.append(f"Biggest mover: {top[0]['label']} ({top[1]:+.2f}%).")
+
+    # YTD context
+    ytd_changes = [i["changes"].get("YTD") for i in items if i["changes"].get("YTD") is not None]
+    if ytd_changes:
+        avg_ytd = sum(ytd_changes)/len(ytd_changes)
+        parts.append(f"YTD section average: {avg_ytd:+.1f}%.")
+
+    return " ".join(parts)
+
+def section_data(section_key):
+    items = [instruments[s] for s in TICKERS if TICKERS[s]["section"] == section_key and s in instruments]
+    return {
+        "instruments": items,
+        "charts": [instruments[s] for s in SECTION_CHARTS.get(section_key, []) if s in instruments],
+        "commentary": commentary_for_section(section_key, items)
+    }
+
+# ============ NEWS ============
 def get_news():
     import urllib.request
     from xml.etree import ElementTree as ET
     headlines = []
-    try:
-        url = "https://feeds.finance.yahoo.com/rss/2.0/headline?s=BZ=F,CL=F,XOM,TTF=F&region=US&lang=en-US"
-        req = urllib.request.Request(url, headers={"User-Agent": "Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=10) as r:
-            tree = ET.parse(r)
-        for item in tree.findall(".//item")[:6]:
-            title  = item.findtext("title") or ""
-            source = item.findtext("source") or "Yahoo Finance"
-            date   = item.findtext("pubDate") or ""
-            headlines.append({"title": title, "source": source, "date": date})
-    except Exception as e:
-        print(f"  News error: {e}")
+    feeds = [
+        ("https://feeds.finance.yahoo.com/rss/2.0/headline?s=BZ=F,CL=F,XOM,TTF=F&region=US&lang=en-US", "Energy"),
+        ("https://feeds.finance.yahoo.com/rss/2.0/headline?s=^GSPC,^GDAXI,^FTSEMIB&region=US&lang=en-US", "Macro/Equity"),
+    ]
+    for url, cat in feeds:
+        try:
+            req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
+            with urllib.request.urlopen(req, timeout=10) as r:
+                tree = ET.parse(r)
+            for item in tree.findall(".//item")[:5]:
+                headlines.append({
+                    "title":       item.findtext("title") or "",
+                    "link":        item.findtext("link") or "",
+                    "source":      item.findtext("source") or "Yahoo Finance",
+                    "date":        item.findtext("pubDate") or "",
+                    "description": (item.findtext("description") or "")[:300],
+                    "category":    cat,
+                })
+        except Exception as e:
+            print(f"  News {cat} error: {e}")
     return headlines
-
-print("Fetching FX (ECB)...")
-fx_ecb = get_fx_ecb()
-
-fx_symbols  = ["CHFEUR=X", "EURUSD=X", "GBPEUR=X"]
-idx_symbols = ["^GSPC","^IXIC","^STOXX50E","^FTSEMIB","^GDAXI","^FCHI","^SSMI","^FTSE","^N225","^HSI","000300.SS"]
-en_symbols  = ["BZ=F","CL=F","TTF=F","NG=F"]
-cr_symbols  = ["GC=F","SI=F","BTC-EUR","ETH-EUR"]
-
-print("Fetching quotes...")
-all_quotes = get_quotes(fx_symbols + idx_symbols + en_symbols + cr_symbols)
-
-def q(sym):
-    return next((x for x in all_quotes if x["symbol"] == sym), {"symbol": sym, "price": None, "change1d": 0})
-
-brent  = q("BZ=F")["price"]
-wti    = q("CL=F")["price"]
-spread = fmt(brent - wti) if brent and wti else None
-
-labels = {
-    "CHFEUR=X":"CHF/EUR","EURUSD=X":"USD/EUR","GBPEUR=X":"GBP/EUR",
-    "^GSPC":"S&P 500","^IXIC":"Nasdaq","^STOXX50E":"EuroStoxx 50",
-    "^FTSEMIB":"FTSE MIB","^GDAXI":"DAX","^FCHI":"CAC 40",
-    "^SSMI":"SMI","^FTSE":"FTSE 100","^N225":"Nikkei 225",
-    "^HSI":"Hang Seng","000300.SS":"CSI 300",
-    "BZ=F":"Brent USD/bbl","CL=F":"WTI USD/bbl",
-    "TTF=F":"TTF EUR/MWh","NG=F":"Nat Gas USD",
-    "GC=F":"Gold USD/oz","SI=F":"Silver USD/oz",
-    "BTC-EUR":"Bitcoin EUR","ETH-EUR":"Ethereum EUR"
-}
-
-def price_fmt(sym, price):
-    if price is None:
-        return "—"
-    if sym in ("BTC-EUR","ETH-EUR","GC=F","^GSPC","^IXIC","^FTSEMIB","^GDAXI","^N225","^HSI","000300.SS","^STOXX50E","^FCHI","^SSMI","^FTSE"):
-        return f"{price:,.0f}"
-    if sym in ("CHFEUR=X","EURUSD=X","GBPEUR=X"):
-        return f"{price:.4f}"
-    return f"{price:.2f}"
-
-def make_tiles(syms):
-    tiles = []
-    for sym in syms:
-        d = q(sym)
-        price = d["price"]
-        if sym == "CHFEUR=X" and fx_ecb.get("CHFEUR"):
-            price = fx_ecb["CHFEUR"]
-        elif sym == "EURUSD=X" and fx_ecb.get("USDEUR"):
-            price = fx_ecb["USDEUR"]
-        elif sym == "GBPEUR=X" and fx_ecb.get("GBPEUR"):
-            price = fx_ecb["GBPEUR"]
-        tiles.append({
-            "label": labels.get(sym, sym),
-            "value": price_fmt(sym, price),
-            "change1d": d["change1d"] or 0
-        })
-    return tiles
-
-print("Building charts...")
-chart_defs = [
-    ("CHFEUR=X","CHF/EUR 1Y"),("EURUSD=X","USD/EUR 1Y"),
-    ("BZ=F","Brent 1Y"),("CL=F","WTI 1Y"),
-    ("^GSPC","S&P 500 1Y"),("^GDAXI","DAX 1Y"),
-    ("^FTSEMIB","FTSE MIB 1Y"),("GC=F","Gold 1Y"),
-    ("BTC-EUR","Bitcoin EUR 1Y"),
-]
-charts = []
-for sym, lbl in chart_defs:
-    print(f"  chart: {sym}")
-    c = get_chart(sym)
-    if c:
-        c["label"] = lbl
-        charts.append(c)
 
 print("Fetching news...")
 news = get_news()
 
+# ============ FINAL OUTPUT ============
 data = {
     "updated": datetime.datetime.utcnow().strftime("%d %b %Y %H:%M UTC"),
-    "fx":      make_tiles(fx_symbols),
-    "indices": make_tiles(idx_symbols),
-    "energy":  make_tiles(en_symbols) + [{"label":"Brent−WTI spread","value": f"{spread:.2f} USD" if spread else "—","change1d":0}],
-    "crypto":  make_tiles(cr_symbols),
-    "charts":  charts,
-    "news":    news,
+    "references": {
+        "mtd": mtd_ref.strftime("%d %b %Y"),
+        "qtd": qtd_ref.strftime("%d %b %Y"),
+        "ytd": ytd_ref.strftime("%d %b %Y"),
+        "2y":  two_y_ref.strftime("%d %b %Y"),
+    },
+    "patrimony": patrimony,
+    "sections": {
+        "fx":      section_data("fx"),
+        "indices": section_data("indices"),
+        "energy":  section_data("energy"),
+        "crypto":  section_data("crypto"),
+        "rates":   section_data("rates"),
+    },
+    "news": news,
 }
 
-with open("data.json", "w") as f:
-    json.dump(data, f, indent=2)
+# Add Brent-WTI spread to energy section
+brent = instruments.get("BZ=F", {}).get("raw_current")
+wti   = instruments.get("CL=F", {}).get("raw_current")
+if brent and wti:
+    data["sections"]["energy"]["instruments"].append({
+        "symbol": "SPREAD",
+        "label": "Brent − WTI",
+        "section": "energy",
+        "decimals": 2,
+        "current": round(brent - wti, 2),
+        "changes": {"1D": None, "MTD": None, "QTD": None, "YTD": None, "2Y": None},
+    })
 
-print(f"Done — data.json written ({len(news)} headlines, {len(charts)} charts)")
+with open("data.json", "w") as f:
+    json.dump(data, f, indent=2, default=str)
+
+print(f"Done — {len(instruments)} instruments, {len(news)} headlines, patrimony: €{patrimony['current_eur']:,}" if patrimony else "Done — patrimony failed")
