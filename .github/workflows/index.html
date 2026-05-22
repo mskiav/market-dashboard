@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Market Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#0a0c0f;--bg2:#111418;--bg3:#181c22;--border:#1e2530;--border2:#2a3340;--text:#e8edf2;--text2:#7a8a9a;--text3:#3d4f60;--green:#00c87a;--red:#ff4d4d;--amber:#f5a623;--mono:'IBM Plex Mono',monospace;--sans:'IBM Plex Sans',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;min-height:100vh}
+header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--bg2);flex-wrap:wrap;gap:10px}
+.logo{font-family:var(--mono);font-size:14px;font-weight:500;letter-spacing:.1em}.logo span{color:var(--amber)}
+#ts{font-family:var(--mono);font-size:11px;color:var(--text3)}
+button{background:transparent;border:1px solid var(--border2);color:var(--text);font-family:var(--mono);font-size:11px;padding:7px 16px;border-radius:4px;cursor:pointer;letter-spacing:.05em;transition:all .15s}
+button:hover{border-color:var(--amber);color:var(--amber)}
+button.p{border-color:var(--amber);color:var(--amber)}
+#sb{padding:8px 24px;font-family:var(--mono);font-size:11px;color:var(--text2);min-height:30px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);background:var(--bg3)}
+.dot{width:6px;height:6px;border-radius:50%;background:var(--text3);flex-shrink:0}
+.dot.ld{background:var(--amber);animation:pulse 1.2s infinite}
+.dot.ok{background:var(--green)}.dot.er{background:var(--red)}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+main{padding:20px 24px;display:flex;flex-direction:column;gap:24px}
+.sl{font-family:var(--mono);font-size:10px;letter-spacing:.15em;color:var(--text3);text-transform:uppercase;margin-bottom:10px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:8px}
+.tile{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:12px 14px}
+.tl{font-size:10px;color:var(--text3);font-family:var(--mono);letter-spacing:.08em;margin-bottom:6px}
+.tv{font-family:var(--mono);font-size:17px;font-weight:500;color:var(--text);line-height:1}
+.tc{font-family:var(--mono);font-size:11px;margin-top:5px}
+.up{color:var(--green)}.dn{color:var(--red)}.fl{color:var(--text3)}
+.cg{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.cc{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:14px 16px}
+.ch{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.ct{font-family:var(--mono);font-size:11px;color:var(--text2);letter-spacing:.08em}
+.cv{font-family:var(--mono);font-size:12px;font-weight:500}
+.cbox{position:relative;height:90px}
+.nl{display:flex;flex-direction:column;gap:6px}
+.ni{background:var(--bg2);border:1px solid var(--border);border-radius:6px;padding:10px 14px;display:flex;gap:14px}
+.nn{font-family:var(--mono);font-size:10px;color:var(--text3);padding-top:2px;flex-shrink:0}
+.nt{font-size:13px;color:var(--text);line-height:1.45}
+.ns{font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px}
+.sk{background:var(--bg3);border-radius:3px;animation:sk 1.5s infinite}
+@keyframes sk{0%,100%{opacity:.4}50%{opacity:.8}}
+.eb{background:rgba(255,77,77,.08);border:1px solid rgba(255,77,77,.25);border-radius:6px;padding:12px 16px;color:var(--red);font-family:var(--mono);font-size:11px}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo">MARKET<span>//</span>DASHBOARD</div>
+  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <div id="ts">— not loaded —</div>
+    <button class="p" onclick="loadData()">↻ RELOAD</button>
+  </div>
+</header>
+<div id="sb"><div class="dot ld" id="dot"></div><span id="stxt">Loading data…</span></div>
+<main>
+  <div><div class="sl">FX — CHF &amp; USD in EUR</div><div class="tiles" id="t-fx"></div></div>
+  <div><div class="sl">Global indices</div><div class="tiles" id="t-ix"></div></div>
+  <div><div class="sl">Energy &amp; commodities</div><div class="tiles" id="t-en"></div></div>
+  <div><div class="sl">Metals &amp; crypto</div><div class="tiles" id="t-cr"></div></div>
+  <div><div class="sl">1-year trends</div><div class="cg" id="cg"></div></div>
+  <div><div class="sl">Headlines — energy &amp; macro</div><div class="nl" id="nl"></div></div>
+</main>
+<script>
+function st(msg,s){document.getElementById('stxt').textContent=msg;const d=document.getElementById('dot');d.className='dot'+(s==='ld'?' ld':s==='ok'?' ok':s==='er'?' er':'');}
+function skels(id,n){document.getElementById(id).innerHTML=Array(n).fill(0).map(()=>'<div class="tile"><div class="tl sk" style="height:10px;width:50%;margin-bottom:8px"></div><div class="tv sk" style="height:17px;width:65%"></div></div>').join('');}
+function tile(t){const c=t.change1d>0?'up':t.change1d<0?'dn':'fl',s=t.change1d>0?'+':'',chg=typeof t.change1d==='number'?t.change1d.toFixed(2):'0.00';return`<div class="tile"><div class="tl">${t.label}</div><div class="tv">${t.value}</div><div class="tc ${c}">${s}${chg}%</div></div>`;}
+let CI={};
+function drawChart(id,cd){const ctx=document.getElementById(id)?.getContext('2d');if(!ctx)return;if(CI[id])CI[id].destroy();const col=(cd.change1y||0)>=0?'#00c87a':'#ff4d4d';CI[id]=new Chart(ctx,{type:'line',data:{labels:cd.labels,datasets:[{data:cd.values,borderColor:col,borderWidth:1.5,pointRadius:0,tension:0.35,fill:true,backgroundColor:c=>{const g=c.chart.ctx.createLinearGradient(0,0,0,90);g.addColorStop(0,col+'44');g.addColorStop(1,col+'00');return g;}}]},options:{responsive:true,maintainAspectRatio:false,animation:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>' '+c.parsed.y?.toLocaleString('en-GB',{maximumFractionDigits:2})}}},scales:{x:{display:false},y:{display:false,grace:'8%'}}}});}
+async function loadData(){
+  st('Loading…','ld');
+  ['t-fx','t-ix','t-en','t-cr'].forEach((id,i)=>skels(id,[3,11,5,4][i]));
+  try{
+    const res=await fetch('data.json?t='+Date.now());
+    if(!res.ok)throw new Error('data.json not found — run the workflow first (Actions tab)');
+    const d=await res.json();
+    document.getElementById('ts').textContent=d.updated||'—';
+    document.getElementById('t-fx').innerHTML=(d.fx||[]).map(tile).join('');
+    document.getElementById('t-ix').innerHTML=(d.indices||[]).map(tile).join('');
+    document.getElementById('t-en').innerHTML=(d.energy||[]).map(tile).join('');
+    document.getElementById('t-cr').innerHTML=(d.crypto||[]).map(tile).join('');
+    const cg=document.getElementById('cg');cg.innerHTML='';
+    (d.charts||[]).forEach((cd,i)=>{const cid='c'+i,chg=cd.change1y||0,cls=chg>=0?'up':'dn',sign=chg>=0?'+':'';
+      cg.innerHTML+=`<div class="cc"><div class="ch"><div class="ct">${cd.label}</div><div class="cv ${cls}">${sign}${chg.toFixed(1)}% / 1Y</div></div><div class="cbox"><canvas id="${cid}"></canvas></div></div>`;
+      setTimeout(()=>drawChart(cid,cd),60);
+    });
+    const nl=document.getElementById('nl');
+    if(d.news&&d.news.length){nl.innerHTML=d.news.map((h,i)=>`<div class="ni"><div class="nn">0${i+1}</div><div><div class="nt">${h.title}</div><div class="ns">${h.source}${h.date?' · '+new Date(h.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}):''}</div></div></div>`).join('');}
+    else{nl.innerHTML='<div style="color:var(--text3);font-family:var(--mono);font-size:12px">No headlines in data.json</div>';}
+    st('Data loaded — updated '+(d.updated||''),'ok');
+  }catch(e){st('Error: '+e.message,'er');document.getElementById('t-fx').innerHTML=`<div class="eb">${e.message}</div>`;}
+}
+loadData();
+</script>
+</body>
+</html>
