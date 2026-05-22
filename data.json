@@ -1,0 +1,398 @@
+{
+  "updated": "22 May 2026 15:56 UTC",
+  "fx": [
+    {
+      "label": "CHF/EUR",
+      "value": "1.1000",
+      "change1d": 0.92
+    },
+    {
+      "label": "USD/EUR",
+      "value": "1.1600",
+      "change1d": 0
+    },
+    {
+      "label": "GBP/EUR",
+      "value": "1.1600",
+      "change1d": 0
+    }
+  ],
+  "indices": [
+    {
+      "label": "S&P 500",
+      "value": "7,493",
+      "change1d": 0.64
+    },
+    {
+      "label": "Nasdaq",
+      "value": "26,457",
+      "change1d": 0.62
+    },
+    {
+      "label": "EuroStoxx 50",
+      "value": "6,019",
+      "change1d": 0.71
+    },
+    {
+      "label": "FTSE MIB",
+      "value": "\u2014",
+      "change1d": 0
+    },
+    {
+      "label": "DAX",
+      "value": "24,889",
+      "change1d": 0.94
+    },
+    {
+      "label": "CAC 40",
+      "value": "8,116",
+      "change1d": 0.09
+    },
+    {
+      "label": "SMI",
+      "value": "13,503",
+      "change1d": 0.3
+    },
+    {
+      "label": "FTSE 100",
+      "value": "10,466",
+      "change1d": 0
+    },
+    {
+      "label": "Nikkei 225",
+      "value": "63,339",
+      "change1d": 2.65
+    },
+    {
+      "label": "Hang Seng",
+      "value": "25,606",
+      "change1d": 0.86
+    },
+    {
+      "label": "CSI 300",
+      "value": "4,845",
+      "change1d": 1.25
+    }
+  ],
+  "energy": [
+    {
+      "label": "Brent USD/bbl",
+      "value": "103.42",
+      "change1d": -0.85
+    },
+    {
+      "label": "WTI USD/bbl",
+      "value": "96.82",
+      "change1d": -0.66
+    },
+    {
+      "label": "TTF EUR/MWh",
+      "value": "48.15",
+      "change1d": -3.29
+    },
+    {
+      "label": "Nat Gas USD",
+      "value": "3.04",
+      "change1d": -2.88
+    },
+    {
+      "label": "Brent\u2212WTI spread",
+      "value": "6.60 USD",
+      "change1d": 0
+    }
+  ],
+  "crypto": [
+    {
+      "label": "Gold USD/oz",
+      "value": "4,520",
+      "change1d": -0.21
+    },
+    {
+      "label": "Silver USD/oz",
+      "value": "76.20",
+      "change1d": -0.72
+    },
+    {
+      "label": "Bitcoin EUR",
+      "value": "66,141",
+      "change1d": -0.93
+    },
+    {
+      "label": "Ethereum EUR",
+      "value": "1,827",
+      "change1d": -0.48
+    }
+  ],
+  "charts": [
+    {
+      "labels": [
+        "Jun 25",
+        "Jul 25",
+        "Aug 25",
+        "Sep 25",
+        "Oct 25",
+        "Nov 25",
+        "Dec 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "May 26"
+      ],
+      "values": [
+        1.07,
+        1.08,
+        1.07,
+        1.07,
+        1.08,
+        1.07,
+        1.07,
+        1.09,
+        1.1,
+        1.09,
+        1.08,
+        1.1
+      ],
+      "change1y": 2.8,
+      "label": "CHF/EUR 1Y"
+    },
+    {
+      "labels": [
+        "Jun 25",
+        "Jul 25",
+        "Aug 25",
+        "Sep 25",
+        "Oct 25",
+        "Nov 25",
+        "Dec 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "May 26"
+      ],
+      "values": [
+        1.17,
+        1.14,
+        1.17,
+        1.17,
+        1.16,
+        1.16,
+        1.17,
+        1.19,
+        1.18,
+        1.15,
+        1.17,
+        1.16
+      ],
+      "change1y": -0.9,
+      "label": "USD/EUR 1Y"
+    },
+    {
+      "labels": [
+        "Jul 25",
+        "Aug 25",
+        "Sep 25",
+        "Oct 25",
+        "Nov 25",
+        "Dec 25",
+        "Jan 26",
+        "Apr 26",
+        "May 26"
+      ],
+      "values": [
+        72.53,
+        68.12,
+        67.02,
+        65.07,
+        63.2,
+        60.85,
+        70.69,
+        114.01,
+        103.42
+      ],
+      "change1y": 42.6,
+      "label": "Brent 1Y"
+    },
+    {
+      "labels": [
+        "Jul 25",
+        "Aug 25",
+        "Sep 25",
+        "Oct 25",
+        "Nov 25",
+        "Dec 25",
+        "Jan 26",
+        "Apr 26",
+        "May 26"
+      ],
+      "values": [
+        69.26,
+        64.01,
+        62.37,
+        60.98,
+        58.55,
+        57.42,
+        65.21,
+        105.07,
+        96.82
+      ],
+      "change1y": 39.8,
+      "label": "WTI 1Y"
+    },
+    {
+      "labels": [
+        "Jun 25",
+        "Jul 25",
+        "Aug 25",
+        "Sep 25",
+        "Oct 25",
+        "Nov 25",
+        "Dec 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "May 26"
+      ],
+      "values": [
+        6204.95,
+        6339.39,
+        6460.26,
+        6688.46,
+        6840.2,
+        6849.09,
+        6845.5,
+        6939.03,
+        6878.88,
+        6528.52,
+        7209.01,
+        7493.57
+      ],
+      "change1y": 20.8,
+      "label": "S&P 500 1Y"
+    },
+    {
+      "labels": [
+        "Jun 25",
+        "Jul 25",
+        "Aug 25",
+        "Sep 25",
+        "Oct 25",
+        "Nov 25",
+        "Dec 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "May 26"
+      ],
+      "values": [
+        23909.61,
+        24065.47,
+        23902.21,
+        23880.72,
+        23958.3,
+        23836.79,
+        24490.41,
+        24538.81,
+        25284.26,
+        22680.04,
+        24292.38,
+        24888.56
+      ],
+      "change1y": 4.1,
+      "label": "DAX 1Y"
+    },
+    {
+      "labels": [
+        "Jul 25",
+        "Aug 25",
+        "Sep 25",
+        "Oct 25",
+        "Nov 25",
+        "Dec 25",
+        "Jan 26",
+        "Apr 26",
+        "May 26"
+      ],
+      "values": [
+        3293.2,
+        3473.7,
+        3840.8,
+        3982.2,
+        4218.3,
+        4325.6,
+        4713.9,
+        4614.7,
+        4520.6
+      ],
+      "change1y": 37.3,
+      "label": "Gold 1Y"
+    },
+    {
+      "labels": [
+        "Jun 25",
+        "Jul 25",
+        "Aug 25",
+        "Sep 25",
+        "Oct 25",
+        "Nov 25",
+        "Dec 25",
+        "Jan 26",
+        "Feb 26",
+        "Mar 26",
+        "Apr 26",
+        "May 26"
+      ],
+      "values": [
+        90897.37,
+        101349.09,
+        92587.2,
+        97197.23,
+        94452.75,
+        77918.9,
+        74586.57,
+        66326.03,
+        56689.69,
+        58955.77,
+        65056.98,
+        66140.77
+      ],
+      "change1y": -27.2,
+      "label": "Bitcoin EUR 1Y"
+    }
+  ],
+  "news": [
+    {
+      "title": "Zephyr Releases PSN Top Guns List for Q1 2026, Highlighting Best-In-Class Separate Accounts, Managed Accounts and Managed ETF Strategies",
+      "source": "Yahoo Finance",
+      "date": "Fri, 22 May 2026 15:48:00 +0000"
+    },
+    {
+      "title": "Stock Market Today: Dow Holds Gain Despite Consumer Data Surprise; Dell Soars On This News (Live Coverage)",
+      "source": "Yahoo Finance",
+      "date": "Fri, 22 May 2026 15:45:31 +0000"
+    },
+    {
+      "title": "Gold IRAs Could Cost You 33% in Taxes. Here\u2019s What Aggressive Commercials Won\u2019t Tell You",
+      "source": "Yahoo Finance",
+      "date": "Fri, 22 May 2026 15:19:20 +0000"
+    },
+    {
+      "title": "NYSE Parent, OKX Counter Hyperliquid With Regulated Oil Perpetual Futures",
+      "source": "Yahoo Finance",
+      "date": "Fri, 22 May 2026 15:15:30 +0000"
+    },
+    {
+      "title": "NYSE Owner ICE Brings Perpetual Oil Futures to OKX as Iran War Drives Demand",
+      "source": "Yahoo Finance",
+      "date": "Fri, 22 May 2026 15:13:23 +0000"
+    },
+    {
+      "title": "2 Energy Stocks That Are the Smartest Long-Term Buys During the Energy Boom",
+      "source": "Yahoo Finance",
+      "date": "Fri, 22 May 2026 15:05:00 +0000"
+    }
+  ]
+}
