@@ -36,17 +36,25 @@ button.primary{border-color:var(--amber);color:var(--amber);background:var(--amb
 .pbtn{background:transparent;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:11px;padding:6px 14px;border-radius:4px;cursor:pointer;letter-spacing:.05em}
 .pbtn:hover{border-color:var(--amber);color:var(--amber)}
 .pbtn.active{background:var(--amber-dim);border-color:var(--amber);color:var(--amber)}
-main{padding:24px;display:flex;flex-direction:column;gap:32px;max-width:1600px;margin:0 auto}
+main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;margin:0 auto}
 .patrimony{background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);border:1px solid var(--border2);border-radius:10px;padding:20px 24px}
 .pat-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--text3);text-transform:uppercase;margin-bottom:10px}
 .pat-main{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap}
 .pat-value{font-family:var(--mono);font-size:34px;font-weight:600;color:var(--text);letter-spacing:-.01em}
 .pat-change{font-family:var(--mono);font-size:14px;font-weight:500}
 .pat-detail{font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:10px}
-.section{}
+
+/* Sections with colored backgrounds */
+.section{border-radius:12px;padding:18px 20px;border:1px solid var(--border)}
+.section.s-fx{background:linear-gradient(135deg,rgba(90,167,255,.06) 0%,rgba(90,167,255,.02) 100%);border-color:rgba(90,167,255,.18)}
+.section.s-indices{background:linear-gradient(135deg,rgba(0,212,136,.06) 0%,rgba(0,212,136,.02) 100%);border-color:rgba(0,212,136,.18)}
+.section.s-energy{background:linear-gradient(135deg,rgba(255,184,77,.06) 0%,rgba(255,184,77,.02) 100%);border-color:rgba(255,184,77,.18)}
+.section.s-crypto{background:linear-gradient(135deg,rgba(191,118,255,.06) 0%,rgba(191,118,255,.02) 100%);border-color:rgba(191,118,255,.18)}
+.section.s-rates{background:linear-gradient(135deg,rgba(255,85,102,.06) 0%,rgba(255,85,102,.02) 100%);border-color:rgba(255,85,102,.18)}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
-.section-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--text2);text-transform:uppercase;font-weight:500}
-.section-commentary{font-size:12px;color:var(--text3);font-style:italic;max-width:60%;text-align:right}
+.section-label{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--text);text-transform:uppercase;font-weight:600}
+.section-commentary{font-size:13px;color:var(--text);font-weight:600;max-width:65%;text-align:right;line-height:1.4;background:rgba(255,255,255,.04);padding:8px 14px;border-radius:6px;border-left:3px solid var(--amber)}
+
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:8px;margin-bottom:16px}
 .tile{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color .2s}
 .tile:hover{border-color:var(--border3)}
@@ -54,7 +62,7 @@ main{padding:24px;display:flex;flex-direction:column;gap:32px;max-width:1600px;m
 .tv{font-family:var(--mono);font-size:19px;font-weight:500;color:var(--text);line-height:1;letter-spacing:-.01em}
 .tc{font-family:var(--mono);font-size:12px;margin-top:7px;font-weight:500}
 .up{color:var(--green)}.dn{color:var(--red)}.fl{color:var(--text3)}
-.charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-bottom:16px}
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
 .chart-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
 .chart-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
 .ct{font-family:var(--mono);font-size:12px;color:var(--text);letter-spacing:.06em;font-weight:500}
@@ -128,6 +136,7 @@ function st(msg, s) {
   const d = document.getElementById('dot');
   d.className = 'dot' + (s==='ld'?' ld':s==='ok'?' ok':s==='er'?' er':'');
 }
+
 function dataAge(updatedStr) {
   if (!updatedStr) return '';
   const m = updatedStr.match(/(\d+) (\w+) (\d+) (\d+):(\d+) UTC/);
@@ -149,10 +158,11 @@ function ageClass(updatedStr) {
   const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
   const updated = Date.UTC(+m[3], months[m[2]], +m[1], +m[4], +m[5]);
   const ageMin = Math.floor((Date.now() - updated) / 60000);
-  if (ageMin < 30)  return 'up';      // verde
-  if (ageMin < 90)  return 'fl';      // grigio
-  return 'dn';                        // rosso se >1h30
+  if (ageMin < 30) return 'up';
+  if (ageMin < 90) return 'fl';
+  return 'dn';
 }
+
 function fmt(n, dec=2) {
   if (n == null || isNaN(n)) return '—';
   return n.toLocaleString('en-GB', {minimumFractionDigits:dec, maximumFractionDigits:dec});
@@ -229,24 +239,12 @@ function drawChart(id, inst) {
           bodyFont: { family: 'IBM Plex Mono', size: 12, weight: 'bold' },
           padding: 10,
           displayColors: false,
-          callbacks: {
-            label: c => ' ' + c.parsed.y?.toLocaleString('en-GB', {maximumFractionDigits: 4})
-          }
+          callbacks: { label: c => ' ' + c.parsed.y?.toLocaleString('en-GB', {maximumFractionDigits: 4}) }
         }
       },
       scales: {
-        x: {
-          display: true,
-          grid: { display: false },
-          ticks: { color: '#475568', font: { family: 'IBM Plex Mono', size: 9 }, maxTicksLimit: 6, autoSkip: true }
-        },
-        y: {
-          display: true,
-          position: 'right',
-          grid: { color: '#1f2630', drawBorder: false },
-          ticks: { color: '#475568', font: { family: 'IBM Plex Mono', size: 9 }, maxTicksLimit: 5, callback: v => v.toLocaleString('en-GB', {maximumFractionDigits: 2}) },
-          grace: '5%'
-        }
+        x: { display: true, grid: { display: false }, ticks: { color: '#475568', font: { family: 'IBM Plex Mono', size: 9 }, maxTicksLimit: 6, autoSkip: true } },
+        y: { display: true, position: 'right', grid: { color: '#1f2630', drawBorder: false }, ticks: { color: '#475568', font: { family: 'IBM Plex Mono', size: 9 }, maxTicksLimit: 5, callback: v => v.toLocaleString('en-GB', {maximumFractionDigits: 2}) }, grace: '5%' }
       }
     }
   });
@@ -267,7 +265,7 @@ function renderSection(key, title, secData, period) {
       <div class="cbox"><canvas id="${id}"></canvas></div>
     </div>`;
   }).join('');
-  return `<div class="section">
+  return `<div class="section s-${key}">
     <div class="section-head">
       <div class="section-label">${title}</div>
       <div class="section-commentary">${secData.commentary || ''}</div>
@@ -337,6 +335,15 @@ function setPeriod(p) {
   renderAll();
 }
 
+function updateAge() {
+  if (!CURRENT_DATA) return;
+  const el = document.getElementById('age');
+  if (!el) return;
+  const age = dataAge(CURRENT_DATA.updated);
+  el.textContent = age ? '· ' + age : '';
+  el.className = ageClass(CURRENT_DATA.updated);
+}
+
 function renderAll() {
   if (!CURRENT_DATA) return;
   const d = CURRENT_DATA;
@@ -378,7 +385,7 @@ async function loadData() {
     const res = await fetch('data.json?t=' + Date.now());
     if (!res.ok) throw new Error('data.json not found — workflow may not have run yet');
     const d = await res.json();
-CURRENT_DATA = d;
+    CURRENT_DATA = d;
     document.getElementById('ts').textContent = d.updated || '—';
     updateAge();
     renderAll();
@@ -389,23 +396,9 @@ CURRENT_DATA = d;
   }
 }
 
-function updateAge() {
-  if (!CURRENT_DATA) return;
-  const el = document.getElementById('age');
-  if (!el) return;
-  const age = dataAge(CURRENT_DATA.updated);
-  el.textContent = age ? '· ' + age : '';
-  el.className = ageClass(CURRENT_DATA.updated);
-}
-
-// Update age indicator every 60s
 setInterval(updateAge, 60000);
-
-// Auto-reload data every 15 min to pick up fresh data.json
 setInterval(loadData, 15 * 60 * 1000);
-
 loadData();
 </script>
 </body>
 </html>
-
