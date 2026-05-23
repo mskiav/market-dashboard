@@ -1,6 +1,7 @@
 import yfinance as yf
 import json
 import datetime
+import urllib.request
 from datetime import date, timedelta
 
 # ============ PATRIMONY WEIGHTS (Marco) ============
@@ -18,6 +19,11 @@ def fmt(v, dec=2):
 def pct(curr, ref):
     if curr is None or ref is None or ref == 0: return None
     return fmt(((curr - ref) / ref) * 100, 2)
+
+def diff_bps(curr, ref):
+    """Difference in basis points (1bp = 0.01%)."""
+    if curr is None or ref is None: return None
+    return fmt((curr - ref) * 100, 1)
 
 # ============ TICKER REGISTRY ============
 TICKERS = {
@@ -47,18 +53,21 @@ TICKERS = {
     "SI=F":       {"label":"Silver USD/oz",  "section":"crypto",  "decimals":2},
     "BTC-EUR":    {"label":"Bitcoin EUR",    "section":"crypto",  "decimals":0},
     "ETH-EUR":    {"label":"Ethereum EUR",   "section":"crypto",  "decimals":0},
-    # Rates & risk
+    # Rates & risk - US (from Yahoo)
     "^VIX":       {"label":"VIX",            "section":"rates",   "decimals":2},
     "^TNX":       {"label":"US 10Y yield",   "section":"rates",   "decimals":2},
     "^TYX":       {"label":"US 30Y yield",   "section":"rates",   "decimals":2},
-    "IBTM.MI":    {"label":"BTP 10Y proxy",  "section":"rates",   "decimals":2},
-    "IBGS.MI":    {"label":"Bund 10Y proxy", "section":"rates",   "decimals":2},
 }
 
-# ============ FETCH HISTORICAL DATA ============
+# Stooq yield tickers (free CSV) — yields in % directly
+STOOQ_TICKERS = {
+    "10ity.b": {"label":"BTP 10Y yield",  "section":"rates", "decimals":2, "unit":"%"},
+    "10dey.b": {"label":"Bund 10Y yield", "section":"rates", "decimals":2, "unit":"%"},
+}
+
+# ============ FETCH YAHOO HISTORICAL ============
 def fetch_history(symbols):
-    """Get 2Y daily history for all symbols — single batch call."""
-    print(f"Downloading 2Y history for {len(symbols)} symbols...")
+    print(f"Downloading 2Y history for {len(symbols)} symbols (Yahoo)...")
     data = yf.download(
         tickers=" ".join(symbols),
         period="2y",
@@ -70,22 +79,30 @@ def fetch_history(symbols):
     )
     return data
 
-def get_close(hist_df, sym, target_date):
-    """Get close price on or just before target_date."""
+# ============ FETCH STOOQ HISTORICAL ============
+def fetch_stooq(ticker):
+    """Get historical daily CSV from Stooq — returns list of (date, close) tuples."""
     try:
-        if len(symbols_to_fetch) == 1:
-            df = hist_df
-        else:
-            df = hist_df[sym] if sym in hist_df.columns.levels[0] else None
-        if df is None or df.empty: return None
-        df = df.dropna(subset=["Close"])
-        df_idx = df.index.date if hasattr(df.index, 'date') else df.index
-        mask = [d <= target_date for d in df_idx]
-        filtered = df[mask]
-        if filtered.empty: return None
-        return float(filtered["Close"].iloc[-1])
+        url = f"https://stooq.com/q/d/l/?s={ticker}&i=d"
+        req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            text = r.read().decode("utf-8")
+        lines = text.strip().split("\n")
+        if len(lines) < 2: return []
+        out = []
+        for line in lines[1:]:
+            parts = line.split(",")
+            if len(parts) < 5: continue
+            try:
+                d = datetime.datetime.strptime(parts[0], "%Y-%m-%d").date()
+                close = float(parts[4])
+                out.append((d, close))
+            except:
+                continue
+        return out
     except Exception as e:
-        return None
+        print(f"  Stooq error {ticker}: {e}")
+        return []
 
 # ============ DATE REFERENCES ============
 today = date.today()
@@ -101,13 +118,12 @@ two_y_ref = today - timedelta(days=730)
 
 print(f"References: 1D={yesterday} MTD={mtd_ref} QTD={qtd_ref} YTD={ytd_ref} 2Y={two_y_ref}")
 
-# ============ FETCH ALL ============
+# ============ FETCH ALL YAHOO ============
 symbols_to_fetch = list(TICKERS.keys())
 hist = fetch_history(symbols_to_fetch)
 
 # ============ ECB FX ============
 def get_fx_ecb():
-    import urllib.request
     try:
         url = "https://api.frankfurter.app/latest?from=EUR&symbols=CHF,USD,GBP"
         with urllib.request.urlopen(url, timeout=10) as r:
@@ -125,8 +141,8 @@ def get_fx_ecb():
 print("Fetching ECB FX...")
 fx_ecb = get_fx_ecb()
 
-# ============ BUILD INSTRUMENT DATA ============
-def get_series(sym):
+# ============ BUILD INSTRUMENT FROM SERIES ============
+def get_series_yahoo(sym):
     try:
         if len(symbols_to_fetch) == 1:
             df = hist
@@ -141,14 +157,9 @@ def get_series(sym):
         print(f"  series error {sym}: {e}")
         return [], []
 
-def build_instrument(sym):
-    meta = TICKERS[sym]
-    dates, closes = get_series(sym)
-    if not closes:
-        return None
-
+def build_from_series(sym, label, section, decimals, dates, closes, invert=False, override_current=None):
+    if not closes: return None
     current = closes[-1]
-    invert = meta.get("invert", False)
     if invert: current = 1 / current
 
     def find_close(ref_date):
@@ -167,17 +178,14 @@ def build_instrument(sym):
     ref_ytd = find_close(ytd_ref)
     ref_2y  = find_close(two_y_ref)
 
-    if sym in fx_ecb and fx_ecb[sym]:
-        current_display = fx_ecb[sym]
-    else:
-        current_display = current
+    current_display = override_current if override_current else current
 
     return {
         "symbol": sym,
-        "label": meta["label"],
-        "section": meta["section"],
-        "decimals": meta["decimals"],
-        "current": fmt(current_display, meta["decimals"]),
+        "label": label,
+        "section": section,
+        "decimals": decimals,
+        "current": fmt(current_display, decimals),
         "raw_current": current,
         "changes": {
             "1D":  pct(current, ref_1d),
@@ -190,7 +198,7 @@ def build_instrument(sym):
         "series_2y": serialize_series(dates, closes, "2y", invert),
     }
 
-def serialize_series(dates, closes, span, invert):
+def serialize_series(dates, closes, span, invert=False):
     if not dates or not closes: return {"labels":[],"values":[]}
     cutoff = today - (timedelta(days=365) if span=="1y" else timedelta(days=730))
     pairs = [(d, c) for d, c in zip(dates, closes) if d >= cutoff]
@@ -202,16 +210,28 @@ def serialize_series(dates, closes, span, invert):
     values = [(1/c if invert else c) for _, c in sampled]
     return {"labels": labels, "values": [round(v, 4) for v in values]}
 
-print("Building instruments...")
+print("Building instruments from Yahoo...")
 instruments = {}
 for sym in TICKERS:
-    print(f"  {sym}")
-    inst = build_instrument(sym)
+    meta = TICKERS[sym]
+    dates, closes = get_series_yahoo(sym)
+    override = fx_ecb.get(sym) if sym in fx_ecb else None
+    inst = build_from_series(sym, meta["label"], meta["section"], meta["decimals"], dates, closes, meta.get("invert", False), override)
     if inst:
         instruments[sym] = inst
 
-def get(sym):
-    return instruments.get(sym)
+print("Fetching yields from Stooq...")
+for sym, meta in STOOQ_TICKERS.items():
+    print(f"  {sym}")
+    series = fetch_stooq(sym)
+    if not series:
+        print(f"  Warning: {sym} returned no data")
+        continue
+    dates  = [d for d, _ in series]
+    closes = [c for _, c in series]
+    inst = build_from_series(sym, meta["label"], meta["section"], meta["decimals"], dates, closes)
+    if inst:
+        instruments[sym] = inst
 
 # ============ PATRIMONY CALCULATION ============
 def calc_patrimony():
@@ -250,13 +270,35 @@ def calc_patrimony():
 print("Computing patrimony...")
 patrimony = calc_patrimony()
 
+# ============ BTP-BUND SPREAD ============
+def calc_btp_bund_spread():
+    btp  = instruments.get("10ity.b")
+    bund = instruments.get("10dey.b")
+    if not btp or not bund: return None
+    spread = btp["raw_current"] - bund["raw_current"]
+    return {
+        "symbol": "BTP_BUND_SPREAD",
+        "label": "BTP-Bund spread",
+        "section": "rates",
+        "decimals": 0,
+        "current": round(spread * 100),  # in bps
+        "raw_current": spread,
+        "changes": {"1D": None, "MTD": None, "QTD": None, "YTD": None, "2Y": None},
+        "series_1y": {"labels":[],"values":[]},
+        "series_2y": {"labels":[],"values":[]},
+    }
+
+spread_item = calc_btp_bund_spread()
+if spread_item:
+    instruments["BTP_BUND_SPREAD"] = spread_item
+
 # ============ CHARTS REGISTRY ============
 SECTION_CHARTS = {
     "fx":      ["CHFEUR=X","EURUSD=X","GBPEUR=X"],
     "indices": ["^GSPC","^GDAXI","FTSEMIB.MI","^N225"],
     "energy":  ["BZ=F","CL=F","TTF=F"],
     "crypto":  ["GC=F","BTC-EUR"],
-    "rates":   ["^VIX","^TNX","IBTM.MI","IBGS.MI"],
+    "rates":   ["^VIX","^TNX","10ity.b","10dey.b"],
 }
 
 # ============ COMMENTARY ============
@@ -270,23 +312,22 @@ def commentary_for_section(section_key, items):
     items_with_chg = [(i, i["changes"].get("1D")) for i in items if i["changes"].get("1D") is not None]
     items_with_chg.sort(key=lambda x: abs(x[1]), reverse=True)
     top = items_with_chg[0] if items_with_chg else None
-
     direction = "broadly positive" if avg_1d > 0.2 else "broadly negative" if avg_1d < -0.2 else "mixed"
-    parts = [
-        f"Section {direction} today ({pos} up / {neg} down, avg {avg_1d:+.2f}%)."
-    ]
-    if top:
-        parts.append(f"Biggest mover: {top[0]['label']} ({top[1]:+.2f}%).")
-
+    parts = [f"Section {direction} today ({pos} up / {neg} down, avg {avg_1d:+.2f}%)."]
+    if top: parts.append(f"Biggest mover: {top[0]['label']} ({top[1]:+.2f}%).")
     ytd_changes = [i["changes"].get("YTD") for i in items if i["changes"].get("YTD") is not None]
     if ytd_changes:
         avg_ytd = sum(ytd_changes)/len(ytd_changes)
         parts.append(f"YTD section average: {avg_ytd:+.1f}%.")
-
     return " ".join(parts)
 
 def section_data(section_key):
-    items = [instruments[s] for s in TICKERS if TICKERS[s]["section"] == section_key and s in instruments]
+    # Collect all instruments for this section
+    yahoo_syms = [s for s in TICKERS if TICKERS[s]["section"] == section_key]
+    stooq_syms = [s for s in STOOQ_TICKERS if STOOQ_TICKERS[s]["section"] == section_key]
+    extra_syms = ["BTP_BUND_SPREAD"] if section_key == "rates" else []
+    all_syms = yahoo_syms + stooq_syms + extra_syms
+    items = [instruments[s] for s in all_syms if s in instruments]
     return {
         "instruments": items,
         "charts": [instruments[s] for s in SECTION_CHARTS.get(section_key, []) if s in instruments],
@@ -295,7 +336,6 @@ def section_data(section_key):
 
 # ============ NEWS ============
 def get_news():
-    import urllib.request
     from xml.etree import ElementTree as ET
     headlines = []
     feeds = [
