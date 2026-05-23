@@ -36,17 +36,25 @@ button.primary{border-color:var(--amber);color:var(--amber);background:var(--amb
 .pbtn{background:transparent;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:11px;padding:6px 14px;border-radius:4px;cursor:pointer;letter-spacing:.05em}
 .pbtn:hover{border-color:var(--amber);color:var(--amber)}
 .pbtn.active{background:var(--amber-dim);border-color:var(--amber);color:var(--amber)}
-main{padding:24px;display:flex;flex-direction:column;gap:32px;max-width:1600px;margin:0 auto}
+main{padding:24px;display:flex;flex-direction:column;gap:24px;max-width:1600px;margin:0 auto}
 .patrimony{background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);border:1px solid var(--border2);border-radius:10px;padding:20px 24px}
 .pat-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--text3);text-transform:uppercase;margin-bottom:10px}
 .pat-main{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap}
 .pat-value{font-family:var(--mono);font-size:34px;font-weight:600;color:var(--text);letter-spacing:-.01em}
 .pat-change{font-family:var(--mono);font-size:14px;font-weight:500}
 .pat-detail{font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:10px}
-.section{}
+
+/* Sections with colored backgrounds */
+.section{border-radius:12px;padding:18px 20px;border:1px solid var(--border)}
+.section.s-fx{background:linear-gradient(135deg,rgba(90,167,255,.06) 0%,rgba(90,167,255,.02) 100%);border-color:rgba(90,167,255,.18)}
+.section.s-indices{background:linear-gradient(135deg,rgba(0,212,136,.06) 0%,rgba(0,212,136,.02) 100%);border-color:rgba(0,212,136,.18)}
+.section.s-energy{background:linear-gradient(135deg,rgba(255,184,77,.06) 0%,rgba(255,184,77,.02) 100%);border-color:rgba(255,184,77,.18)}
+.section.s-crypto{background:linear-gradient(135deg,rgba(191,118,255,.06) 0%,rgba(191,118,255,.02) 100%);border-color:rgba(191,118,255,.18)}
+.section.s-rates{background:linear-gradient(135deg,rgba(255,85,102,.06) 0%,rgba(255,85,102,.02) 100%);border-color:rgba(255,85,102,.18)}
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
-.section-label{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:var(--text2);text-transform:uppercase;font-weight:500}
-.section-commentary{font-size:12px;color:var(--text3);font-style:italic;max-width:60%;text-align:right}
+.section-label{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--text);text-transform:uppercase;font-weight:600}
+.section-commentary{font-size:13px;color:var(--text);font-weight:600;max-width:65%;text-align:right;line-height:1.4;background:rgba(255,255,255,.04);padding:8px 14px;border-radius:6px;border-left:3px solid var(--amber)}
+
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:8px;margin-bottom:16px}
 .tile{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color .2s}
 .tile:hover{border-color:var(--border3)}
@@ -54,7 +62,7 @@ main{padding:24px;display:flex;flex-direction:column;gap:32px;max-width:1600px;m
 .tv{font-family:var(--mono);font-size:19px;font-weight:500;color:var(--text);line-height:1;letter-spacing:-.01em}
 .tc{font-family:var(--mono);font-size:12px;margin-top:7px;font-weight:500}
 .up{color:var(--green)}.dn{color:var(--red)}.fl{color:var(--text3)}
-.charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px;margin-bottom:16px}
+.charts-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:14px}
 .chart-card{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:16px 18px}
 .chart-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
 .ct{font-family:var(--mono);font-size:12px;color:var(--text);letter-spacing:.06em;font-weight:500}
@@ -95,6 +103,7 @@ main{padding:24px;display:flex;flex-direction:column;gap:32px;max-width:1600px;m
   <div class="logo">MARKET<span>//</span>DASHBOARD</div>
   <div class="header-right">
     <div id="ts">— not loaded —</div>
+    <div id="age" class="fl" style="font-family:var(--mono);font-size:11px"></div>
     <button class="primary" onclick="loadData()">↻ RELOAD</button>
   </div>
 </header>
@@ -126,6 +135,32 @@ function st(msg, s) {
   document.getElementById('stxt').textContent = msg;
   const d = document.getElementById('dot');
   d.className = 'dot' + (s==='ld'?' ld':s==='ok'?' ok':s==='er'?' er':'');
+}
+
+function dataAge(updatedStr) {
+  if (!updatedStr) return '';
+  const m = updatedStr.match(/(\d+) (\w+) (\d+) (\d+):(\d+) UTC/);
+  if (!m) return '';
+  const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  const updated = Date.UTC(+m[3], months[m[2]], +m[1], +m[4], +m[5]);
+  const ageMin = Math.floor((Date.now() - updated) / 60000);
+  if (ageMin < 1) return 'just now';
+  if (ageMin < 60) return ageMin + ' min ago';
+  const h = Math.floor(ageMin/60);
+  const mm = ageMin % 60;
+  return h + 'h ' + mm + 'm ago';
+}
+
+function ageClass(updatedStr) {
+  if (!updatedStr) return 'fl';
+  const m = updatedStr.match(/(\d+) (\w+) (\d+) (\d+):(\d+) UTC/);
+  if (!m) return 'fl';
+  const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  const updated = Date.UTC(+m[3], months[m[2]], +m[1], +m[4], +m[5]);
+  const ageMin = Math.floor((Date.now() - updated) / 60000);
+  if (ageMin < 30)  return 'up';
+  if (ageMin < 90)  return 'fl';
+  return 'dn';
 }
 
 function fmt(n, dec=2) {
@@ -204,8 +239,166 @@ function drawChart(id, inst) {
           bodyFont: { family: 'IBM Plex Mono', size: 12, weight: 'bold' },
           padding: 10,
           displayColors: false,
-          callbacks: {
-            label: c => ' ' + c.parsed.y?.toLocaleString('en-GB', {maximumFractionDigits: 4})
-          }
+          callbacks: { label: c => ' ' + c.parsed.y?.toLocaleString('en-GB', {maximumFractionDigits: 4}) }
         }
       },
+      scales: {
+        x: { display: true, grid: { display: false }, ticks: { color: '#475568', font: { family: 'IBM Plex Mono', size: 9 }, maxTicksLimit: 6, autoSkip: true } },
+        y: { display: true, position: 'right', grid: { color: '#1f2630', drawBorder: false }, ticks: { color: '#475568', font: { family: 'IBM Plex Mono', size: 9 }, maxTicksLimit: 5, callback: v => v.toLocaleString('en-GB', {maximumFractionDigits: 2}) }, grace: '5%' }
+      }
+    }
+  });
+}
+
+function renderSection(key, title, secData, period) {
+  if (!secData || !secData.instruments?.length) return '';
+  const tiles = secData.instruments.map(i => tileHtml(i, period)).join('');
+  const chartsHtml = (secData.charts || []).map(inst => {
+    const id = `chart-${key}-${inst.symbol.replace(/[^a-zA-Z0-9]/g,'_')}`;
+    const chgPeriod = inst.changes?.[period];
+    const cls = pctClass(chgPeriod);
+    return `<div class="chart-card">
+      <div class="chart-head">
+        <div class="ct">${inst.label}</div>
+        <div class="cv ${cls}">${fmtPct(chgPeriod)} <span class="cv-sub">${period}</span></div>
+      </div>
+      <div class="cbox"><canvas id="${id}"></canvas></div>
+    </div>`;
+  }).join('');
+  return `<div class="section s-${key}">
+    <div class="section-head">
+      <div class="section-label">${title}</div>
+      <div class="section-commentary">${secData.commentary || ''}</div>
+    </div>
+    <div class="tiles">${tiles}</div>
+    <div class="charts-grid">${chartsHtml}</div>
+  </div>`;
+}
+
+function renderPatrimony(p, period) {
+  if (!p) return '';
+  const chg = p.changes?.[period];
+  const cls = pctClass(chg);
+  const eurVal = p.current_eur;
+  const chgEur = chg != null ? Math.round(eurVal * chg / 100) : null;
+  const chgEurStr = chgEur != null ? (chgEur > 0 ? '+' : '') + '€' + Math.abs(chgEur).toLocaleString('en-GB') : '—';
+  return `<div class="patrimony">
+    <div class="pat-label">Estimated patrimony value · 6.0M€ baseline (CHF 55% / EUR 40% / USD 5%)</div>
+    <div class="pat-main">
+      <div class="pat-value">€ ${eurVal.toLocaleString('en-GB')}</div>
+      <div class="pat-change ${cls}">${fmtPct(chg)} <span style="color:var(--text3);font-weight:400">·</span> ${chgEurStr} <span style="color:var(--text3);font-size:11px">${period}</span></div>
+    </div>
+    <div class="pat-detail">
+      Components: <span style="color:var(--text2)">CHF ${p.chf_amount?.toLocaleString('en-GB')}</span> · <span style="color:var(--text2)">EUR ${p.eur_amount?.toLocaleString('en-GB')}</span> · <span style="color:var(--text2)">USD ${p.usd_amount?.toLocaleString('en-GB')}</span>
+    </div>
+  </div>`;
+}
+
+function renderNews(news) {
+  if (!news || !news.length) return '<div style="color:var(--text3);font-family:var(--mono);font-size:12px">No headlines available</div>';
+  return news.map((h, i) => {
+    const dateStr = h.date ? new Date(h.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
+    const desc = h.description ? h.description.replace(/<[^>]+>/g,'').slice(0, 250) : '';
+    return `<div class="news-item">
+      <div class="news-head" onclick="toggleNews(${i})">
+        <div class="news-num">${(i+1).toString().padStart(2,'0')}</div>
+        <div class="news-main">
+          <div class="news-title">${h.link ? `<a href="${h.link}" target="_blank" rel="noopener">${h.title}</a>` : h.title}</div>
+          <div class="news-meta">
+            <span class="news-cat ${h.category||''}">${h.category||''}</span>
+            <span>${h.source}</span>
+            ${dateStr ? `<span>· ${dateStr}</span>` : ''}
+          </div>
+        </div>
+        <div class="news-toggle" id="news-toggle-${i}">▾</div>
+      </div>
+      <div class="news-body" id="news-body-${i}">
+        ${desc ? `<div class="news-desc">${desc}…</div>` : ''}
+        ${h.link ? `<a class="news-link" href="${h.link}" target="_blank" rel="noopener">Read full article →</a>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function toggleNews(i) {
+  const body = document.getElementById('news-body-' + i);
+  const tog  = document.getElementById('news-toggle-' + i);
+  if (!body) return;
+  body.classList.toggle('open');
+  tog.textContent = body.classList.contains('open') ? '▴' : '▾';
+}
+
+function setPeriod(p) {
+  CURRENT_PERIOD = p;
+  CHART_SPAN = (p === '2Y') ? '2y' : '1y';
+  document.querySelectorAll('.pbtn').forEach(b => b.classList.toggle('active', b.dataset.p === p));
+  renderAll();
+}
+
+function updateAge() {
+  if (!CURRENT_DATA) return;
+  const el = document.getElementById('age');
+  if (!el) return;
+  const age = dataAge(CURRENT_DATA.updated);
+  el.textContent = age ? '· ' + age : '';
+  el.className = ageClass(CURRENT_DATA.updated);
+}
+
+function renderAll() {
+  if (!CURRENT_DATA) return;
+  const d = CURRENT_DATA;
+  document.getElementById('patrimony-wrap').innerHTML = renderPatrimony(d.patrimony, CURRENT_PERIOD);
+  const refLabels = {
+    '1D': 'vs previous close',
+    'MTD': 'vs ' + (d.references?.mtd || ''),
+    'QTD': 'vs ' + (d.references?.qtd || ''),
+    'YTD': 'vs ' + (d.references?.ytd || ''),
+    '2Y': 'vs ' + (d.references?.['2y'] || '')
+  };
+  document.getElementById('ref-date').textContent = refLabels[CURRENT_PERIOD] || '';
+  const sectionsHtml = [
+    renderSection('fx',      'FX — CHF & USD in EUR',  d.sections?.fx,      CURRENT_PERIOD),
+    renderSection('indices', 'Global indices',          d.sections?.indices, CURRENT_PERIOD),
+    renderSection('energy',  'Energy & commodities',    d.sections?.energy,  CURRENT_PERIOD),
+    renderSection('crypto',  'Metals & crypto',         d.sections?.crypto,  CURRENT_PERIOD),
+    renderSection('rates',   'Rates & risk',            d.sections?.rates,   CURRENT_PERIOD),
+  ].join('');
+  document.getElementById('sections-wrap').innerHTML = sectionsHtml;
+  setTimeout(() => {
+    ['fx','indices','energy','crypto','rates'].forEach(key => {
+      const sec = d.sections?.[key];
+      if (!sec?.charts) return;
+      sec.charts.forEach(inst => {
+        const id = `chart-${key}-${inst.symbol.replace(/[^a-zA-Z0-9]/g,'_')}`;
+        drawChart(id, inst);
+      });
+    });
+  }, 30);
+  document.getElementById('news').innerHTML = renderNews(d.news);
+}
+
+async function loadData() {
+  st('Loading…', 'ld');
+  document.getElementById('patrimony-wrap').innerHTML = '<div class="patrimony"><div class="pat-label sk" style="height:10px;width:300px;margin-bottom:14px"></div><div class="pat-value sk" style="height:34px;width:280px"></div></div>';
+  document.getElementById('sections-wrap').innerHTML = '';
+  try {
+    const res = await fetch('data.json?t=' + Date.now());
+    if (!res.ok) throw new Error('data.json not found — workflow may not have run yet');
+    const d = await res.json();
+    CURRENT_DATA = d;
+    document.getElementById('ts').textContent = d.updated || '—';
+    updateAge();
+    renderAll();
+    st('Data loaded — ' + (d.updated || ''), 'ok');
+  } catch(e) {
+    st('Error: ' + e.message, 'er');
+    document.getElementById('patrimony-wrap').innerHTML = `<div class="eb">${e.message}</div>`;
+  }
+}
+
+setInterval(updateAge, 60000);
+setInterval(loadData, 15 * 60 * 1000);
+loadData();
+</script>
+</body>
+</html>
