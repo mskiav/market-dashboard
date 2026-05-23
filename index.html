@@ -127,7 +127,31 @@ function st(msg, s) {
   const d = document.getElementById('dot');
   d.className = 'dot' + (s==='ld'?' ld':s==='ok'?' ok':s==='er'?' er':'');
 }
+function dataAge(updatedStr) {
+  if (!updatedStr) return '';
+  const m = updatedStr.match(/(\d+) (\w+) (\d+) (\d+):(\d+) UTC/);
+  if (!m) return '';
+  const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  const updated = Date.UTC(+m[3], months[m[2]], +m[1], +m[4], +m[5]);
+  const ageMin = Math.floor((Date.now() - updated) / 60000);
+  if (ageMin < 1) return 'just now';
+  if (ageMin < 60) return ageMin + ' min ago';
+  const h = Math.floor(ageMin/60);
+  const mm = ageMin % 60;
+  return h + 'h ' + mm + 'm ago';
+}
 
+function ageClass(updatedStr) {
+  if (!updatedStr) return 'fl';
+  const m = updatedStr.match(/(\d+) (\w+) (\d+) (\d+):(\d+) UTC/);
+  if (!m) return 'fl';
+  const months = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  const updated = Date.UTC(+m[3], months[m[2]], +m[1], +m[4], +m[5]);
+  const ageMin = Math.floor((Date.now() - updated) / 60000);
+  if (ageMin < 30)  return 'up';      // verde
+  if (ageMin < 90)  return 'fl';      // grigio
+  return 'dn';                        // rosso se >1h30
+}
 function fmt(n, dec=2) {
   if (n == null || isNaN(n)) return '—';
   return n.toLocaleString('en-GB', {minimumFractionDigits:dec, maximumFractionDigits:dec});
