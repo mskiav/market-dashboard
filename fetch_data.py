@@ -51,6 +51,8 @@ TICKERS = {
     "^VIX":       {"label":"VIX",            "section":"rates",   "decimals":2},
     "^TNX":       {"label":"US 10Y yield",   "section":"rates",   "decimals":2},
     "^TYX":       {"label":"US 30Y yield",   "section":"rates",   "decimals":2},
+    "IBTM.MI":    {"label":"BTP 10Y proxy",  "section":"rates",   "decimals":2},
+    "IBGS.MI":    {"label":"Bund 10Y proxy", "section":"rates",   "decimals":2},
 }
 
 # ============ FETCH HISTORICAL DATA ============
@@ -77,7 +79,6 @@ def get_close(hist_df, sym, target_date):
             df = hist_df[sym] if sym in hist_df.columns.levels[0] else None
         if df is None or df.empty: return None
         df = df.dropna(subset=["Close"])
-        # last close on/before target_date
         df_idx = df.index.date if hasattr(df.index, 'date') else df.index
         mask = [d <= target_date for d in df_idx]
         filtered = df[mask]
@@ -89,17 +90,13 @@ def get_close(hist_df, sym, target_date):
 # ============ DATE REFERENCES ============
 today = date.today()
 yesterday = today - timedelta(days=1)
-# Month-to-date: last close of previous month
 first_of_month = today.replace(day=1)
 mtd_ref = first_of_month - timedelta(days=1)
-# Quarter-to-date: last close of previous quarter
 quarter = (today.month - 1) // 3
 first_quarter_month = quarter * 3 + 1
 first_of_quarter = today.replace(month=first_quarter_month, day=1)
 qtd_ref = first_of_quarter - timedelta(days=1)
-# Year-to-date
 ytd_ref = date(today.year - 1, 12, 31)
-# 2Y
 two_y_ref = today - timedelta(days=730)
 
 print(f"References: 1D={yesterday} MTD={mtd_ref} QTD={qtd_ref} YTD={ytd_ref} 2Y={two_y_ref}")
@@ -118,7 +115,7 @@ def get_fx_ecb():
         rates = d.get("rates", {})
         return {
             "CHFEUR=X": 1/rates["CHF"] if rates.get("CHF") else None,
-            "EURUSD=X": rates.get("USD"),  # EUR->USD direct
+            "EURUSD=X": rates.get("USD"),
             "GBPEUR=X": 1/rates["GBP"] if rates.get("GBP") else None,
         }
     except Exception as e:
@@ -130,7 +127,6 @@ fx_ecb = get_fx_ecb()
 
 # ============ BUILD INSTRUMENT DATA ============
 def get_series(sym):
-    """Return (timestamps_dates, close_values) for symbol."""
     try:
         if len(symbols_to_fetch) == 1:
             df = hist
@@ -155,7 +151,6 @@ def build_instrument(sym):
     invert = meta.get("invert", False)
     if invert: current = 1 / current
 
-    # find references
     def find_close(ref_date):
         for i in range(len(dates)-1, -1, -1):
             if dates[i] <= ref_date:
@@ -172,7 +167,6 @@ def build_instrument(sym):
     ref_ytd = find_close(ytd_ref)
     ref_2y  = find_close(two_y_ref)
 
-    # ECB override for FX (price only, not changes)
     if sym in fx_ecb and fx_ecb[sym]:
         current_display = fx_ecb[sym]
     else:
@@ -197,12 +191,10 @@ def build_instrument(sym):
     }
 
 def serialize_series(dates, closes, span, invert):
-    """Subsample series to ~52 weekly points (1y) or ~104 weekly (2y)."""
     if not dates or not closes: return {"labels":[],"values":[]}
     cutoff = today - (timedelta(days=365) if span=="1y" else timedelta(days=730))
     pairs = [(d, c) for d, c in zip(dates, closes) if d >= cutoff]
     if not pairs: return {"labels":[],"values":[]}
-    # weekly resampling (every ~5 trading days)
     step = max(1, len(pairs) // 60)
     sampled = pairs[::step]
     if sampled[-1] != pairs[-1]: sampled.append(pairs[-1])
@@ -226,19 +218,15 @@ def calc_patrimony():
     chf_eur = instruments.get("CHFEUR=X", {}).get("raw_current")
     usd_eur_raw = instruments.get("EURUSD=X", {}).get("raw_current")
     if not chf_eur or not usd_eur_raw: return None
-    usd_eur = 1 / usd_eur_raw  # because we inverted display but kept raw
+    usd_eur = 1 / usd_eur_raw
 
-    # Patrimony components in their currencies (computed at "base" using current FX so it's stable display)
-    chf_value_in_chf = (PATRIMONY_EUR * WEIGHT_CHF) / chf_eur  # CHF amount
+    chf_value_in_chf = (PATRIMONY_EUR * WEIGHT_CHF) / chf_eur
     eur_value = PATRIMONY_EUR * WEIGHT_EUR
     usd_value_in_usd = (PATRIMONY_EUR * WEIGHT_USD) / usd_eur
 
-    # Current EUR value
     current_eur = chf_value_in_chf * chf_eur + eur_value + usd_value_in_usd * usd_eur
 
-    # Compute change vs each reference using FX series
     def patrimony_at(ref_pct_chf, ref_pct_usd):
-        """Apply % change from CHF and USD vs current to recompute patrimony then."""
         if ref_pct_chf is None or ref_pct_usd is None: return None
         chf_then = chf_eur / (1 + ref_pct_chf/100)
         usd_then = usd_eur / (1 + ref_pct_usd/100)
@@ -246,7 +234,6 @@ def calc_patrimony():
 
     chf_changes = instruments.get("CHFEUR=X", {}).get("changes", {})
     usd_changes = instruments.get("EURUSD=X", {}).get("changes", {})
-    # for USD/EUR display we inverted, so changes are already in USD/EUR terms — perfect
 
     def chg_pct(period):
         then = patrimony_at(chf_changes.get(period), usd_changes.get(period))
@@ -263,25 +250,23 @@ def calc_patrimony():
 print("Computing patrimony...")
 patrimony = calc_patrimony()
 
-# ============ CHARTS REGISTRY (which to show per section) ============
+# ============ CHARTS REGISTRY ============
 SECTION_CHARTS = {
     "fx":      ["CHFEUR=X","EURUSD=X","GBPEUR=X"],
     "indices": ["^GSPC","^GDAXI","FTSEMIB.MI","^N225"],
     "energy":  ["BZ=F","CL=F","TTF=F"],
     "crypto":  ["GC=F","BTC-EUR"],
-    "rates":   ["^VIX","^TNX"],
+    "rates":   ["^VIX","^TNX","IBTM.MI","IBGS.MI"],
 }
 
-# ============ COMMENTARY (rule-based) ============
+# ============ COMMENTARY ============
 def commentary_for_section(section_key, items):
-    """Generate a one-line commentary based on movements."""
     if not items: return ""
     changes_1d = [i["changes"].get("1D") for i in items if i["changes"].get("1D") is not None]
     if not changes_1d: return ""
     avg_1d = sum(changes_1d) / len(changes_1d)
     pos = sum(1 for c in changes_1d if c > 0)
     neg = sum(1 for c in changes_1d if c < 0)
-    # max move
     items_with_chg = [(i, i["changes"].get("1D")) for i in items if i["changes"].get("1D") is not None]
     items_with_chg.sort(key=lambda x: abs(x[1]), reverse=True)
     top = items_with_chg[0] if items_with_chg else None
@@ -293,7 +278,6 @@ def commentary_for_section(section_key, items):
     if top:
         parts.append(f"Biggest mover: {top[0]['label']} ({top[1]:+.2f}%).")
 
-    # YTD context
     ytd_changes = [i["changes"].get("YTD") for i in items if i["changes"].get("YTD") is not None]
     if ytd_changes:
         avg_ytd = sum(ytd_changes)/len(ytd_changes)
@@ -359,7 +343,6 @@ data = {
     "news": news,
 }
 
-# Add Brent-WTI spread to energy section
 brent = instruments.get("BZ=F", {}).get("raw_current")
 wti   = instruments.get("CL=F", {}).get("raw_current")
 if brent and wti:
