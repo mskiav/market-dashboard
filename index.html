@@ -69,25 +69,16 @@ main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;m
 .cv{font-family:var(--mono);font-size:13px;font-weight:600}
 .cv-sub{font-family:var(--mono);font-size:10px;color:var(--text3);margin-left:4px}
 .cbox{position:relative;height:180px}
-.news-list{display:flex;flex-direction:column;gap:8px}
-.news-item{background:var(--bg2);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:border-color .2s}
-.news-item:hover{border-color:var(--border3)}
-.news-head{padding:12px 16px;display:flex;gap:14px;cursor:pointer;align-items:flex-start}
-.news-num{font-family:var(--mono);font-size:10px;color:var(--amber);padding-top:3px;flex-shrink:0;width:22px}
-.news-main{flex:1;min-width:0}
-.news-title{font-size:13.5px;color:var(--text);line-height:1.45;font-weight:500}
-.news-title a{color:inherit;text-decoration:none}
-.news-title a:hover{color:var(--amber)}
-.news-meta{font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:5px;display:flex;gap:10px;align-items:center}
-.news-cat{padding:2px 8px;border-radius:3px;font-size:9px;letter-spacing:.05em}
-.news-cat.Energy{background:var(--amber-dim);color:var(--amber)}
-.news-cat.Macro\/Equity{background:var(--blue-dim);color:var(--blue)}
-.news-toggle{font-family:var(--mono);font-size:11px;color:var(--text3);padding-top:2px;cursor:pointer;flex-shrink:0;user-select:none}
-.news-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 16px}
-.news-body.open{max-height:300px;padding:0 16px 14px 52px}
-.news-desc{font-size:12px;color:var(--text2);line-height:1.6}
-.news-link{font-family:var(--mono);font-size:10px;color:var(--amber);text-decoration:none;display:inline-block;margin-top:8px}
-.news-link:hover{text-decoration:underline}
+
+/* Per-section news */
+.section-news{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.05)}
+.section-news-label{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--text3);text-transform:uppercase;margin-bottom:8px}
+.sn-item{padding:8px 12px;background:rgba(0,0,0,.2);border-radius:6px;margin-bottom:5px;border-left:2px solid rgba(255,255,255,.1);transition:border-color .15s}
+.sn-item:hover{border-left-color:var(--amber)}
+.sn-title{font-size:12.5px;color:var(--text);line-height:1.4;text-decoration:none;display:block;font-weight:500}
+.sn-title:hover{color:var(--amber)}
+.sn-meta{font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px}
+
 .sk{background:var(--bg3);border-radius:3px;animation:sk 1.5s infinite}
 @keyframes sk{0%,100%{opacity:.4}50%{opacity:.8}}
 .eb{background:rgba(255,85,102,.08);border:1px solid rgba(255,85,102,.25);border-radius:6px;padding:14px 18px;color:var(--red);font-family:var(--mono);font-size:11px}
@@ -120,10 +111,6 @@ main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;m
 <main id="main">
   <div id="patrimony-wrap"></div>
   <div id="sections-wrap"></div>
-  <div class="section">
-    <div class="section-head"><div class="section-label">Headlines — energy &amp; macro</div></div>
-    <div class="news-list" id="news"></div>
-  </div>
 </main>
 <script>
 let CURRENT_DATA = null;
@@ -177,6 +164,34 @@ function fmtPct(n) {
 function pctClass(n) {
   if (n == null) return 'fl';
   return n > 0 ? 'up' : n < 0 ? 'dn' : 'fl';
+}
+
+// News classification by section keywords
+const SECTION_KEYWORDS = {
+  fx:      ['dollar','euro','franc','currency','forex','exchange rate',' eur',' usd',' chf',' gbp','swiss','sterling','greenback'],
+  indices: ['s&p','nasdaq','dow ','dax','ftse','nikkei','hang seng','eurostoxx','stoxx','stocks','equity','equities','rally','selloff','sell-off','wall street','shares','index','indexes'],
+  energy:  ['oil','brent','wti','crude','natural gas',' gas ','opec','energy','barrel','refinery','lng','pipeline','petroleum','exxon','shell','chevron','eni','aramco','drilling'],
+  crypto:  ['gold','silver','bitcoin','ethereum','btc','eth','crypto','precious metal','bullion','metals'],
+  rates:   ['fed ','federal reserve','ecb','rate hike','rate cut','interest rate','yield','treasury','bond','inflation','cpi','fomc','hawkish','dovish','vix','volatility','recession','monetary']
+};
+
+function classifyNews(news) {
+  const buckets = {fx:[], indices:[], energy:[], crypto:[], rates:[]};
+  const used = new Set();
+  news.forEach(n => {
+    const text = (n.title || '').toLowerCase();
+    let best = null, bestScore = 0;
+    for (const sec in SECTION_KEYWORDS) {
+      const score = SECTION_KEYWORDS[sec].reduce((acc, kw) => acc + (text.includes(kw) ? 1 : 0), 0);
+      if (score > bestScore) { bestScore = score; best = sec; }
+    }
+    if (best && bestScore > 0 && !used.has(n.title)) {
+      buckets[best].push(n);
+      used.add(n.title);
+    }
+  });
+  for (const sec in buckets) buckets[sec] = buckets[sec].slice(0, 3);
+  return buckets;
 }
 
 function tileHtml(inst, period) {
@@ -250,7 +265,7 @@ function drawChart(id, inst) {
   });
 }
 
-function renderSection(key, title, secData, period) {
+function renderSection(key, title, secData, period, sectionNews) {
   if (!secData || !secData.instruments?.length) return '';
   const tiles = secData.instruments.map(i => tileHtml(i, period)).join('');
   const chartsHtml = (secData.charts || []).map(inst => {
@@ -265,6 +280,21 @@ function renderSection(key, title, secData, period) {
       <div class="cbox"><canvas id="${id}"></canvas></div>
     </div>`;
   }).join('');
+
+  let newsHtml = '';
+  if (sectionNews && sectionNews.length) {
+    newsHtml = `<div class="section-news">
+      <div class="section-news-label">Related headlines</div>
+      ${sectionNews.map(n => {
+        const dateStr = n.date ? new Date(n.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
+        return `<div class="sn-item">
+          ${n.link ? `<a href="${n.link}" target="_blank" rel="noopener" class="sn-title">${n.title}</a>` : `<div class="sn-title">${n.title}</div>`}
+          <div class="sn-meta">${n.source || ''}${dateStr ? ' · '+dateStr : ''}</div>
+        </div>`;
+      }).join('')}
+    </div>`;
+  }
+
   return `<div class="section s-${key}">
     <div class="section-head">
       <div class="section-label">${title}</div>
@@ -272,6 +302,7 @@ function renderSection(key, title, secData, period) {
     </div>
     <div class="tiles">${tiles}</div>
     <div class="charts-grid">${chartsHtml}</div>
+    ${newsHtml}
   </div>`;
 }
 
@@ -292,40 +323,6 @@ function renderPatrimony(p, period) {
       Components: <span style="color:var(--text2)">CHF ${p.chf_amount?.toLocaleString('en-GB')}</span> · <span style="color:var(--text2)">EUR ${p.eur_amount?.toLocaleString('en-GB')}</span> · <span style="color:var(--text2)">USD ${p.usd_amount?.toLocaleString('en-GB')}</span>
     </div>
   </div>`;
-}
-
-function renderNews(news) {
-  if (!news || !news.length) return '<div style="color:var(--text3);font-family:var(--mono);font-size:12px">No headlines available</div>';
-  return news.map((h, i) => {
-    const dateStr = h.date ? new Date(h.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
-    const desc = h.description ? h.description.replace(/<[^>]+>/g,'').slice(0, 250) : '';
-    return `<div class="news-item">
-      <div class="news-head" onclick="toggleNews(${i})">
-        <div class="news-num">${(i+1).toString().padStart(2,'0')}</div>
-        <div class="news-main">
-          <div class="news-title">${h.link ? `<a href="${h.link}" target="_blank" rel="noopener">${h.title}</a>` : h.title}</div>
-          <div class="news-meta">
-            <span class="news-cat ${h.category||''}">${h.category||''}</span>
-            <span>${h.source}</span>
-            ${dateStr ? `<span>· ${dateStr}</span>` : ''}
-          </div>
-        </div>
-        <div class="news-toggle" id="news-toggle-${i}">▾</div>
-      </div>
-      <div class="news-body" id="news-body-${i}">
-        ${desc ? `<div class="news-desc">${desc}…</div>` : ''}
-        ${h.link ? `<a class="news-link" href="${h.link}" target="_blank" rel="noopener">Read full article →</a>` : ''}
-      </div>
-    </div>`;
-  }).join('');
-}
-
-function toggleNews(i) {
-  const body = document.getElementById('news-body-' + i);
-  const tog  = document.getElementById('news-toggle-' + i);
-  if (!body) return;
-  body.classList.toggle('open');
-  tog.textContent = body.classList.contains('open') ? '▴' : '▾';
 }
 
 function setPeriod(p) {
@@ -356,12 +353,13 @@ function renderAll() {
     '2Y': 'vs ' + (d.references?.['2y'] || '')
   };
   document.getElementById('ref-date').textContent = refLabels[CURRENT_PERIOD] || '';
+  const newsBuckets = classifyNews(d.news || []);
   const sectionsHtml = [
-    renderSection('fx',      'FX — CHF & USD in EUR',  d.sections?.fx,      CURRENT_PERIOD),
-    renderSection('indices', 'Global indices',          d.sections?.indices, CURRENT_PERIOD),
-    renderSection('energy',  'Energy & commodities',    d.sections?.energy,  CURRENT_PERIOD),
-    renderSection('crypto',  'Metals & crypto',         d.sections?.crypto,  CURRENT_PERIOD),
-    renderSection('rates',   'Rates & risk',            d.sections?.rates,   CURRENT_PERIOD),
+    renderSection('fx',      'FX — CHF & USD in EUR',  d.sections?.fx,      CURRENT_PERIOD, newsBuckets.fx),
+    renderSection('indices', 'Global indices',          d.sections?.indices, CURRENT_PERIOD, newsBuckets.indices),
+    renderSection('energy',  'Energy & commodities',    d.sections?.energy,  CURRENT_PERIOD, newsBuckets.energy),
+    renderSection('crypto',  'Metals & crypto',         d.sections?.crypto,  CURRENT_PERIOD, newsBuckets.crypto),
+    renderSection('rates',   'Rates & risk',            d.sections?.rates,   CURRENT_PERIOD, newsBuckets.rates),
   ].join('');
   document.getElementById('sections-wrap').innerHTML = sectionsHtml;
   setTimeout(() => {
@@ -374,7 +372,6 @@ function renderAll() {
       });
     });
   }, 30);
-  document.getElementById('news').innerHTML = renderNews(d.news);
 }
 
 async function loadData() {
