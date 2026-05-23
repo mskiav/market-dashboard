@@ -95,6 +95,7 @@ main{padding:24px;display:flex;flex-direction:column;gap:32px;max-width:1600px;m
   <div class="logo">MARKET<span>//</span>DASHBOARD</div>
   <div class="header-right">
     <div id="ts">— not loaded —</div>
+    <div id="age" class="fl" style="font-family:var(--mono);font-size:11px"></div>
     <button class="primary" onclick="loadData()">↻ RELOAD</button>
   </div>
 </header>
@@ -377,8 +378,9 @@ async function loadData() {
     const res = await fetch('data.json?t=' + Date.now());
     if (!res.ok) throw new Error('data.json not found — workflow may not have run yet');
     const d = await res.json();
-    CURRENT_DATA = d;
+CURRENT_DATA = d;
     document.getElementById('ts').textContent = d.updated || '—';
+    updateAge();
     renderAll();
     st('Data loaded — ' + (d.updated || ''), 'ok');
   } catch(e) {
@@ -386,6 +388,21 @@ async function loadData() {
     document.getElementById('patrimony-wrap').innerHTML = `<div class="eb">${e.message}</div>`;
   }
 }
+
+function updateAge() {
+  if (!CURRENT_DATA) return;
+  const el = document.getElementById('age');
+  if (!el) return;
+  const age = dataAge(CURRENT_DATA.updated);
+  el.textContent = age ? '· ' + age : '';
+  el.className = ageClass(CURRENT_DATA.updated);
+}
+
+// Update age indicator every 60s
+setInterval(updateAge, 60000);
+
+// Auto-reload data every 15 min to pick up fresh data.json
+setInterval(loadData, 15 * 60 * 1000);
 
 loadData();
 </script>
