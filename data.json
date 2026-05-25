@@ -1,5 +1,5 @@
 {
-  "updated": "25 May 2026 19:05 UTC",
+  "updated": "25 May 2026 20:45 UTC",
   "references": {
     "mtd": "30 Apr 2026",
     "qtd": "31 Mar 2026",
@@ -10,11 +10,11 @@
     "current_eur": 6000000,
     "chf_amount": 3008478,
     "eur_amount": 2400000,
-    "usd_amount": 257580,
+    "usd_amount": 257610,
     "changes": {
       "1D": 0.14,
       "MTD": 0.76,
-      "QTD": 0.21,
+      "QTD": 0.22,
       "YTD": 1.16,
       "2Y": null
     }
@@ -318,13 +318,13 @@
           "label": "USD / EUR",
           "section": "fx",
           "decimals": 4,
-          "current": 0.8586,
-          "raw_current": 0.8586000143294337,
+          "current": 0.8587,
+          "raw_current": 0.8586999459410379,
           "changes": {
-            "1D": -0.22,
-            "MTD": 0.32,
-            "QTD": -1.6,
-            "YTD": 0.86,
+            "1D": -0.21,
+            "MTD": 0.34,
+            "QTD": -1.59,
+            "YTD": 0.87,
             "2Y": null
           },
           "series_1y": {
@@ -462,7 +462,7 @@
               0.8497,
               0.8575,
               0.8602,
-              0.8586
+              0.8587
             ]
           },
           "series_2y": {
@@ -600,7 +600,7 @@
               0.853,
               0.8524,
               0.8615,
-              0.8586
+              0.8587
             ]
           }
         },
@@ -609,13 +609,13 @@
           "label": "GBP / EUR",
           "section": "fx",
           "decimals": 4,
-          "current": 1.1595,
-          "raw_current": 1.159500002861023,
+          "current": 1.1597,
+          "raw_current": 1.1597000360488892,
           "changes": {
-            "1D": 0.29,
-            "MTD": 0.48,
-            "QTD": 0.85,
-            "YTD": 1.16,
+            "1D": 0.31,
+            "MTD": 0.49,
+            "QTD": 0.87,
+            "YTD": 1.18,
             "2Y": null
           },
           "series_1y": {
@@ -753,7 +753,7 @@
               1.1552,
               1.1482,
               1.1556,
-              1.1595
+              1.1597
             ]
           },
           "series_2y": {
@@ -891,7 +891,7 @@
               1.1545,
               1.1555,
               1.1541,
-              1.1595
+              1.1597
             ]
           }
         }
@@ -1193,13 +1193,13 @@
           "label": "USD / EUR",
           "section": "fx",
           "decimals": 4,
-          "current": 0.8586,
-          "raw_current": 0.8586000143294337,
+          "current": 0.8587,
+          "raw_current": 0.8586999459410379,
           "changes": {
-            "1D": -0.22,
-            "MTD": 0.32,
-            "QTD": -1.6,
-            "YTD": 0.86,
+            "1D": -0.21,
+            "MTD": 0.34,
+            "QTD": -1.59,
+            "YTD": 0.87,
             "2Y": null
           },
           "series_1y": {
@@ -1337,7 +1337,7 @@
               0.8497,
               0.8575,
               0.8602,
-              0.8586
+              0.8587
             ]
           },
           "series_2y": {
@@ -1475,7 +1475,7 @@
               0.853,
               0.8524,
               0.8615,
-              0.8586
+              0.8587
             ]
           }
         },
@@ -1484,13 +1484,13 @@
           "label": "GBP / EUR",
           "section": "fx",
           "decimals": 4,
-          "current": 1.1595,
-          "raw_current": 1.159500002861023,
+          "current": 1.1597,
+          "raw_current": 1.1597000360488892,
           "changes": {
-            "1D": 0.29,
-            "MTD": 0.48,
-            "QTD": 0.85,
-            "YTD": 1.16,
+            "1D": 0.31,
+            "MTD": 0.49,
+            "QTD": 0.87,
+            "YTD": 1.18,
             "2Y": null
           },
           "series_1y": {
@@ -1628,7 +1628,7 @@
               1.1552,
               1.1482,
               1.1556,
-              1.1595
+              1.1597
             ]
           },
           "series_2y": {
@@ -1766,12 +1766,12 @@
               1.1545,
               1.1555,
               1.1541,
-              1.1595
+              1.1597
             ]
           }
         }
       ],
-      "commentary": "Section mixed today (2 up / 1 down, avg +0.11%). Biggest mover: GBP / EUR (+0.29%). YTD section average: +1.4%."
+      "commentary": "Section mixed today (2 up / 1 down, avg +0.12%). Biggest mover: GBP / EUR (+0.31%). YTD section average: +1.4%."
     },
     "indices": {
       "instruments": [
@@ -8566,14 +8566,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 66481.0,
-          "raw_current": 66480.8125,
+          "current": 66320.0,
+          "raw_current": 66320.328125,
           "changes": {
-            "1D": 0.54,
-            "MTD": 2.19,
-            "QTD": 12.76,
-            "YTD": -10.87,
-            "2Y": 4.12
+            "1D": 0.29,
+            "MTD": 1.94,
+            "QTD": 12.49,
+            "YTD": -11.08,
+            "2Y": 3.87
           },
           "series_1y": {
             "labels": [
@@ -8702,7 +8702,7 @@
               67995.3281,
               69500.5547,
               66631.1875,
-              66480.8125
+              66320.3281
             ]
           },
           "series_2y": {
@@ -8832,7 +8832,7 @@
               65014.3125,
               66980.1484,
               68028.1172,
-              66480.8125
+              66320.3281
             ]
           }
         },
@@ -8841,14 +8841,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1823.0,
-          "raw_current": 1822.5799560546875,
+          "current": 1813.0,
+          "raw_current": 1813.0799560546875,
           "changes": {
-            "1D": 1.13,
-            "MTD": -5.26,
-            "QTD": 0.22,
-            "YTD": -27.93,
-            "2Y": -47.26
+            "1D": 0.61,
+            "MTD": -5.75,
+            "QTD": -0.3,
+            "YTD": -28.31,
+            "2Y": -47.54
           },
           "series_1y": {
             "labels": [
@@ -8977,7 +8977,7 @@
               1956.2249,
               1955.8765,
               1829.6864,
-              1822.58
+              1813.08
             ]
           },
           "series_2y": {
@@ -9107,7 +9107,7 @@
               1982.2645,
               1979.9722,
               1912.9523,
-              1822.58
+              1813.08
             ]
           }
         }
@@ -9401,14 +9401,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 66481.0,
-          "raw_current": 66480.8125,
+          "current": 66320.0,
+          "raw_current": 66320.328125,
           "changes": {
-            "1D": 0.54,
-            "MTD": 2.19,
-            "QTD": 12.76,
-            "YTD": -10.87,
-            "2Y": 4.12
+            "1D": 0.29,
+            "MTD": 1.94,
+            "QTD": 12.49,
+            "YTD": -11.08,
+            "2Y": 3.87
           },
           "series_1y": {
             "labels": [
@@ -9537,7 +9537,7 @@
               67995.3281,
               69500.5547,
               66631.1875,
-              66480.8125
+              66320.3281
             ]
           },
           "series_2y": {
@@ -9667,12 +9667,12 @@
               65014.3125,
               66980.1484,
               68028.1172,
-              66480.8125
+              66320.3281
             ]
           }
         }
       ],
-      "commentary": "Section broadly positive today (4 up / 0 down, avg +0.53%). Biggest mover: Ethereum EUR (+1.13%). YTD section average: -6.4%."
+      "commentary": "Section broadly positive today (4 up / 0 down, avg +0.34%). Biggest mover: Ethereum EUR (+0.61%). YTD section average: -6.5%."
     },
     "rates": {
       "instruments": [
@@ -11099,6 +11099,30 @@
   },
   "news": [
     {
+      "title": "TSX Closer: Index Posts Record Highs Even As RBC and National Bank Both Try and Put the Oil Price Shock In Context",
+      "link": "https://finance.yahoo.com/economy/policy/articles/tsx-closer-index-posts-record-201242879.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Mon, 25 May 2026 20:12:42 +0000",
+      "description": "The resources heavy Toronto Stock Exchange raced to fresh record intraday and closing highs after ri",
+      "category": "Energy"
+    },
+    {
+      "title": "Inflation Just Soared at the Fastest Pace Since 2023, and It Could Spell Trouble for Stock Market Investors",
+      "link": "https://www.fool.com/investing/2026/05/25/inflation-soared-fastest-since-2023-stock-market/?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Mon, 25 May 2026 20:05:00 +0000",
+      "description": "The Federal Reserve's new chairman might be walking into a crisis.",
+      "category": "Energy"
+    },
+    {
+      "title": "Oil trading surges on Memorial Day",
+      "link": "https://www.thestreet.com/crypto/markets/oil-trading-surges-on-memorial-day?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Mon, 25 May 2026 19:06:01 +0000",
+      "description": "Memorial Day is a federal holiday dedicated to mourning and honouring the military personnel who have died while serving in the United States Armed Forces. Observed on the last Monday of May, it is also considered the unofficial start of summer. Because it is a recognized federal holiday, the ...",
+      "category": "Energy"
+    },
+    {
       "title": "Valero Energy Gains From Favorable Refining Fundamentals",
       "link": "https://finance.yahoo.com/sectors/energy/articles/valero-energy-gains-favorable-refining-172300805.html?.tsrc=rss",
       "source": "Yahoo Finance",
@@ -11115,28 +11139,12 @@
       "category": "Energy"
     },
     {
-      "title": "MTDR Strengthens Delaware Basin Footprint With Lease Acquisition",
-      "link": "https://finance.yahoo.com/sectors/energy/articles/mtdr-strengthens-delaware-basin-footprint-164900918.html?.tsrc=rss",
+      "title": "Should You Buy, Sell, or Hold PayPal Stock?",
+      "link": "https://www.fool.com/investing/2026/05/25/should-you-buy-sell-or-hold-paypal-stock/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 16:49:00 +0000",
-      "description": "Matador expands its Delaware Basin footprint with a $1.1B acreage deal aimed at boosting drilling inventory and cash flow.",
-      "category": "Energy"
-    },
-    {
-      "title": "Iraq\u2019s Oil Collapse Sparks Race for New Export Routes",
-      "link": "https://finance.yahoo.com/sectors/energy/articles/iraq-oil-collapse-sparks-race-160000615.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 16:00:00 +0000",
-      "description": "Baghdad is urgently trying to revive northern export routes through Turkey, including the Kirkuk-Ceyhan system and a new Kirkuk-Nineveh pipeline.",
-      "category": "Energy"
-    },
-    {
-      "title": "Diamondback Energy (FANG) Gains from Oil Price Shocks",
-      "link": "https://finance.yahoo.com/sectors/energy/articles/diamondback-energy-fang-gains-oil-155944653.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 15:59:44 +0000",
-      "description": "Yachtman Asset Management released its first-quarter 2026 investor letter for its AMG \u201cYacktman Focused Fund\u201d. A copy of the letter is available to download here. The Fund returned 10.37% for the first quarter, outperforming both the Russell 1000\u00ae Value Index and the S&P 500 Index, which returned 2.",
-      "category": "Energy"
+      "date": "Mon, 25 May 2026 19:20:00 +0000",
+      "description": "The digital payments pioneer has been a huge disappointment for investors, as shares trade 86% below their record.",
+      "category": "Macro/Equity"
     },
     {
       "title": "This AI ETF Takes a Different Approach. Investors Are Reaping the Rewards.",
@@ -11168,14 +11176,6 @@
       "source": "Yahoo Finance",
       "date": "Mon, 25 May 2026 17:16:12 +0000",
       "description": "Jim Cramer just refused to bless a portfolio built almost entirely on his own stock recommendations, and no question that the lesson is worth pausing on. On the May 22 episode of Mad Money, a caller named Jerry laid out a tech-saturated portfolio diversified across tech retail sales, software, semic",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "Berkshire Hathaway Stock Lags Industry in 3 Months: Is it Still a Buy?",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/berkshire-hathaway-stock-lags-industry-170600248.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 17:06:00 +0000",
-      "description": "Berkshire Hathaway's insurance float fuels investments as the company shifts to Japan trading houses and builds BHE renewables, backed by $370B+ cash.",
       "category": "Macro/Equity"
     }
   ]
