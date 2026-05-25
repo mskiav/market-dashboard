@@ -1,5 +1,5 @@
 {
-  "updated": "25 May 2026 17:25 UTC",
+  "updated": "25 May 2026 19:05 UTC",
   "references": {
     "mtd": "30 Apr 2026",
     "qtd": "31 Mar 2026",
@@ -8,14 +8,14 @@
   },
   "patrimony": {
     "current_eur": 6000000,
-    "chf_amount": 3009301,
+    "chf_amount": 3008478,
     "eur_amount": 2400000,
     "usd_amount": 257580,
     "changes": {
-      "1D": 0.12,
-      "MTD": 0.75,
-      "QTD": 0.2,
-      "YTD": 1.14,
+      "1D": 0.14,
+      "MTD": 0.76,
+      "QTD": 0.21,
+      "YTD": 1.16,
       "2Y": null
     }
   },
@@ -27,13 +27,13 @@
           "label": "CHF / EUR",
           "section": "fx",
           "decimals": 4,
-          "current": 1.0966,
-          "raw_current": 1.09660005569458,
+          "current": 1.0969,
+          "raw_current": 1.0968999862670898,
           "changes": {
-            "1D": 0.24,
-            "MTD": 1.34,
-            "QTD": 0.51,
-            "YTD": 2.01,
+            "1D": 0.27,
+            "MTD": 1.36,
+            "QTD": 0.54,
+            "YTD": 2.04,
             "2Y": null
           },
           "series_1y": {
@@ -171,7 +171,7 @@
               1.0925,
               1.0933,
               1.0928,
-              1.0966
+              1.0969
             ]
           },
           "series_2y": {
@@ -309,7 +309,7 @@
               1.0861,
               1.0921,
               1.0921,
-              1.0966
+              1.0969
             ]
           }
         },
@@ -902,13 +902,13 @@
           "label": "CHF / EUR",
           "section": "fx",
           "decimals": 4,
-          "current": 1.0966,
-          "raw_current": 1.09660005569458,
+          "current": 1.0969,
+          "raw_current": 1.0968999862670898,
           "changes": {
-            "1D": 0.24,
-            "MTD": 1.34,
-            "QTD": 0.51,
-            "YTD": 2.01,
+            "1D": 0.27,
+            "MTD": 1.36,
+            "QTD": 0.54,
+            "YTD": 2.04,
             "2Y": null
           },
           "series_1y": {
@@ -1046,7 +1046,7 @@
               1.0925,
               1.0933,
               1.0928,
-              1.0966
+              1.0969
             ]
           },
           "series_2y": {
@@ -1184,7 +1184,7 @@
               1.0861,
               1.0921,
               1.0921,
-              1.0966
+              1.0969
             ]
           }
         },
@@ -1771,7 +1771,7 @@
           }
         }
       ],
-      "commentary": "Section mixed today (2 up / 1 down, avg +0.10%). Biggest mover: GBP / EUR (+0.29%). YTD section average: +1.3%."
+      "commentary": "Section mixed today (2 up / 1 down, avg +0.11%). Biggest mover: GBP / EUR (+0.29%). YTD section average: +1.4%."
     },
     "indices": {
       "instruments": [
@@ -8566,14 +8566,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 66612.0,
-          "raw_current": 66612.4296875,
+          "current": 66481.0,
+          "raw_current": 66480.8125,
           "changes": {
-            "1D": 0.74,
-            "MTD": 2.39,
-            "QTD": 12.99,
-            "YTD": -10.69,
-            "2Y": 4.33
+            "1D": 0.54,
+            "MTD": 2.19,
+            "QTD": 12.76,
+            "YTD": -10.87,
+            "2Y": 4.12
           },
           "series_1y": {
             "labels": [
@@ -8702,7 +8702,7 @@
               67995.3281,
               69500.5547,
               66631.1875,
-              66612.4297
+              66480.8125
             ]
           },
           "series_2y": {
@@ -8832,7 +8832,7 @@
               65014.3125,
               66980.1484,
               68028.1172,
-              66612.4297
+              66480.8125
             ]
           }
         },
@@ -8841,14 +8841,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1830.0,
-          "raw_current": 1830.030029296875,
+          "current": 1823.0,
+          "raw_current": 1822.5799560546875,
           "changes": {
-            "1D": 1.55,
-            "MTD": -4.87,
-            "QTD": 0.63,
-            "YTD": -27.64,
-            "2Y": -47.05
+            "1D": 1.13,
+            "MTD": -5.26,
+            "QTD": 0.22,
+            "YTD": -27.93,
+            "2Y": -47.26
           },
           "series_1y": {
             "labels": [
@@ -8977,7 +8977,7 @@
               1956.2249,
               1955.8765,
               1829.6864,
-              1830.03
+              1822.58
             ]
           },
           "series_2y": {
@@ -9107,7 +9107,7 @@
               1982.2645,
               1979.9722,
               1912.9523,
-              1830.03
+              1822.58
             ]
           }
         }
@@ -9401,14 +9401,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 66612.0,
-          "raw_current": 66612.4296875,
+          "current": 66481.0,
+          "raw_current": 66480.8125,
           "changes": {
-            "1D": 0.74,
-            "MTD": 2.39,
-            "QTD": 12.99,
-            "YTD": -10.69,
-            "2Y": 4.33
+            "1D": 0.54,
+            "MTD": 2.19,
+            "QTD": 12.76,
+            "YTD": -10.87,
+            "2Y": 4.12
           },
           "series_1y": {
             "labels": [
@@ -9537,7 +9537,7 @@
               67995.3281,
               69500.5547,
               66631.1875,
-              66612.4297
+              66480.8125
             ]
           },
           "series_2y": {
@@ -9667,12 +9667,12 @@
               65014.3125,
               66980.1484,
               68028.1172,
-              66612.4297
+              66480.8125
             ]
           }
         }
       ],
-      "commentary": "Section broadly positive today (4 up / 0 down, avg +0.69%). Biggest mover: Ethereum EUR (+1.55%). YTD section average: -6.3%."
+      "commentary": "Section broadly positive today (4 up / 0 down, avg +0.53%). Biggest mover: Ethereum EUR (+1.13%). YTD section average: -6.4%."
     },
     "rates": {
       "instruments": [
@@ -11099,6 +11099,30 @@
   },
   "news": [
     {
+      "title": "Valero Energy Gains From Favorable Refining Fundamentals",
+      "link": "https://finance.yahoo.com/sectors/energy/articles/valero-energy-gains-favorable-refining-172300805.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Mon, 25 May 2026 17:23:00 +0000",
+      "description": "VLO benefits from favorable refining conditions as tighter fuel supplies and wider crude discounts support margins.",
+      "category": "Energy"
+    },
+    {
+      "title": "US Stock Futures Gain as Crude Oil Drops on Iran: Markets Wrap",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/us-stock-futures-gain-crude-170202219.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Mon, 25 May 2026 17:02:02 +0000",
+      "description": "(Bloomberg) -- Global stocks rose to record highs as crude oil fell after officials signaled the US was nearing a deal with Iran to reopen the Strait of Hormuz and restore oil flows. The dollar weakened.Most Read from BloombergNvidia CEO Urges Super Micro to Tighten Up on ComplianceTrump Doctor Visi",
+      "category": "Energy"
+    },
+    {
+      "title": "MTDR Strengthens Delaware Basin Footprint With Lease Acquisition",
+      "link": "https://finance.yahoo.com/sectors/energy/articles/mtdr-strengthens-delaware-basin-footprint-164900918.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Mon, 25 May 2026 16:49:00 +0000",
+      "description": "Matador expands its Delaware Basin footprint with a $1.1B acreage deal aimed at boosting drilling inventory and cash flow.",
+      "category": "Energy"
+    },
+    {
       "title": "Iraq\u2019s Oil Collapse Sparks Race for New Export Routes",
       "link": "https://finance.yahoo.com/sectors/energy/articles/iraq-oil-collapse-sparks-race-160000615.html?.tsrc=rss",
       "source": "Yahoo Finance",
@@ -11115,67 +11139,43 @@
       "category": "Energy"
     },
     {
-      "title": "Oil drops below $100 on hopes of US-Iran deal to open Hormuz",
-      "link": "https://finance.yahoo.com/markets/commodities/articles/oil-falls-stocks-climb-hopes-074820979.html?.tsrc=rss",
+      "title": "This AI ETF Takes a Different Approach. Investors Are Reaping the Rewards.",
+      "link": "https://www.fool.com/investing/2026/05/25/this-ai-etf-takes-a-different-approach-investors-a/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 15:47:57 +0000",
-      "description": "Oil prices plunged below $100 a barrel on Monday and stock markets rallied as investors raised their expectations of a reopening of the Strait of Hormuz following signs that Washington and Iran were edging closer to a deal.But many investors are betting Trump is eager to declare an accord that would",
-      "category": "Energy"
-    },
-    {
-      "title": "Gold ETFs Shine Again as Ceasefire Hopes Lift Market Optimism",
-      "link": "https://finance.yahoo.com/markets/commodities/articles/gold-etfs-shine-again-ceasefire-154300838.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 15:43:00 +0000",
-      "description": "Ceasefire optimism, a weaker dollar and cooling oil prices are putting gold ETFs back in focus.",
-      "category": "Energy"
-    },
-    {
-      "title": "CIBC Confirms Neutral Rating and Target of $5.00 on Computer Modelling After Q4 Results",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/cibc-confirms-neutral-rating-target-153610891.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 15:36:10 +0000",
-      "description": "CIBC Capital Markets maintained its neutral rating and target price of $5.00 on the shares of Comput",
-      "category": "Energy"
-    },
-    {
-      "title": "2 Reasons to Watch SRCE and 1 to Stay Cautious",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-watch-srce-1-163551574.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 16:35:51 +0000",
-      "description": "Over the past six months, 1st Source has been a great trade, beating the S&P 500 by 7%. Its stock price has climbed to $73.91, representing a healthy 17% increase. This run-up might have investors contemplating their next move.",
+      "date": "Mon, 25 May 2026 18:21:00 +0000",
+      "description": "The VistaShares Artificial Intelligence Supercycle ETF has earned a place on investors' lists.",
       "category": "Macro/Equity"
     },
     {
-      "title": "DigitalOcean Holdings (DOCN): A Steady Path to Quality Excellence",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/digitalocean-holdings-docn-steady-path-162803119.html?.tsrc=rss",
+      "title": "This Dividend ETF Was Ready for Nvidia's Payout Increase",
+      "link": "https://www.fool.com/investing/2026/05/25/dividend-etf-ready-for-nvidia-payout-hike-dgrw/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 16:28:03 +0000",
-      "description": "Fred Alger Management, an investment management company, released its \u201cAlger Weatherbie Specialized Growth Fund\u201d first-quarter 2026 investor letter. A copy of the letter can be downloaded here. In the first quarter of 2026, the Class A shares of the Alger Weatherbie Specialized Growth Fund underperf",
+      "date": "Mon, 25 May 2026 18:15:00 +0000",
+      "description": "Most dividend ETFs weren't ready for Nvidia's payout increase, but the WisdomTree U.S. Quality Dividend Growth Fund was.",
       "category": "Macro/Equity"
     },
     {
-      "title": "3 Reasons to Avoid PFS and 1 Stock to Buy Instead",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-avoid-pfs-1-162751222.html?.tsrc=rss",
+      "title": "Market Crash: 2 Stocks I'd Buy Without Hesitation",
+      "link": "https://www.fool.com/investing/2026/05/25/market-crash-2-stocks-id-buy-without-hesitation/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 16:27:51 +0000",
-      "description": "Provident Financial Services trades at $22.05 and has moved in lockstep with the market. Its shares have returned 13.3% over the last six months while the S&P 500 has gained 10%.",
+      "date": "Mon, 25 May 2026 17:46:55 +0000",
+      "description": "Costco and Amazon will bounce back from the next market crash.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Here\u2019s What Lifted Legence Corp. (LGN) in Q1",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/lifted-legence-corp-lgn-q1-162155797.html?.tsrc=rss",
+      "title": "The One Thing Jim Cramer Demands From Tech-Only Investors Before He\u2019ll Bless the Strategy",
+      "link": "https://247wallst.com/investing/2026/05/25/the-one-thing-jim-cramer-demands-from-tech-only-investors-before-hell-bless-the-strategy/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 16:21:55 +0000",
-      "description": "Fred Alger Management, an investment management company, released its \u201cAlger Weatherbie Specialized Growth Fund\u201d first-quarter 2026 investor letter. A copy of the letter can be downloaded here. In the first quarter of 2026, the Class A shares of the Alger Weatherbie Specialized Growth Fund underperf",
+      "date": "Mon, 25 May 2026 17:16:12 +0000",
+      "description": "Jim Cramer just refused to bless a portfolio built almost entirely on his own stock recommendations, and no question that the lesson is worth pausing on. On the May 22 episode of Mad Money, a caller named Jerry laid out a tech-saturated portfolio diversified across tech retail sales, software, semic",
       "category": "Macro/Equity"
     },
     {
-      "title": "Is Now the Time to Add an International ETF to Your Core Holdings?",
-      "link": "https://www.fool.com/investing/2026/05/25/now-time-add-international-etf-core-holdings/?.tsrc=rss",
+      "title": "Berkshire Hathaway Stock Lags Industry in 3 Months: Is it Still a Buy?",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/berkshire-hathaway-stock-lags-industry-170600248.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 25 May 2026 16:20:00 +0000",
-      "description": "The best investors are always thinking about ways they can upgrade their portfolios.",
+      "date": "Mon, 25 May 2026 17:06:00 +0000",
+      "description": "Berkshire Hathaway's insurance float fuels investments as the company shifts to Japan trading houses and builds BHE renewables, backed by $370B+ cash.",
       "category": "Macro/Equity"
     }
   ]
