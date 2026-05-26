@@ -20,10 +20,6 @@ def pct(curr, ref):
     if curr is None or ref is None or ref == 0: return None
     return fmt(((curr - ref) / ref) * 100, 2)
 
-def diff_bps(curr, ref):
-    if curr is None or ref is None: return None
-    return fmt((curr - ref) * 100, 1)
-
 # ============ TICKER REGISTRY ============
 TICKERS = {
     # FX
@@ -52,16 +48,12 @@ TICKERS = {
     "SI=F":       {"label":"Silver USD/oz",  "section":"crypto",  "decimals":2},
     "BTC-EUR":    {"label":"Bitcoin EUR",    "section":"crypto",  "decimals":0},
     "ETH-EUR":    {"label":"Ethereum EUR",   "section":"crypto",  "decimals":0},
-    # Rates & risk - US (from Yahoo)
+    # Rates & risk
     "^VIX":       {"label":"VIX",            "section":"rates",   "decimals":2},
     "^TNX":       {"label":"US 10Y yield",   "section":"rates",   "decimals":2},
     "^TYX":       {"label":"US 30Y yield",   "section":"rates",   "decimals":2},
-}
-
-# Stooq yield tickers (free CSV) — yields in % directly
-STOOQ_TICKERS = {
-    "10ity.b": {"label":"BTP 10Y yield",  "section":"rates", "decimals":2, "unit":"%"},
-    "10dey.b": {"label":"Bund 10Y yield", "section":"rates", "decimals":2, "unit":"%"},
+    "ITGB10YD=X": {"label":"BTP 10Y yield",  "section":"rates",   "decimals":2},
+    "DEGB10YD=X": {"label":"Bund 10Y yield", "section":"rates",   "decimals":2},
 }
 
 # ============ FETCH YAHOO HISTORICAL ============
@@ -77,48 +69,6 @@ def fetch_history(symbols):
         threads=True
     )
     return data
-
-# ============ FETCH STOOQ HISTORICAL (with multiple fallbacks) ============
-def fetch_stooq(ticker):
-    """Get historical daily CSV from Stooq — tries multiple strategies."""
-    urls_to_try = [
-        f"https://stooq.com/q/d/l/?s={ticker}&i=d",
-        f"https://stooq.com/q/d/l/?s={ticker}&d1=20240101&i=d",
-        f"https://stooq.com/q/?s={ticker}&f=sd2t2ohlcv&h&e=csv",
-    ]
-    headers_options = [
-        {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-         "Accept": "text/csv,text/plain,*/*",
-         "Accept-Language": "en-US,en;q=0.9"},
-        {"User-Agent": "curl/7.88.1"},
-    ]
-    for url in urls_to_try:
-        for headers in headers_options:
-            try:
-                req = urllib.request.Request(url, headers=headers)
-                with urllib.request.urlopen(req, timeout=15) as r:
-                    text = r.read().decode("utf-8", errors="ignore")
-                if "no data" in text.lower() or len(text) < 50:
-                    continue
-                lines = text.strip().split("\n")
-                if len(lines) < 2: continue
-                out = []
-                for line in lines[1:]:
-                    parts = line.split(",")
-                    if len(parts) < 5: continue
-                    try:
-                        d = datetime.datetime.strptime(parts[0], "%Y-%m-%d").date()
-                        close = float(parts[4])
-                        out.append((d, close))
-                    except:
-                        continue
-                if out:
-                    print(f"  {ticker}: ok via {url[:50]}... ({len(out)} rows)")
-                    return out
-            except Exception as e:
-                continue
-    print(f"  {ticker}: all strategies failed")
-    return []
 
 # ============ DATE REFERENCES ============
 today = date.today()
@@ -236,18 +186,8 @@ for sym in TICKERS:
     inst = build_from_series(sym, meta["label"], meta["section"], meta["decimals"], dates, closes, meta.get("invert", False), override)
     if inst:
         instruments[sym] = inst
-
-print("Fetching yields from Stooq...")
-for sym, meta in STOOQ_TICKERS.items():
-    series = fetch_stooq(sym)
-    if not series:
+    else:
         print(f"  Warning: {sym} returned no data")
-        continue
-    dates  = [d for d, _ in series]
-    closes = [c for _, c in series]
-    inst = build_from_series(sym, meta["label"], meta["section"], meta["decimals"], dates, closes)
-    if inst:
-        instruments[sym] = inst
 
 # ============ PATRIMONY CALCULATION ============
 def calc_patrimony():
@@ -288,8 +228,8 @@ patrimony = calc_patrimony()
 
 # ============ BTP-BUND SPREAD ============
 def calc_btp_bund_spread():
-    btp  = instruments.get("10ity.b")
-    bund = instruments.get("10dey.b")
+    btp  = instruments.get("ITGB10YD=X")
+    bund = instruments.get("DEGB10YD=X")
     if not btp or not bund: return None
     spread = btp["raw_current"] - bund["raw_current"]
     return {
@@ -314,7 +254,7 @@ SECTION_CHARTS = {
     "indices": ["^GSPC","^GDAXI","FTSEMIB.MI","^N225"],
     "energy":  ["BZ=F","CL=F","TTF=F"],
     "crypto":  ["GC=F","BTC-EUR"],
-    "rates":   ["^VIX","^TNX","10ity.b","10dey.b"],
+    "rates":   ["^VIX","^TNX","ITGB10YD=X","DEGB10YD=X"],
 }
 
 # ============ COMMENTARY ============
@@ -338,10 +278,8 @@ def commentary_for_section(section_key, items):
     return " ".join(parts)
 
 def section_data(section_key):
-    yahoo_syms = [s for s in TICKERS if TICKERS[s]["section"] == section_key]
-    stooq_syms = [s for s in STOOQ_TICKERS if STOOQ_TICKERS[s]["section"] == section_key]
     extra_syms = ["BTP_BUND_SPREAD"] if section_key == "rates" else []
-    all_syms = yahoo_syms + stooq_syms + extra_syms
+    all_syms = [s for s in TICKERS if TICKERS[s]["section"] == section_key] + extra_syms
     items = [instruments[s] for s in all_syms if s in instruments]
     return {
         "instruments": items,
