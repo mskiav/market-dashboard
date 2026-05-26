@@ -21,7 +21,6 @@ def pct(curr, ref):
     return fmt(((curr - ref) / ref) * 100, 2)
 
 def diff_bps(curr, ref):
-    """Difference in basis points (1bp = 0.01%)."""
     if curr is None or ref is None: return None
     return fmt((curr - ref) * 100, 1)
 
@@ -79,30 +78,47 @@ def fetch_history(symbols):
     )
     return data
 
-# ============ FETCH STOOQ HISTORICAL ============
+# ============ FETCH STOOQ HISTORICAL (with multiple fallbacks) ============
 def fetch_stooq(ticker):
-    """Get historical daily CSV from Stooq — returns list of (date, close) tuples."""
-    try:
-        url = f"https://stooq.com/q/d/l/?s={ticker}&i=d"
-        req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
-        with urllib.request.urlopen(req, timeout=15) as r:
-            text = r.read().decode("utf-8")
-        lines = text.strip().split("\n")
-        if len(lines) < 2: return []
-        out = []
-        for line in lines[1:]:
-            parts = line.split(",")
-            if len(parts) < 5: continue
+    """Get historical daily CSV from Stooq — tries multiple strategies."""
+    urls_to_try = [
+        f"https://stooq.com/q/d/l/?s={ticker}&i=d",
+        f"https://stooq.com/q/d/l/?s={ticker}&d1=20240101&i=d",
+        f"https://stooq.com/q/?s={ticker}&f=sd2t2ohlcv&h&e=csv",
+    ]
+    headers_options = [
+        {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+         "Accept": "text/csv,text/plain,*/*",
+         "Accept-Language": "en-US,en;q=0.9"},
+        {"User-Agent": "curl/7.88.1"},
+    ]
+    for url in urls_to_try:
+        for headers in headers_options:
             try:
-                d = datetime.datetime.strptime(parts[0], "%Y-%m-%d").date()
-                close = float(parts[4])
-                out.append((d, close))
-            except:
+                req = urllib.request.Request(url, headers=headers)
+                with urllib.request.urlopen(req, timeout=15) as r:
+                    text = r.read().decode("utf-8", errors="ignore")
+                if "no data" in text.lower() or len(text) < 50:
+                    continue
+                lines = text.strip().split("\n")
+                if len(lines) < 2: continue
+                out = []
+                for line in lines[1:]:
+                    parts = line.split(",")
+                    if len(parts) < 5: continue
+                    try:
+                        d = datetime.datetime.strptime(parts[0], "%Y-%m-%d").date()
+                        close = float(parts[4])
+                        out.append((d, close))
+                    except:
+                        continue
+                if out:
+                    print(f"  {ticker}: ok via {url[:50]}... ({len(out)} rows)")
+                    return out
+            except Exception as e:
                 continue
-        return out
-    except Exception as e:
-        print(f"  Stooq error {ticker}: {e}")
-        return []
+    print(f"  {ticker}: all strategies failed")
+    return []
 
 # ============ DATE REFERENCES ============
 today = date.today()
@@ -126,7 +142,8 @@ hist = fetch_history(symbols_to_fetch)
 def get_fx_ecb():
     try:
         url = "https://api.frankfurter.app/latest?from=EUR&symbols=CHF,USD,GBP"
-        with urllib.request.urlopen(url, timeout=10) as r:
+        req = urllib.request.Request(url, headers={"User-Agent":"Mozilla/5.0"})
+        with urllib.request.urlopen(req, timeout=10) as r:
             d = json.loads(r.read())
         rates = d.get("rates", {})
         return {
@@ -222,7 +239,6 @@ for sym in TICKERS:
 
 print("Fetching yields from Stooq...")
 for sym, meta in STOOQ_TICKERS.items():
-    print(f"  {sym}")
     series = fetch_stooq(sym)
     if not series:
         print(f"  Warning: {sym} returned no data")
@@ -281,7 +297,7 @@ def calc_btp_bund_spread():
         "label": "BTP-Bund spread",
         "section": "rates",
         "decimals": 0,
-        "current": round(spread * 100),  # in bps
+        "current": round(spread * 100),
         "raw_current": spread,
         "changes": {"1D": None, "MTD": None, "QTD": None, "YTD": None, "2Y": None},
         "series_1y": {"labels":[],"values":[]},
@@ -322,7 +338,6 @@ def commentary_for_section(section_key, items):
     return " ".join(parts)
 
 def section_data(section_key):
-    # Collect all instruments for this section
     yahoo_syms = [s for s in TICKERS if TICKERS[s]["section"] == section_key]
     stooq_syms = [s for s in STOOQ_TICKERS if STOOQ_TICKERS[s]["section"] == section_key]
     extra_syms = ["BTP_BUND_SPREAD"] if section_key == "rates" else []
