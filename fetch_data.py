@@ -52,8 +52,6 @@ TICKERS = {
     "^VIX":       {"label":"VIX",            "section":"rates",   "decimals":2},
     "^TNX":       {"label":"US 10Y yield",   "section":"rates",   "decimals":2},
     "^TYX":       {"label":"US 30Y yield",   "section":"rates",   "decimals":2},
-    "ITGB10YD=X": {"label":"BTP 10Y yield",  "section":"rates",   "decimals":2},
-    "DEGB10YD=X": {"label":"Bund 10Y yield", "section":"rates",   "decimals":2},
 }
 
 # ============ FETCH YAHOO HISTORICAL ============
@@ -69,6 +67,53 @@ def fetch_history(symbols):
         threads=True
     )
     return data
+
+# ============ FETCH ECB YIELDS ============
+def fetch_ecb_yield(series_key, label, n_obs=500):
+    """
+    Fetch yield series from ECB Data Portal.
+    series_key examples:
+      B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y  -> Euro area AAA 10Y (Bund proxy)
+      B.IT.EUR.4F.G_N_A.SV_C_YM.SR_10Y  -> Italy 10Y
+    """
+    try:
+        url = (f"https://data-api.ecb.europa.eu/service/data/YC/{series_key}"
+               f"?format=csvdata&lastNObservations={n_obs}")
+        req = urllib.request.Request(url, headers={
+            "User-Agent": "Mozilla/5.0",
+            "Accept": "text/csv,application/csv,*/*"
+        })
+        with urllib.request.urlopen(req, timeout=20) as r:
+            text = r.read().decode("utf-8")
+        lines = text.strip().split("\n")
+        if len(lines) < 2:
+            print(f"  ECB {label}: empty response")
+            return [], []
+        # Find header to locate date and obs columns
+        header = lines[0].split(",")
+        try:
+            date_col = header.index("TIME_PERIOD")
+            val_col  = header.index("OBS_VALUE")
+        except ValueError:
+            # fallback: last two columns
+            date_col = -2
+            val_col  = -1
+        dates, closes = [], []
+        for line in lines[1:]:
+            parts = line.split(",")
+            if len(parts) <= max(date_col, val_col): continue
+            try:
+                d = datetime.datetime.strptime(parts[date_col].strip(), "%Y-%m-%d").date()
+                v = float(parts[val_col].strip())
+                dates.append(d)
+                closes.append(v)
+            except:
+                continue
+        print(f"  ECB {label}: {len(dates)} observations")
+        return dates, closes
+    except Exception as e:
+        print(f"  ECB {label} error: {e}")
+        return [], []
 
 # ============ DATE REFERENCES ============
 today = date.today()
@@ -139,12 +184,6 @@ def build_from_series(sym, label, section, decimals, dates, closes, invert=False
     prev_close = closes[-2] if len(closes) >= 2 else None
     if prev_close and invert: prev_close = 1/prev_close
 
-    ref_1d  = prev_close
-    ref_mtd = find_close(mtd_ref)
-    ref_qtd = find_close(qtd_ref)
-    ref_ytd = find_close(ytd_ref)
-    ref_2y  = find_close(two_y_ref)
-
     current_display = override_current if override_current else current
 
     return {
@@ -155,11 +194,11 @@ def build_from_series(sym, label, section, decimals, dates, closes, invert=False
         "current": fmt(current_display, decimals),
         "raw_current": current,
         "changes": {
-            "1D":  pct(current, ref_1d),
-            "MTD": pct(current, ref_mtd),
-            "QTD": pct(current, ref_qtd),
-            "YTD": pct(current, ref_ytd),
-            "2Y":  pct(current, ref_2y),
+            "1D":  pct(current, prev_close),
+            "MTD": pct(current, find_close(mtd_ref)),
+            "QTD": pct(current, find_close(qtd_ref)),
+            "YTD": pct(current, find_close(ytd_ref)),
+            "2Y":  pct(current, find_close(two_y_ref)),
         },
         "series_1y": serialize_series(dates, closes, "1y", invert),
         "series_2y": serialize_series(dates, closes, "2y", invert),
@@ -183,11 +222,38 @@ for sym in TICKERS:
     meta = TICKERS[sym]
     dates, closes = get_series_yahoo(sym)
     override = fx_ecb.get(sym) if sym in fx_ecb else None
-    inst = build_from_series(sym, meta["label"], meta["section"], meta["decimals"], dates, closes, meta.get("invert", False), override)
+    inst = build_from_series(sym, meta["label"], meta["section"], meta["decimals"],
+                             dates, closes, meta.get("invert", False), override)
     if inst:
         instruments[sym] = inst
     else:
         print(f"  Warning: {sym} returned no data")
+
+# ============ FETCH ECB BOND YIELDS ============
+print("Fetching ECB bond yields...")
+ECB_SERIES = {
+    "BUND10Y": {
+        "key":     "B.U2.EUR.4F.G_N_A.SV_C_YM.SR_10Y",
+        "label":   "Bund 10Y yield",
+        "section": "rates",
+        "decimals": 2,
+    },
+    "BTP10Y": {
+        "key":     "B.IT.EUR.4F.G_N_A.SV_C_YM.SR_10Y",
+        "label":   "BTP 10Y yield",
+        "section": "rates",
+        "decimals": 2,
+    },
+}
+
+for sym, meta in ECB_SERIES.items():
+    dates, closes = fetch_ecb_yield(meta["key"], meta["label"])
+    if dates and closes:
+        inst = build_from_series(sym, meta["label"], meta["section"], meta["decimals"], dates, closes)
+        if inst:
+            instruments[sym] = inst
+    else:
+        print(f"  Warning: {sym} (ECB) returned no data")
 
 # ============ PATRIMONY CALCULATION ============
 def calc_patrimony():
@@ -199,7 +265,6 @@ def calc_patrimony():
     chf_value_in_chf = (PATRIMONY_EUR * WEIGHT_CHF) / chf_eur
     eur_value = PATRIMONY_EUR * WEIGHT_EUR
     usd_value_in_usd = (PATRIMONY_EUR * WEIGHT_USD) / usd_eur
-
     current_eur = chf_value_in_chf * chf_eur + eur_value + usd_value_in_usd * usd_eur
 
     def patrimony_at(ref_pct_chf, ref_pct_usd):
@@ -228,8 +293,8 @@ patrimony = calc_patrimony()
 
 # ============ BTP-BUND SPREAD ============
 def calc_btp_bund_spread():
-    btp  = instruments.get("ITGB10YD=X")
-    bund = instruments.get("DEGB10YD=X")
+    btp  = instruments.get("BTP10Y")
+    bund = instruments.get("BUND10Y")
     if not btp or not bund: return None
     spread = btp["raw_current"] - bund["raw_current"]
     return {
@@ -254,7 +319,7 @@ SECTION_CHARTS = {
     "indices": ["^GSPC","^GDAXI","FTSEMIB.MI","^N225"],
     "energy":  ["BZ=F","CL=F","TTF=F"],
     "crypto":  ["GC=F","BTC-EUR"],
-    "rates":   ["^VIX","^TNX","ITGB10YD=X","DEGB10YD=X"],
+    "rates":   ["^VIX","^TNX","BTP10Y","BUND10Y"],
 }
 
 # ============ COMMENTARY ============
@@ -280,6 +345,9 @@ def commentary_for_section(section_key, items):
 def section_data(section_key):
     extra_syms = ["BTP_BUND_SPREAD"] if section_key == "rates" else []
     all_syms = [s for s in TICKERS if TICKERS[s]["section"] == section_key] + extra_syms
+    # add ECB instruments
+    ecb_syms = [s for s in ECB_SERIES if ECB_SERIES[s]["section"] == section_key]
+    all_syms = all_syms + ecb_syms
     items = [instruments[s] for s in all_syms if s in instruments]
     return {
         "instruments": items,
