@@ -21,30 +21,55 @@
 body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:13px;min-height:100vh}
 header{display:flex;align-items:center;justify-content:space-between;padding:14px 24px;border-bottom:1px solid var(--border);background:var(--bg2);flex-wrap:wrap;gap:10px;position:sticky;top:0;z-index:10}
 .logo{font-family:var(--mono);font-size:14px;font-weight:600;letter-spacing:.12em}.logo span{color:var(--amber)}
-.header-right{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.header-right{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
 #ts{font-family:var(--mono);font-size:11px;color:var(--text3)}
 button{background:transparent;border:1px solid var(--border2);color:var(--text);font-family:var(--mono);font-size:11px;padding:7px 16px;border-radius:4px;cursor:pointer;letter-spacing:.05em;transition:all .15s}
 button:hover{border-color:var(--amber);color:var(--amber)}
 button.primary{border-color:var(--amber);color:var(--amber);background:var(--amber-dim)}
+button.toggle-btn{border-color:var(--blue);color:var(--blue);padding:7px 12px}
+button.toggle-btn:hover{border-color:var(--blue);color:var(--text);background:var(--blue-dim)}
 #sb{padding:8px 24px;font-family:var(--mono);font-size:11px;color:var(--text2);min-height:30px;display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--border);background:var(--bg3)}
 .dot{width:7px;height:7px;border-radius:50%;background:var(--text3);flex-shrink:0}
 .dot.ld{background:var(--amber);animation:pulse 1.2s infinite}
 .dot.ok{background:var(--green)}.dot.er{background:var(--red)}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-#period-bar{padding:12px 24px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+#period-bar{padding:10px 24px;background:var(--bg2);border-bottom:1px solid var(--border);display:flex;gap:8px;align-items:center;flex-wrap:wrap}
 #period-bar .lbl{font-family:var(--mono);font-size:10px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;margin-right:4px}
 .pbtn{background:transparent;border:1px solid var(--border2);color:var(--text2);font-family:var(--mono);font-size:11px;padding:6px 14px;border-radius:4px;cursor:pointer;letter-spacing:.05em}
 .pbtn:hover{border-color:var(--amber);color:var(--amber)}
 .pbtn.active{background:var(--amber-dim);border-color:var(--amber);color:var(--amber)}
 main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;margin:0 auto}
+
+/* Patrimony */
 .patrimony{background:linear-gradient(135deg,var(--bg2) 0%,var(--bg3) 100%);border:1px solid var(--border2);border-radius:10px;padding:20px 24px}
 .pat-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--text3);text-transform:uppercase;margin-bottom:10px}
 .pat-main{display:flex;align-items:baseline;gap:24px;flex-wrap:wrap}
 .pat-value{font-family:var(--mono);font-size:34px;font-weight:600;color:var(--text);letter-spacing:-.01em}
 .pat-change{font-family:var(--mono);font-size:14px;font-weight:500}
 .pat-detail{font-family:var(--mono);font-size:11px;color:var(--text3);margin-top:10px}
+.pat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-top:14px}
+.pat-stat{background:rgba(0,0,0,.2);border-radius:6px;padding:10px 14px;border:1px solid var(--border)}
+.pat-stat-label{font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.pat-stat-value{font-family:var(--mono);font-size:16px;font-weight:500;color:var(--text)}
+.pat-stat-sub{font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px}
 
-/* Sections with colored backgrounds */
+/* Patrimony input form */
+.pat-form{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.05)}
+.pat-form-title{font-family:var(--mono);font-size:9px;letter-spacing:.15em;color:var(--text3);text-transform:uppercase;margin-bottom:12px;display:flex;align-items:center;gap:10px;cursor:pointer}
+.pat-form-title .chevron{transition:transform .2s}
+.pat-form-title.open .chevron{transform:rotate(180deg)}
+.pat-form-fields{display:none;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px}
+.pat-form-fields.open{display:grid}
+.pat-field label{display:block;font-family:var(--mono);font-size:9px;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:5px}
+.pat-field input{width:100%;background:var(--bg);border:1px solid var(--border2);color:var(--text);font-family:var(--mono);font-size:13px;padding:8px 10px;border-radius:4px;outline:none}
+.pat-field input:focus{border-color:var(--amber)}
+.pat-form-actions{margin-top:10px;display:flex;gap:8px;align-items:center}
+.pat-save-btn{border-color:var(--green);color:var(--green)}
+.pat-save-btn:hover{background:var(--green-dim)}
+.pat-reset-btn{border-color:var(--text3);color:var(--text3)}
+.pat-form-note{font-family:var(--mono);font-size:10px;color:var(--text3);margin-left:auto}
+
+/* Sections */
 .section{border-radius:12px;padding:18px 20px;border:1px solid var(--border)}
 .section.s-fx{background:linear-gradient(135deg,rgba(90,167,255,.06) 0%,rgba(90,167,255,.02) 100%);border-color:rgba(90,167,255,.18)}
 .section.s-indices{background:linear-gradient(135deg,rgba(0,212,136,.06) 0%,rgba(0,212,136,.02) 100%);border-color:rgba(0,212,136,.18)}
@@ -54,7 +79,6 @@ main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;m
 .section-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
 .section-label{font-family:var(--mono);font-size:12px;letter-spacing:.18em;color:var(--text);text-transform:uppercase;font-weight:600}
 .section-commentary{font-size:13px;color:var(--text);font-weight:600;max-width:65%;text-align:right;line-height:1.4;background:rgba(255,255,255,.04);padding:8px 14px;border-radius:6px;border-left:3px solid var(--amber)}
-
 .tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:8px;margin-bottom:16px}
 .tile{background:var(--bg2);border:1px solid var(--border);border-radius:8px;padding:14px 16px;transition:border-color .2s}
 .tile:hover{border-color:var(--border3)}
@@ -69,8 +93,6 @@ main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;m
 .cv{font-family:var(--mono);font-size:13px;font-weight:600}
 .cv-sub{font-family:var(--mono);font-size:10px;color:var(--text3);margin-left:4px}
 .cbox{position:relative;height:180px}
-
-/* Per-section news */
 .section-news{margin-top:18px;padding-top:14px;border-top:1px solid rgba(255,255,255,.05)}
 .section-news-label{font-family:var(--mono);font-size:9px;letter-spacing:.18em;color:var(--text3);text-transform:uppercase;margin-bottom:8px}
 .sn-item{padding:8px 12px;background:rgba(0,0,0,.2);border-radius:6px;margin-bottom:5px;border-left:2px solid rgba(255,255,255,.1);transition:border-color .15s}
@@ -78,14 +100,41 @@ main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;m
 .sn-title{font-size:12.5px;color:var(--text);line-height:1.4;text-decoration:none;display:block;font-weight:500}
 .sn-title:hover{color:var(--amber)}
 .sn-meta{font-family:var(--mono);font-size:10px;color:var(--text3);margin-top:3px}
-
 .sk{background:var(--bg3);border-radius:3px;animation:sk 1.5s infinite}
 @keyframes sk{0%,100%{opacity:.4}50%{opacity:.8}}
 .eb{background:rgba(255,85,102,.08);border:1px solid rgba(255,85,102,.25);border-radius:6px;padding:14px 18px;color:var(--red);font-family:var(--mono);font-size:11px}
-@media(max-width:700px){
-  .section-commentary{max-width:100%;text-align:left}
-  .pat-value{font-size:26px}
-  main{padding:16px}
+
+/* Compact mode */
+body.compact main{padding:12px;gap:12px}
+body.compact .patrimony{padding:14px 16px}
+body.compact .pat-value{font-size:26px}
+body.compact .pat-detail{display:none}
+body.compact .pat-grid{grid-template-columns:repeat(2,1fr);gap:6px}
+body.compact .section{padding:12px 14px;border-radius:10px}
+body.compact .section-commentary{display:none}
+body.compact .charts-grid{display:none}
+body.compact .section-news{display:none}
+body.compact .tiles{grid-template-columns:repeat(2,1fr);gap:6px;margin-bottom:0}
+body.compact .tile{padding:10px 12px}
+body.compact .tl{font-size:9px;margin-bottom:5px}
+body.compact .tv{font-size:22px}
+body.compact .tc{font-size:12px;margin-top:4px}
+body.compact #period-bar .lbl{display:none}
+body.compact #period-bar{padding:8px 12px;gap:6px}
+body.compact .pbtn{padding:5px 10px;font-size:10px}
+body.compact header{padding:10px 14px}
+body.compact #ts{display:none}
+
+@media(max-width:600px){
+  body:not(.force-full) .charts-grid{display:none}
+  body:not(.force-full) .section-commentary{display:none}
+  body:not(.force-full) .tiles{grid-template-columns:repeat(2,1fr);gap:6px}
+  body:not(.force-full) .tile{padding:10px 12px}
+  body:not(.force-full) .tv{font-size:20px}
+  body:not(.force-full) main{padding:12px;gap:12px}
+  body:not(.force-full) .pat-value{font-size:24px}
+  body:not(.force-full) .pat-detail{display:none}
+  body:not(.force-full) .pat-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -95,6 +144,7 @@ main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;m
   <div class="header-right">
     <div id="ts">— not loaded —</div>
     <div id="age" class="fl" style="font-family:var(--mono);font-size:11px"></div>
+    <button class="toggle-btn" id="toggleBtn" onclick="toggleLayout()">⊞ COMPACT</button>
     <button class="primary" onclick="loadData()">↻ RELOAD</button>
   </div>
 </header>
@@ -113,11 +163,242 @@ main{padding:24px;display:flex;flex-direction:column;gap:20px;max-width:1600px;m
   <div id="sections-wrap"></div>
 </main>
 <script>
+const PAT_STORAGE_KEY = 'mkt_patrimony_v1';
+const LAYOUT_STORAGE_KEY = 'mkt_layout';
+
 let CURRENT_DATA = null;
 let CURRENT_PERIOD = '1D';
 let CHART_INSTANCES = {};
 let CHART_SPAN = '1y';
+let IS_COMPACT = false;
 
+// ============ PATRIMONY INPUT ============
+function loadPatConfig() {
+  try {
+    const s = localStorage.getItem(PAT_STORAGE_KEY);
+    return s ? JSON.parse(s) : null;
+  } catch { return null; }
+}
+
+function savePatConfig(cfg) {
+  localStorage.setItem(PAT_STORAGE_KEY, JSON.stringify(cfg));
+}
+
+function getDefaultPatConfig() {
+  return { eur: 2400000, chf: 3007656, usd: 258330, date: '2024-01-01' };
+}
+
+// Find FX rate from series on or just before a given date string "YYYY-MM-DD"
+function fxRateAtDate(series, targetDateStr) {
+  if (!series || !series.labels || !series.values || !series.values.length) return null;
+  const target = new Date(targetDateStr).getTime();
+  // series labels are like "Jan 25" — we need raw dates from data.json
+  // Use series_2y which has more points; find closest label
+  const labels = series.labels;
+  const values = series.values;
+  // Parse labels to approximate dates
+  const monthMap = {Jan:0,Feb:1,Mar:2,Apr:3,May:4,Jun:5,Jul:6,Aug:7,Sep:8,Oct:9,Nov:10,Dec:11};
+  let bestIdx = 0, bestDiff = Infinity;
+  labels.forEach((lbl, i) => {
+    const parts = lbl.split(' ');
+    if (parts.length < 2) return;
+    const m = monthMap[parts[0]];
+    const y = 2000 + parseInt(parts[1]);
+    if (isNaN(m) || isNaN(y)) return;
+    const d = new Date(y, m, 15).getTime();
+    const diff = Math.abs(d - target);
+    if (diff < bestDiff) { bestDiff = diff; bestIdx = i; }
+  });
+  return values[bestIdx] || null;
+}
+
+function calcPatrimony(cfg, data) {
+  if (!cfg || !data) return null;
+
+  // Get current FX rates from instruments
+  const getInst = (sym) => {
+    for (const key in data.sections) {
+      const inst = data.sections[key].instruments?.find(i => i.symbol === sym);
+      if (inst) return inst;
+    }
+    return null;
+  };
+
+  const chfInst = getInst('CHFEUR=X');
+  const usdInst = getInst('EURUSD=X'); // raw_current is EUR/USD, display is USD/EUR
+
+  // Current rates (CHF/EUR and USD/EUR)
+  const chfEurNow = chfInst?.raw_current || null;
+  // EURUSD=X is inverted: raw_current = EUR/USD price, so USD/EUR = 1/raw_current
+  const usdEurNow = usdInst?.raw_current ? (1 / usdInst.raw_current) : null;
+
+  if (!chfEurNow || !usdEurNow) return null;
+
+  // Current EUR value
+  const eurNow = cfg.eur + (cfg.chf * chfEurNow) + (cfg.usd * usdEurNow);
+
+  // Historical rates at start date
+  const chfSeries = chfInst?.series_2y?.labels ? chfInst.series_2y : chfInst?.series_1y;
+  const usdSeries = usdInst?.series_2y?.labels ? usdInst.series_2y : usdInst?.series_1y;
+
+  const chfEurThen = fxRateAtDate(chfSeries, cfg.date);
+  // usdInst series values are already inverted (USD/EUR) due to invert:True in Python
+  const usdEurThen = fxRateAtDate(usdSeries, cfg.date);
+
+  let eurThen = null;
+  if (chfEurThen && usdEurThen) {
+    eurThen = cfg.eur + (cfg.chf * chfEurThen) + (cfg.usd * usdEurThen);
+  }
+
+  const delta = eurThen != null ? eurNow - eurThen : null;
+  const deltaPct = eurThen != null ? ((eurNow - eurThen) / eurThen) * 100 : null;
+
+  return {
+    eurNow: Math.round(eurNow),
+    eurThen: eurThen ? Math.round(eurThen) : null,
+    delta: delta ? Math.round(delta) : null,
+    deltaPct: deltaPct ? Math.round(deltaPct * 100) / 100 : null,
+    chfEurNow: chfEurNow,
+    usdEurNow: usdEurNow,
+    chfEurThen: chfEurThen,
+    usdEurThen: usdEurThen,
+    cfg: cfg
+  };
+}
+
+function renderPatrimony(data) {
+  const cfg = loadPatConfig() || getDefaultPatConfig();
+  const p = calcPatrimony(cfg, data);
+  if (!p) return '<div class="eb">Patrimony calculation failed — FX data unavailable</div>';
+
+  const cls = p.delta >= 0 ? 'up' : 'dn';
+  const sign = p.delta >= 0 ? '+' : '';
+  const deltaEurStr = p.delta != null ? `${sign}€${Math.abs(p.delta).toLocaleString('en-GB')}` : '—';
+  const deltaPctStr = p.deltaPct != null ? `${sign}${p.deltaPct.toFixed(2)}%` : '—';
+
+  const startDateFmt = new Date(cfg.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'});
+
+  return `<div class="patrimony">
+    <div class="pat-label">Patrimony valuation — since ${startDateFmt}</div>
+    <div class="pat-main">
+      <div class="pat-value">€ ${p.eurNow.toLocaleString('en-GB')}</div>
+      <div class="pat-change ${cls}">${deltaPctStr} &nbsp;·&nbsp; ${deltaEurStr} <span style="color:var(--text3);font-size:11px">since start</span></div>
+    </div>
+    <div class="pat-grid">
+      <div class="pat-stat">
+        <div class="pat-stat-label">Start value (${startDateFmt})</div>
+        <div class="pat-stat-value">${p.eurThen != null ? '€ '+p.eurThen.toLocaleString('en-GB') : '—'}</div>
+        <div class="pat-stat-sub">CHF/EUR then: ${p.chfEurThen?.toFixed(4)||'—'} · USD/EUR then: ${p.usdEurThen?.toFixed(4)||'—'}</div>
+      </div>
+      <div class="pat-stat">
+        <div class="pat-stat-label">Current value</div>
+        <div class="pat-stat-value">€ ${p.eurNow.toLocaleString('en-GB')}</div>
+        <div class="pat-stat-sub">CHF/EUR now: ${p.chfEurNow?.toFixed(4)||'—'} · USD/EUR now: ${p.usdEurNow?.toFixed(4)||'—'}</div>
+      </div>
+      <div class="pat-stat">
+        <div class="pat-stat-label">Portfolio composition</div>
+        <div class="pat-stat-value" style="font-size:13px">
+          EUR ${cfg.eur.toLocaleString('en-GB')} · CHF ${cfg.chf.toLocaleString('en-GB')} · USD ${cfg.usd.toLocaleString('en-GB')}
+        </div>
+        <div class="pat-stat-sub">Input values in original currencies</div>
+      </div>
+    </div>
+
+    <div class="pat-form">
+      <div class="pat-form-title" onclick="togglePatForm(this)">
+        ▸ Edit portfolio inputs
+        <span class="chevron">▾</span>
+      </div>
+      <div class="pat-form-fields" id="patFormFields">
+        <div class="pat-field">
+          <label>EUR amount</label>
+          <input type="number" id="patEur" value="${cfg.eur}" placeholder="2400000">
+        </div>
+        <div class="pat-field">
+          <label>CHF amount</label>
+          <input type="number" id="patChf" value="${cfg.chf}" placeholder="3007656">
+        </div>
+        <div class="pat-field">
+          <label>USD amount</label>
+          <input type="number" id="patUsd" value="${cfg.usd}" placeholder="258330">
+        </div>
+        <div class="pat-field">
+          <label>Start date</label>
+          <input type="date" id="patDate" value="${cfg.date}">
+        </div>
+      </div>
+      <div class="pat-form-actions" id="patFormActions" style="display:none">
+        <button class="pat-save-btn" onclick="savePatInput()">SAVE & RECALCULATE</button>
+        <button class="pat-reset-btn" onclick="resetPatInput()">RESET</button>
+        <span class="pat-form-note">Saved locally in browser</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function togglePatForm(el) {
+  el.classList.toggle('open');
+  const fields = document.getElementById('patFormFields');
+  const actions = document.getElementById('patFormActions');
+  if (fields) fields.classList.toggle('open');
+  if (actions) actions.style.display = actions.style.display === 'none' ? 'flex' : 'none';
+}
+
+function savePatInput() {
+  const eur  = parseFloat(document.getElementById('patEur')?.value) || 0;
+  const chf  = parseFloat(document.getElementById('patChf')?.value) || 0;
+  const usd  = parseFloat(document.getElementById('patUsd')?.value) || 0;
+  const date = document.getElementById('patDate')?.value || '2024-01-01';
+  savePatConfig({ eur, chf, usd, date });
+  renderAll();
+}
+
+function resetPatInput() {
+  savePatConfig(getDefaultPatConfig());
+  renderAll();
+}
+
+// ============ LAYOUT ============
+function initLayout() {
+  const saved = localStorage.getItem(LAYOUT_STORAGE_KEY);
+  if (saved === 'compact') { IS_COMPACT = true; }
+  else if (saved === 'full') { IS_COMPACT = false; document.body.classList.add('force-full'); }
+  else { IS_COMPACT = window.innerWidth <= 600; }
+  applyLayout();
+}
+
+function applyLayout() {
+  const btn = document.getElementById('toggleBtn');
+  if (IS_COMPACT) {
+    document.body.classList.add('compact');
+    document.body.classList.remove('force-full');
+    if (btn) { btn.textContent = '⊟ FULL'; btn.style.borderColor='var(--green)'; btn.style.color='var(--green)'; }
+  } else {
+    document.body.classList.remove('compact');
+    document.body.classList.add('force-full');
+    if (btn) { btn.textContent = '⊞ COMPACT'; btn.style.borderColor='var(--blue)'; btn.style.color='var(--blue)'; }
+    if (CURRENT_DATA) {
+      setTimeout(() => {
+        ['fx','indices','energy','crypto','rates'].forEach(key => {
+          const sec = CURRENT_DATA.sections?.[key];
+          if (!sec?.charts) return;
+          sec.charts.forEach(inst => {
+            const id = `chart-${key}-${inst.symbol.replace(/[^a-zA-Z0-9]/g,'_')}`;
+            drawChart(id, inst);
+          });
+        });
+      }, 50);
+    }
+  }
+}
+
+function toggleLayout() {
+  IS_COMPACT = !IS_COMPACT;
+  localStorage.setItem(LAYOUT_STORAGE_KEY, IS_COMPACT ? 'compact' : 'full');
+  applyLayout();
+}
+
+// ============ UI HELPERS ============
 function st(msg, s) {
   document.getElementById('stxt').textContent = msg;
   const d = document.getElementById('dot');
@@ -133,8 +414,7 @@ function dataAge(updatedStr) {
   const ageMin = Math.floor((Date.now() - updated) / 60000);
   if (ageMin < 1) return 'just now';
   if (ageMin < 60) return ageMin + ' min ago';
-  const h = Math.floor(ageMin/60);
-  const mm = ageMin % 60;
+  const h = Math.floor(ageMin/60), mm = ageMin % 60;
   return h + 'h ' + mm + 'm ago';
 }
 
@@ -150,15 +430,9 @@ function ageClass(updatedStr) {
   return 'dn';
 }
 
-function fmt(n, dec=2) {
-  if (n == null || isNaN(n)) return '—';
-  return n.toLocaleString('en-GB', {minimumFractionDigits:dec, maximumFractionDigits:dec});
-}
-
 function fmtPct(n) {
   if (n == null || isNaN(n)) return '—';
-  const s = n > 0 ? '+' : '';
-  return s + n.toFixed(2) + '%';
+  return (n > 0 ? '+' : '') + n.toFixed(2) + '%';
 }
 
 function pctClass(n) {
@@ -166,7 +440,7 @@ function pctClass(n) {
   return n > 0 ? 'up' : n < 0 ? 'dn' : 'fl';
 }
 
-// News classification by section keywords
+// ============ NEWS CLASSIFIER ============
 const SECTION_KEYWORDS = {
   fx:      ['dollar','euro','franc','currency','forex','exchange rate',' eur',' usd',' chf',' gbp','swiss','sterling','greenback'],
   indices: ['s&p','nasdaq','dow ','dax','ftse','nikkei','hang seng','eurostoxx','stoxx','stocks','equity','equities','rally','selloff','sell-off','wall street','shares','index','indexes'],
@@ -194,12 +468,13 @@ function classifyNews(news) {
   return buckets;
 }
 
+// ============ TILES & CHARTS ============
 function tileHtml(inst, period) {
   const chg = inst.changes ? inst.changes[period] : null;
   const cls = pctClass(chg);
   const val = inst.current;
   const valStr = typeof val === 'number'
-    ? val.toLocaleString('en-GB', {minimumFractionDigits: inst.decimals || 2, maximumFractionDigits: inst.decimals || 2})
+    ? val.toLocaleString('en-GB', {minimumFractionDigits: inst.decimals||2, maximumFractionDigits: inst.decimals||2})
     : val;
   return `<div class="tile">
     <div class="tl">${inst.label}</div>
@@ -217,114 +492,39 @@ function drawChart(id, inst) {
   const chg1y = inst.changes?.YTD ?? inst.changes?.['1D'] ?? 0;
   const col = chg1y >= 0 ? '#00d488' : '#ff5566';
   CHART_INSTANCES[id] = new Chart(ctx, {
-    type: 'line',
-    data: {
-      labels: series.labels,
-      datasets: [{
-        data: series.values,
-        borderColor: col,
-        borderWidth: 1.8,
-        pointRadius: 0,
-        pointHoverRadius: 4,
-        pointHoverBackgroundColor: col,
-        tension: 0.3,
-        fill: true,
-        backgroundColor: c => {
-          const g = c.chart.ctx.createLinearGradient(0, 0, 0, 180);
-          g.addColorStop(0, col + '55');
-          g.addColorStop(1, col + '00');
-          return g;
-        }
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false,
-      animation: false,
-      interaction: { mode: 'index', intersect: false },
-      plugins: {
-        legend: { display: false },
-        tooltip: {
-          backgroundColor: '#0e1116',
-          borderColor: '#2a3340',
-          borderWidth: 1,
-          titleColor: '#eef2f7',
-          bodyColor: '#eef2f7',
-          titleFont: { family: 'IBM Plex Mono', size: 11 },
-          bodyFont: { family: 'IBM Plex Mono', size: 12, weight: 'bold' },
-          padding: 10,
-          displayColors: false,
-          callbacks: { label: c => ' ' + c.parsed.y?.toLocaleString('en-GB', {maximumFractionDigits: 4}) }
-        }
-      },
-      scales: {
-        x: { display: true, grid: { display: false }, ticks: { color: '#475568', font: { family: 'IBM Plex Mono', size: 9 }, maxTicksLimit: 6, autoSkip: true } },
-        y: { display: true, position: 'right', grid: { color: '#1f2630', drawBorder: false }, ticks: { color: '#475568', font: { family: 'IBM Plex Mono', size: 9 }, maxTicksLimit: 5, callback: v => v.toLocaleString('en-GB', {maximumFractionDigits: 2}) }, grace: '5%' }
-      }
-    }
+    type:'line',
+    data:{labels:series.labels,datasets:[{data:series.values,borderColor:col,borderWidth:1.8,pointRadius:0,pointHoverRadius:4,pointHoverBackgroundColor:col,tension:0.3,fill:true,backgroundColor:c=>{const g=c.chart.ctx.createLinearGradient(0,0,0,180);g.addColorStop(0,col+'55');g.addColorStop(1,col+'00');return g;}}]},
+    options:{responsive:true,maintainAspectRatio:false,animation:false,interaction:{mode:'index',intersect:false},
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'#0e1116',borderColor:'#2a3340',borderWidth:1,titleColor:'#eef2f7',bodyColor:'#eef2f7',titleFont:{family:'IBM Plex Mono',size:11},bodyFont:{family:'IBM Plex Mono',size:12,weight:'bold'},padding:10,displayColors:false,callbacks:{label:c=>' '+c.parsed.y?.toLocaleString('en-GB',{maximumFractionDigits:4})}}},
+      scales:{x:{display:true,grid:{display:false},ticks:{color:'#475568',font:{family:'IBM Plex Mono',size:9},maxTicksLimit:6,autoSkip:true}},y:{display:true,position:'right',grid:{color:'#1f2630',drawBorder:false},ticks:{color:'#475568',font:{family:'IBM Plex Mono',size:9},maxTicksLimit:5,callback:v=>v.toLocaleString('en-GB',{maximumFractionDigits:2})},grace:'5%'}}}
   });
 }
 
 function renderSection(key, title, secData, period, sectionNews) {
   if (!secData || !secData.instruments?.length) return '';
   const tiles = secData.instruments.map(i => tileHtml(i, period)).join('');
-  const chartsHtml = (secData.charts || []).map(inst => {
+  const chartsHtml = (secData.charts||[]).map(inst => {
     const id = `chart-${key}-${inst.symbol.replace(/[^a-zA-Z0-9]/g,'_')}`;
     const chgPeriod = inst.changes?.[period];
     const cls = pctClass(chgPeriod);
-    return `<div class="chart-card">
-      <div class="chart-head">
-        <div class="ct">${inst.label}</div>
-        <div class="cv ${cls}">${fmtPct(chgPeriod)} <span class="cv-sub">${period}</span></div>
-      </div>
-      <div class="cbox"><canvas id="${id}"></canvas></div>
-    </div>`;
+    return `<div class="chart-card"><div class="chart-head"><div class="ct">${inst.label}</div><div class="cv ${cls}">${fmtPct(chgPeriod)} <span class="cv-sub">${period}</span></div></div><div class="cbox"><canvas id="${id}"></canvas></div></div>`;
   }).join('');
-
   let newsHtml = '';
   if (sectionNews && sectionNews.length) {
-    newsHtml = `<div class="section-news">
-      <div class="section-news-label">Related headlines</div>
-      ${sectionNews.map(n => {
-        const dateStr = n.date ? new Date(n.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
-        return `<div class="sn-item">
-          ${n.link ? `<a href="${n.link}" target="_blank" rel="noopener" class="sn-title">${n.title}</a>` : `<div class="sn-title">${n.title}</div>`}
-          <div class="sn-meta">${n.source || ''}${dateStr ? ' · '+dateStr : ''}</div>
-        </div>`;
-      }).join('')}
-    </div>`;
+    newsHtml = `<div class="section-news"><div class="section-news-label">Related headlines</div>${sectionNews.map(n=>{
+      const dateStr = n.date ? new Date(n.date).toLocaleDateString('en-GB',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'}) : '';
+      return `<div class="sn-item">${n.link?`<a href="${n.link}" target="_blank" rel="noopener" class="sn-title">${n.title}</a>`:`<div class="sn-title">${n.title}</div>`}<div class="sn-meta">${n.source||''}${dateStr?' · '+dateStr:''}</div></div>`;
+    }).join('')}</div>`;
   }
-
   return `<div class="section s-${key}">
-    <div class="section-head">
-      <div class="section-label">${title}</div>
-      <div class="section-commentary">${secData.commentary || ''}</div>
-    </div>
+    <div class="section-head"><div class="section-label">${title}</div><div class="section-commentary">${secData.commentary||''}</div></div>
     <div class="tiles">${tiles}</div>
     <div class="charts-grid">${chartsHtml}</div>
     ${newsHtml}
   </div>`;
 }
 
-function renderPatrimony(p, period) {
-  if (!p) return '';
-  const chg = p.changes?.[period];
-  const cls = pctClass(chg);
-  const eurVal = p.current_eur;
-  const chgEur = chg != null ? Math.round(eurVal * chg / 100) : null;
-  const chgEurStr = chgEur != null ? (chgEur > 0 ? '+' : '') + '€' + Math.abs(chgEur).toLocaleString('en-GB') : '—';
-  return `<div class="patrimony">
-    <div class="pat-label">Estimated patrimony value · 6.0M€ baseline (CHF 55% / EUR 40% / USD 5%)</div>
-    <div class="pat-main">
-      <div class="pat-value">€ ${eurVal.toLocaleString('en-GB')}</div>
-      <div class="pat-change ${cls}">${fmtPct(chg)} <span style="color:var(--text3);font-weight:400">·</span> ${chgEurStr} <span style="color:var(--text3);font-size:11px">${period}</span></div>
-    </div>
-    <div class="pat-detail">
-      Components: <span style="color:var(--text2)">CHF ${p.chf_amount?.toLocaleString('en-GB')}</span> · <span style="color:var(--text2)">EUR ${p.eur_amount?.toLocaleString('en-GB')}</span> · <span style="color:var(--text2)">USD ${p.usd_amount?.toLocaleString('en-GB')}</span>
-    </div>
-  </div>`;
-}
-
+// ============ RENDER ALL ============
 function setPeriod(p) {
   CURRENT_PERIOD = p;
   CHART_SPAN = (p === '2Y') ? '2y' : '1y';
@@ -336,23 +536,19 @@ function updateAge() {
   if (!CURRENT_DATA) return;
   const el = document.getElementById('age');
   if (!el) return;
-  const age = dataAge(CURRENT_DATA.updated);
-  el.textContent = age ? '· ' + age : '';
+  el.textContent = dataAge(CURRENT_DATA.updated) ? '· ' + dataAge(CURRENT_DATA.updated) : '';
   el.className = ageClass(CURRENT_DATA.updated);
 }
 
 function renderAll() {
   if (!CURRENT_DATA) return;
   const d = CURRENT_DATA;
-  document.getElementById('patrimony-wrap').innerHTML = renderPatrimony(d.patrimony, CURRENT_PERIOD);
-  const refLabels = {
-    '1D': 'vs previous close',
-    'MTD': 'vs ' + (d.references?.mtd || ''),
-    'QTD': 'vs ' + (d.references?.qtd || ''),
-    'YTD': 'vs ' + (d.references?.ytd || ''),
-    '2Y': 'vs ' + (d.references?.['2y'] || '')
-  };
+
+  document.getElementById('patrimony-wrap').innerHTML = renderPatrimony(d);
+
+  const refLabels = {'1D':'vs previous close','MTD':'vs '+(d.references?.mtd||''),'QTD':'vs '+(d.references?.qtd||''),'YTD':'vs '+(d.references?.ytd||''),'2Y':'vs '+(d.references?.['2y']||'')};
   document.getElementById('ref-date').textContent = refLabels[CURRENT_PERIOD] || '';
+
   const newsBuckets = classifyNews(d.news || []);
   const sectionsHtml = [
     renderSection('fx',      'FX — CHF & USD in EUR',  d.sections?.fx,      CURRENT_PERIOD, newsBuckets.fx),
@@ -362,18 +558,22 @@ function renderAll() {
     renderSection('rates',   'Rates & risk',            d.sections?.rates,   CURRENT_PERIOD, newsBuckets.rates),
   ].join('');
   document.getElementById('sections-wrap').innerHTML = sectionsHtml;
-  setTimeout(() => {
-    ['fx','indices','energy','crypto','rates'].forEach(key => {
-      const sec = d.sections?.[key];
-      if (!sec?.charts) return;
-      sec.charts.forEach(inst => {
-        const id = `chart-${key}-${inst.symbol.replace(/[^a-zA-Z0-9]/g,'_')}`;
-        drawChart(id, inst);
+
+  if (!IS_COMPACT) {
+    setTimeout(() => {
+      ['fx','indices','energy','crypto','rates'].forEach(key => {
+        const sec = d.sections?.[key];
+        if (!sec?.charts) return;
+        sec.charts.forEach(inst => {
+          const id = `chart-${key}-${inst.symbol.replace(/[^a-zA-Z0-9]/g,'_')}`;
+          drawChart(id, inst);
+        });
       });
-    });
-  }, 30);
+    }, 30);
+  }
 }
 
+// ============ LOAD DATA ============
 async function loadData() {
   st('Loading…', 'ld');
   document.getElementById('patrimony-wrap').innerHTML = '<div class="patrimony"><div class="pat-label sk" style="height:10px;width:300px;margin-bottom:14px"></div><div class="pat-value sk" style="height:34px;width:280px"></div></div>';
@@ -395,6 +595,7 @@ async function loadData() {
 
 setInterval(updateAge, 60000);
 setInterval(loadData, 15 * 60 * 1000);
+initLayout();
 loadData();
 </script>
 </body>
