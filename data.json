@@ -1,5 +1,5 @@
 {
-  "updated": "12 Jun 2026 22:13 UTC",
+  "updated": "12 Jun 2026 23:55 UTC",
   "references": {
     "mtd": "31 May 2026",
     "qtd": "31 Mar 2026",
@@ -3763,14 +3763,14 @@
           "label": "FTSE 100",
           "section": "indices",
           "decimals": 0,
-          "current": 10472.0,
-          "raw_current": 10471.7197265625,
+          "current": 10304.0,
+          "raw_current": 10303.900390625,
           "changes": {
-            "1D": 1.63,
-            "MTD": 0.6,
-            "QTD": 2.9,
-            "YTD": 5.44,
-            "2Y": 27.46
+            "1D": 0.48,
+            "MTD": -1.01,
+            "QTD": 1.25,
+            "YTD": 3.75,
+            "2Y": 25.42
           },
           "series_1y": {
             "labels": [
@@ -3835,7 +3835,6 @@
               "May 26",
               "May 26",
               "May 26",
-              "Jun 26",
               "Jun 26",
               "Jun 26",
               "Jun 26"
@@ -3904,8 +3903,7 @@
               10491.4004,
               10339.0,
               10368.0996,
-              10303.9004,
-              10471.7197
+              10303.9004
             ]
           },
           "series_2y": {
@@ -4041,7 +4039,7 @@
               10323.7998,
               10409.2998,
               10254.7998,
-              10471.7197
+              10303.9004
             ]
           }
         },
@@ -6003,7 +6001,7 @@
           }
         }
       ],
-      "commentary": "Section broadly positive today (9 up / 2 down, avg +0.37%). Biggest mover: FTSE 100 (+1.63%). YTD section average: +6.2%."
+      "commentary": "Section broadly positive today (9 up / 2 down, avg +0.26%). Biggest mover: FTSE MIB (+0.95%). YTD section average: +6.0%."
     },
     "energy": {
       "instruments": [
@@ -8580,14 +8578,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54893.0,
-          "raw_current": 54893.33984375,
+          "current": 54948.0,
+          "raw_current": 54948.05078125,
           "changes": {
-            "1D": -0.03,
-            "MTD": -13.09,
-            "QTD": -6.89,
-            "YTD": -26.4,
-            "2Y": -13.02
+            "1D": 0.07,
+            "MTD": -13.0,
+            "QTD": -6.8,
+            "YTD": -26.33,
+            "2Y": -12.93
           },
           "series_1y": {
             "labels": [
@@ -8716,7 +8714,7 @@
               65162.9688,
               61294.707,
               54885.3906,
-              54893.3398
+              54948.0508
             ]
           },
           "series_2y": {
@@ -8846,7 +8844,7 @@
               68436.6797,
               66737.6562,
               57391.8281,
-              54893.3398
+              54948.0508
             ]
           }
         },
@@ -8855,14 +8853,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1438.0,
-          "raw_current": 1438.239990234375,
+          "current": 1440.0,
+          "raw_current": 1440.1600341796875,
           "changes": {
-            "1D": -0.44,
-            "MTD": -16.41,
-            "QTD": -20.91,
-            "YTD": -43.13,
-            "2Y": -56.31
+            "1D": -0.31,
+            "MTD": -16.3,
+            "QTD": -20.81,
+            "YTD": -43.05,
+            "2Y": -56.25
           },
           "series_1y": {
             "labels": [
@@ -8991,7 +8989,7 @@
               1779.6499,
               1721.6384,
               1463.6182,
-              1438.24
+              1440.16
             ]
           },
           "series_2y": {
@@ -9121,7 +9119,7 @@
               1974.025,
               1834.4966,
               1598.3792,
-              1438.24
+              1440.16
             ]
           }
         }
@@ -9415,14 +9413,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54893.0,
-          "raw_current": 54893.33984375,
+          "current": 54948.0,
+          "raw_current": 54948.05078125,
           "changes": {
-            "1D": -0.03,
-            "MTD": -13.09,
-            "QTD": -6.89,
-            "YTD": -26.4,
-            "2Y": -13.02
+            "1D": 0.07,
+            "MTD": -13.0,
+            "QTD": -6.8,
+            "YTD": -26.33,
+            "2Y": -12.93
           },
           "series_1y": {
             "labels": [
@@ -9551,7 +9549,7 @@
               65162.9688,
               61294.707,
               54885.3906,
-              54893.3398
+              54948.0508
             ]
           },
           "series_2y": {
@@ -9681,12 +9679,12 @@
               68436.6797,
               66737.6562,
               57391.8281,
-              54893.3398
+              54948.0508
             ]
           }
         }
       ],
-      "commentary": "Section broadly positive today (2 up / 2 down, avg +2.46%). Biggest mover: Silver USD/oz (+6.63%). YTD section average: -18.6%."
+      "commentary": "Section broadly positive today (3 up / 1 down, avg +2.51%). Biggest mover: Silver USD/oz (+6.63%). YTD section average: -18.6%."
     },
     "rates": {
       "instruments": [
@@ -11683,11 +11681,27 @@
   },
   "news": [
     {
+      "title": "Geopolitical Tensions Put Diamondback Energy\u2019s Swing Producer Role In Focus",
+      "link": "https://finance.yahoo.com/sectors/energy/articles/geopolitical-tensions-put-diamondback-energy-231521014.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 12 Jun 2026 23:15:21 +0000",
+      "description": "Geopolitical tensions in the Middle East and Iran related supply disruptions have pushed crude prices higher and put new focus on U.S. producers. Diamondback Energy (NasdaqGS:FANG) is being highlighted as a key swing producer that could help fill potential supply gaps. Recent U.S. military actions a",
+      "category": "Energy"
+    },
+    {
       "title": "Dow Jones Futures: Market Has Wild Week, 5 Stocks In Buy Areas; SpaceX's Next Test",
       "link": "https://finance.yahoo.com/m/41879e00-88f3-34d4-8429-39e5c21c3e38/dow-jones-futures%3A-market-has.html?.tsrc=rss",
       "source": "Yahoo Finance",
       "date": "Fri, 12 Jun 2026 22:00:01 +0000",
       "description": "The stock market had a wild but winning week. Comfort Systems and Viavi lead stocks making bullish rebounds. The SpaceX IPO took off.",
+      "category": "Energy"
+    },
+    {
+      "title": "S&P 500, Nasdaq, Dow End Higher On SpaceX Strong Debut And US-Iran Peace Signals \u2014 SPCX, SHEL, ROKU, XOM, HOOD In Focus",
+      "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-dow-end-higher-on-space-x-strong-debut-and-us-iran-peace-signals-spcx-shel-roku-xom-hood-in-focus/cZKdaEuR75L?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 12 Jun 2026 21:45:19 +0000",
+      "description": "Iran\u2019s Foreign Minister Abbas Araghchi said the Islamabad Memorandum of Understanding has \u201cnever been closer.\u201d",
       "category": "Energy"
     },
     {
@@ -11699,14 +11713,6 @@
       "category": "Energy"
     },
     {
-      "title": "Stock Market Today: Dow Ends Higher On Iran Deal Hopes; SpaceX Rockets 19% In Debut",
-      "link": "https://finance.yahoo.com/m/3ab863ee-d132-3549-8208-e6dd679a6a25/stock-market-today%3A-dow-ends.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 12 Jun 2026 21:06:20 +0000",
-      "description": "Stock Market Today: The Dow Jones index rises Friday on U.S.-Iran peace deal hopes. SpaceX stock jumps on its debut.",
-      "category": "Energy"
-    },
-    {
       "title": "Indexes Settle Higher as SpaceX Soars in Trading Debut",
       "link": "https://www.wsj.com/finance/stocks/oil-falls-u-s-futures-rise-after-trump-calls-off-iran-strikes-5552ae7f?.tsrc=rss",
       "source": "Yahoo Finance",
@@ -11715,51 +11721,43 @@
       "category": "Energy"
     },
     {
-      "title": "How major US stock indexes fared Friday 6/12/2026",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/major-us-stock-indexes-fared-203027763.html?.tsrc=rss",
+      "title": "Why Red Cat Stock Sank Today",
+      "link": "https://www.fool.com/investing/2026/06/12/why-red-cat-stock-sank-today/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 12 Jun 2026 20:30:27 +0000",
-      "description": "The Dow added 0.7%, and the Nasdaq composite gained 0.3%.  The Nasdaq composite rose 79.18 points, or 0.3%, to 25,888.84.  The Russell 2000 index of smaller companies rose 22.96 points, or 0.8% to 2,943.99.",
-      "category": "Energy"
-    },
-    {
-      "title": "Dow Jones Futures: Market Has Wild Week, 5 Stocks In Buy Areas; SpaceX's Next Test",
-      "link": "https://finance.yahoo.com/m/41879e00-88f3-34d4-8429-39e5c21c3e38/dow-jones-futures%3A-market-has.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 12 Jun 2026 22:00:01 +0000",
-      "description": "The stock market had a wild but winning week. Comfort Systems and Viavi lead stocks making bullish rebounds. The SpaceX IPO took off.",
+      "date": "Fri, 12 Jun 2026 23:45:32 +0000",
+      "description": "Red Cat stock lost ground even as the broader market moved higher.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Why Navitas Semiconductor Stock Soared Today",
-      "link": "https://www.fool.com/investing/2026/06/12/why-navitas-semiconductor-stock-soared-today/?.tsrc=rss",
+      "title": "The World Is Changing. Tech\u2019s Top Spot Isn\u2019t.",
+      "link": "https://finance.yahoo.com/m/f4acde87-32e4-3476-84f5-6d83e2d483eb/the-world-is-changing.-tech%E2%80%99s.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 12 Jun 2026 21:58:13 +0000",
-      "description": "With today's pop, Navitas stock is up 227.5% in 2026.",
+      "date": "Fri, 12 Jun 2026 23:31:00 +0000",
+      "description": "KKR\u2019s Henry McVey sees earnings and economic growth concentrated in a handful of areas\u2014and everything else left in the dust.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Tesla, SpaceX, and the Battle to Be Musk\u2019s Most Valuable Company",
-      "link": "https://finance.yahoo.com/m/13b2ad4a-f09b-389c-a002-83c0055ef9b8/tesla%2C-spacex%2C-and-the-battle.html?.tsrc=rss",
+      "title": "The Index Says Euphoria. But Don\u2019t Panic.",
+      "link": "https://finance.yahoo.com/m/f3575c70-9280-3535-ba58-0f66dd6cc4b1/the-index-says-euphoria.-but.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 12 Jun 2026 21:32:00 +0000",
-      "description": "SpaceX  trading began, officially making  Tesla  and SpaceX CEO Elon Musk a trillionaire.  SpaceX is worth more to Musk than Tesla, but which company will turn out more valuable to investors is harder to say.  Tesla stock rose 1.8% on Friday, closing at $406.43, while the  and  gained 0.5% and 0.7%,",
+      "date": "Fri, 12 Jun 2026 23:13:00 +0000",
+      "description": "A Citigroup sentiment indicator hasn\u2019t shown this much market euphoria since the post-Covid rally of 2021. How long can it last?",
       "category": "Macro/Equity"
     },
     {
-      "title": "Stock Market Today, June 12: AST SpaceMobile Drops on Space Stock Shakeout After SpaceX Debut",
-      "link": "https://www.fool.com/coverage/stock-market-today/2026/06/12/stock-market-today-june-12-ast-spacemobile-drops-on-space-stock-shakeout-after-spacex-debut/?.tsrc=rss",
+      "title": "Poet Technologies Skyrocketed Today -- Is the Stock a Buy Right Now?",
+      "link": "https://www.fool.com/investing/2026/06/12/poet-technologies-skyrocketed-today-is-the-stock-a/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 12 Jun 2026 21:29:36 +0000",
-      "description": "Today, June 12, 2026, investors are weighing a sharp pullback against fresh competition in the public market and a huge addressable market.",
+      "date": "Fri, 12 Jun 2026 23:04:55 +0000",
+      "description": "Poet stock is still down 39% from its 52-week high after a recent pop. Should investors be buying?",
       "category": "Macro/Equity"
     },
     {
-      "title": "Why Rocket Lab Stock Plummeted Today",
-      "link": "https://www.fool.com/investing/2026/06/12/why-rocket-lab-stock-plummeted-today/?.tsrc=rss",
+      "title": "Wall Street ends higher as SpaceX's market debut dominates",
+      "link": "https://finance.yahoo.com/video/wall-street-ends-higher-spacexs-224935382.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 12 Jun 2026 21:17:17 +0000",
-      "description": "SpaceX had a successful IPO and soared in its first trading day. So why did Rocket Lab stock fall rapidly?",
+      "date": "Fri, 12 Jun 2026 22:49:35 +0000",
+      "description": "<body><p>STORY: Wall Street's main indexes ended higher on Friday, as SpaceX shares surged in their debut, making it Wall Street's biggest public listing in history.</p><p>The Dow jumped seven-tenths of a percent, the S&P 500 added half a percent and the Nasdaq gained just under a third of a percent",
       "category": "Macro/Equity"
     }
   ]
