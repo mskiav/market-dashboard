@@ -1,5 +1,5 @@
 {
-  "updated": "19 Jun 2026 21:46 UTC",
+  "updated": "19 Jun 2026 23:04 UTC",
   "references": {
     "mtd": "31 May 2026",
     "qtd": "31 Mar 2026",
@@ -1780,13 +1780,13 @@
           "label": "S&P 500",
           "section": "indices",
           "decimals": 0,
-          "current": 7420.0,
-          "raw_current": 7420.10009765625,
+          "current": 7501.0,
+          "raw_current": 7500.580078125,
           "changes": {
-            "1D": -1.21,
-            "MTD": -2.11,
-            "QTD": 13.66,
-            "YTD": 8.39,
+            "1D": 1.08,
+            "MTD": -1.05,
+            "QTD": 14.89,
+            "YTD": 9.57,
             "2Y": null
           },
           "series_1y": {
@@ -1920,7 +1920,7 @@
               7584.3101,
               7266.9902,
               7511.3501,
-              7420.1001
+              7500.5801
             ]
           },
           "series_2y": {
@@ -2054,7 +2054,7 @@
               7432.9702,
               7609.7798,
               7431.46,
-              7420.1001
+              7500.5801
             ]
           }
         },
@@ -2063,13 +2063,13 @@
           "label": "Nasdaq",
           "section": "indices",
           "decimals": 0,
-          "current": 26022.0,
-          "raw_current": 26021.66015625,
+          "current": 26518.0,
+          "raw_current": 26517.9296875,
           "changes": {
-            "1D": -1.34,
-            "MTD": -3.53,
-            "QTD": 20.52,
-            "YTD": 11.96,
+            "1D": 1.91,
+            "MTD": -1.69,
+            "QTD": 22.82,
+            "YTD": 14.09,
             "2Y": null
           },
           "series_1y": {
@@ -2203,7 +2203,7 @@
               26830.9609,
               25169.5,
               26376.3398,
-              26021.6602
+              26517.9297
             ]
           },
           "series_2y": {
@@ -2337,7 +2337,7 @@
               26270.3594,
               27093.9004,
               25888.8398,
-              26021.6602
+              26517.9297
             ]
           }
         },
@@ -2346,14 +2346,14 @@
           "label": "EuroStoxx 50",
           "section": "indices",
           "decimals": 0,
-          "current": 6293.0,
-          "raw_current": 6293.1298828125,
+          "current": 6323.0,
+          "raw_current": 6323.27001953125,
           "changes": {
-            "1D": -0.11,
-            "MTD": 4.01,
-            "QTD": 12.99,
-            "YTD": 8.57,
-            "2Y": 28.81
+            "1D": 0.37,
+            "MTD": 4.51,
+            "QTD": 13.53,
+            "YTD": 9.09,
+            "2Y": 29.43
           },
           "series_1y": {
             "labels": [
@@ -2484,7 +2484,7 @@
               6107.8501,
               6062.29,
               6187.6299,
-              6293.1299
+              6323.27
             ]
           },
           "series_2y": {
@@ -2618,7 +2618,7 @@
               6064.1499,
               6062.0698,
               6300.0698,
-              6293.1299
+              6323.27
             ]
           }
         },
@@ -2627,14 +2627,14 @@
           "label": "FTSE MIB",
           "section": "indices",
           "decimals": 0,
-          "current": 52849.0,
-          "raw_current": 52848.9296875,
+          "current": 52688.0,
+          "raw_current": 52688.0,
           "changes": {
-            "1D": 0.48,
-            "MTD": 5.62,
-            "QTD": 19.27,
-            "YTD": 17.59,
-            "2Y": 59.09
+            "1D": 0.18,
+            "MTD": 5.3,
+            "QTD": 18.91,
+            "YTD": 17.23,
+            "2Y": 58.6
           },
           "series_1y": {
             "labels": [
@@ -2767,7 +2767,7 @@
               50038.0,
               50263.0,
               51836.0,
-              52848.9297
+              52688.0
             ]
           },
           "series_2y": {
@@ -2901,7 +2901,7 @@
               48669.0,
               49825.0,
               50263.0,
-              52848.9297
+              52688.0
             ]
           }
         },
@@ -2910,14 +2910,14 @@
           "label": "DAX",
           "section": "indices",
           "decimals": 0,
-          "current": 24986.0,
-          "raw_current": 24985.8203125,
+          "current": 25027.0,
+          "raw_current": 25026.80078125,
           "changes": {
-            "1D": 0.21,
-            "MTD": -0.47,
-            "QTD": 10.17,
-            "YTD": 2.02,
-            "2Y": 38.29
+            "1D": 0.37,
+            "MTD": -0.31,
+            "QTD": 10.35,
+            "YTD": 2.19,
+            "2Y": 38.52
           },
           "series_1y": {
             "labels": [
@@ -3050,7 +3050,7 @@
               25124.1699,
               24616.2207,
               24635.3008,
-              24985.8203
+              25026.8008
             ]
           },
           "series_2y": {
@@ -3186,7 +3186,7 @@
               25184.8906,
               24759.0508,
               24934.6699,
-              24985.8203
+              25026.8008
             ]
           }
         },
@@ -3195,14 +3195,14 @@
           "label": "CAC 40",
           "section": "indices",
           "decimals": 0,
-          "current": 8421.0,
-          "raw_current": 8421.1396484375,
+          "current": 8468.0,
+          "raw_current": 8467.98046875,
           "changes": {
-            "1D": -0.11,
-            "MTD": 2.91,
-            "QTD": 7.73,
-            "YTD": 3.33,
-            "2Y": 11.24
+            "1D": 0.44,
+            "MTD": 3.48,
+            "QTD": 8.33,
+            "YTD": 3.91,
+            "2Y": 11.86
           },
           "series_1y": {
             "labels": [
@@ -3337,7 +3337,7 @@
               8244.29,
               8161.8301,
               8447.2695,
-              8421.1396
+              8467.9805
             ]
           },
           "series_2y": {
@@ -3473,7 +3473,7 @@
               8117.4199,
               8146.5898,
               8200.7998,
-              8421.1396
+              8467.9805
             ]
           }
         },
@@ -3482,14 +3482,14 @@
           "label": "SMI",
           "section": "indices",
           "decimals": 0,
-          "current": 13774.0,
-          "raw_current": 13774.01953125,
+          "current": 13766.0,
+          "raw_current": 13765.830078125,
           "changes": {
-            "1D": -0.3,
-            "MTD": 1.71,
-            "QTD": 7.81,
-            "YTD": 3.82,
-            "2Y": 14.21
+            "1D": -0.36,
+            "MTD": 1.65,
+            "QTD": 7.74,
+            "YTD": 3.76,
+            "2Y": 14.14
           },
           "series_1y": {
             "labels": [
@@ -3620,7 +3620,7 @@
               13305.7197,
               13320.9902,
               13708.0195,
-              13774.0195
+              13765.8301
             ]
           },
           "series_2y": {
@@ -3754,7 +3754,7 @@
               13525.6797,
               13388.2305,
               13815.2402,
-              13774.0195
+              13765.8301
             ]
           }
         },
@@ -3763,14 +3763,14 @@
           "label": "FTSE 100",
           "section": "indices",
           "decimals": 0,
-          "current": 10363.0,
-          "raw_current": 10363.26953125,
+          "current": 10400.0,
+          "raw_current": 10399.7001953125,
           "changes": {
-            "1D": -1.38,
-            "MTD": -0.44,
-            "QTD": 1.84,
-            "YTD": 4.35,
-            "2Y": 26.3
+            "1D": -1.04,
+            "MTD": -0.09,
+            "QTD": 2.19,
+            "YTD": 4.72,
+            "2Y": 26.75
           },
           "series_1y": {
             "labels": [
@@ -3903,7 +3903,7 @@
               10373.5,
               10373.2002,
               10471.7002,
-              10363.2695
+              10399.7002
             ]
           },
           "series_2y": {
@@ -4039,7 +4039,7 @@
               10491.4004,
               10368.0996,
               10508.5996,
-              10363.2695
+              10399.7002
             ]
           }
         },
@@ -4048,14 +4048,14 @@
           "label": "Nikkei 225",
           "section": "indices",
           "decimals": 0,
-          "current": 69902.0,
-          "raw_current": 69902.25,
+          "current": 71053.0,
+          "raw_current": 71053.4921875,
           "changes": {
-            "1D": 0.72,
-            "MTD": 5.39,
-            "QTD": 36.89,
-            "YTD": 38.86,
-            "2Y": 81.23
+            "1D": 1.65,
+            "MTD": 7.12,
+            "QTD": 39.15,
+            "YTD": 41.15,
+            "2Y": 84.22
           },
           "series_1y": {
             "labels": [
@@ -4184,7 +4184,7 @@
               67470.6875,
               64179.2695,
               69404.5,
-              69902.25
+              71053.4922
             ]
           },
           "series_2y": {
@@ -4314,7 +4314,7 @@
               60550.5898,
               66329.5,
               64179.2695,
-              69902.25
+              71053.4922
             ]
           }
         },
@@ -4323,14 +4323,14 @@
           "label": "Hang Seng",
           "section": "indices",
           "decimals": 0,
-          "current": 24312.0,
-          "raw_current": 24312.16015625,
+          "current": 23925.0,
+          "raw_current": 23924.810546875,
           "changes": {
-            "1D": -0.74,
-            "MTD": -3.46,
-            "QTD": -1.92,
-            "YTD": -5.14,
-            "2Y": 31.91
+            "1D": -1.59,
+            "MTD": -4.99,
+            "QTD": -3.48,
+            "YTD": -6.66,
+            "2Y": 29.81
           },
           "series_1y": {
             "labels": [
@@ -4392,6 +4392,7 @@
               "May 26",
               "May 26",
               "May 26",
+              "Jun 26",
               "Jun 26",
               "Jun 26",
               "Jun 26",
@@ -4459,7 +4460,8 @@
               25398.1797,
               24961.9492,
               24249.2891,
-              24312.1602
+              24312.1602,
+              23924.8105
             ]
           },
           "series_2y": {
@@ -4591,7 +4593,7 @@
               25606.0293,
               25253.4004,
               24493.9492,
-              24312.1602
+              23924.8105
             ]
           }
         },
@@ -4913,13 +4915,13 @@
           "label": "S&P 500",
           "section": "indices",
           "decimals": 0,
-          "current": 7420.0,
-          "raw_current": 7420.10009765625,
+          "current": 7501.0,
+          "raw_current": 7500.580078125,
           "changes": {
-            "1D": -1.21,
-            "MTD": -2.11,
-            "QTD": 13.66,
-            "YTD": 8.39,
+            "1D": 1.08,
+            "MTD": -1.05,
+            "QTD": 14.89,
+            "YTD": 9.57,
             "2Y": null
           },
           "series_1y": {
@@ -5053,7 +5055,7 @@
               7584.3101,
               7266.9902,
               7511.3501,
-              7420.1001
+              7500.5801
             ]
           },
           "series_2y": {
@@ -5187,7 +5189,7 @@
               7432.9702,
               7609.7798,
               7431.46,
-              7420.1001
+              7500.5801
             ]
           }
         },
@@ -5196,14 +5198,14 @@
           "label": "DAX",
           "section": "indices",
           "decimals": 0,
-          "current": 24986.0,
-          "raw_current": 24985.8203125,
+          "current": 25027.0,
+          "raw_current": 25026.80078125,
           "changes": {
-            "1D": 0.21,
-            "MTD": -0.47,
-            "QTD": 10.17,
-            "YTD": 2.02,
-            "2Y": 38.29
+            "1D": 0.37,
+            "MTD": -0.31,
+            "QTD": 10.35,
+            "YTD": 2.19,
+            "2Y": 38.52
           },
           "series_1y": {
             "labels": [
@@ -5336,7 +5338,7 @@
               25124.1699,
               24616.2207,
               24635.3008,
-              24985.8203
+              25026.8008
             ]
           },
           "series_2y": {
@@ -5472,7 +5474,7 @@
               25184.8906,
               24759.0508,
               24934.6699,
-              24985.8203
+              25026.8008
             ]
           }
         },
@@ -5481,14 +5483,14 @@
           "label": "FTSE MIB",
           "section": "indices",
           "decimals": 0,
-          "current": 52849.0,
-          "raw_current": 52848.9296875,
+          "current": 52688.0,
+          "raw_current": 52688.0,
           "changes": {
-            "1D": 0.48,
-            "MTD": 5.62,
-            "QTD": 19.27,
-            "YTD": 17.59,
-            "2Y": 59.09
+            "1D": 0.18,
+            "MTD": 5.3,
+            "QTD": 18.91,
+            "YTD": 17.23,
+            "2Y": 58.6
           },
           "series_1y": {
             "labels": [
@@ -5621,7 +5623,7 @@
               50038.0,
               50263.0,
               51836.0,
-              52848.9297
+              52688.0
             ]
           },
           "series_2y": {
@@ -5755,7 +5757,7 @@
               48669.0,
               49825.0,
               50263.0,
-              52848.9297
+              52688.0
             ]
           }
         },
@@ -5764,14 +5766,14 @@
           "label": "Nikkei 225",
           "section": "indices",
           "decimals": 0,
-          "current": 69902.0,
-          "raw_current": 69902.25,
+          "current": 71053.0,
+          "raw_current": 71053.4921875,
           "changes": {
-            "1D": 0.72,
-            "MTD": 5.39,
-            "QTD": 36.89,
-            "YTD": 38.86,
-            "2Y": 81.23
+            "1D": 1.65,
+            "MTD": 7.12,
+            "QTD": 39.15,
+            "YTD": 41.15,
+            "2Y": 84.22
           },
           "series_1y": {
             "labels": [
@@ -5900,7 +5902,7 @@
               67470.6875,
               64179.2695,
               69404.5,
-              69902.25
+              71053.4922
             ]
           },
           "series_2y": {
@@ -6030,12 +6032,12 @@
               60550.5898,
               66329.5,
               64179.2695,
-              69902.25
+              71053.4922
             ]
           }
         }
       ],
-      "commentary": "Section broadly negative today (4 up / 7 down, avg -0.24%). Biggest mover: FTSE 100 (-1.38%). YTD section average: +8.8%."
+      "commentary": "Section broadly positive today (8 up / 3 down, avg +0.38%). Biggest mover: Nasdaq (+1.91%). YTD section average: +9.3%."
     },
     "energy": {
       "instruments": [
@@ -8612,14 +8614,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54984.0,
-          "raw_current": 54984.078125,
+          "current": 55143.0,
+          "raw_current": 55142.9296875,
           "changes": {
-            "1D": -1.78,
-            "MTD": -12.95,
-            "QTD": -6.74,
-            "YTD": -26.28,
-            "2Y": -9.03
+            "1D": 0.46,
+            "MTD": -12.7,
+            "QTD": -6.47,
+            "YTD": -26.07,
+            "2Y": -8.77
           },
           "series_1y": {
             "labels": [
@@ -8748,7 +8750,7 @@
               57391.8281,
               54729.0039,
               56631.5234,
-              54984.0781
+              55142.9297
             ]
           },
           "series_2y": {
@@ -8878,7 +8880,7 @@
               67198.2656,
               63108.707,
               53440.2266,
-              54984.0781
+              55142.9297
             ]
           }
         },
@@ -8887,14 +8889,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1484.0,
-          "raw_current": 1483.6400146484375,
+          "current": 1488.0,
+          "raw_current": 1487.56005859375,
           "changes": {
-            "1D": -2.33,
-            "MTD": -13.77,
-            "QTD": -18.42,
-            "YTD": -41.33,
-            "2Y": -55.2
+            "1D": -0.29,
+            "MTD": -13.54,
+            "QTD": -18.2,
+            "YTD": -41.18,
+            "2Y": -55.08
           },
           "series_1y": {
             "labels": [
@@ -9023,7 +9025,7 @@
               1598.3792,
               1466.1481,
               1486.332,
-              1483.64
+              1487.5601
             ]
           },
           "series_2y": {
@@ -9153,7 +9155,7 @@
               1874.7327,
               1722.8717,
               1419.7606,
-              1483.64
+              1487.5601
             ]
           }
         }
@@ -9447,14 +9449,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54984.0,
-          "raw_current": 54984.078125,
+          "current": 55143.0,
+          "raw_current": 55142.9296875,
           "changes": {
-            "1D": -1.78,
-            "MTD": -12.95,
-            "QTD": -6.74,
-            "YTD": -26.28,
-            "2Y": -9.03
+            "1D": 0.46,
+            "MTD": -12.7,
+            "QTD": -6.47,
+            "YTD": -26.07,
+            "2Y": -8.77
           },
           "series_1y": {
             "labels": [
@@ -9583,7 +9585,7 @@
               57391.8281,
               54729.0039,
               56631.5234,
-              54984.0781
+              55142.9297
             ]
           },
           "series_2y": {
@@ -9713,12 +9715,12 @@
               67198.2656,
               63108.707,
               53440.2266,
-              54984.0781
+              55142.9297
             ]
           }
         }
       ],
-      "commentary": "Section broadly negative today (0 up / 4 down, avg -1.84%). Biggest mover: Ethereum EUR (-2.33%). YTD section average: -19.6%."
+      "commentary": "Section broadly negative today (1 up / 3 down, avg -0.77%). Biggest mover: Silver USD/oz (-2.03%). YTD section average: -19.6%."
     },
     "rates": {
       "instruments": [
@@ -9730,7 +9732,7 @@
           "current": 16.78,
           "raw_current": 16.780000686645508,
           "changes": {
-            "1D": -9.0,
+            "1D": 2.32,
             "MTD": 9.53,
             "QTD": -33.54,
             "YTD": 12.24,
@@ -10858,7 +10860,7 @@
           "current": 16.78,
           "raw_current": 16.780000686645508,
           "changes": {
-            "1D": -9.0,
+            "1D": 2.32,
             "MTD": 9.53,
             "QTD": -33.54,
             "YTD": 12.24,
@@ -11698,10 +11700,26 @@
           }
         }
       ],
-      "commentary": "Section broadly negative today (2 up / 2 down, avg -2.00%). Biggest mover: VIX (-9.00%). YTD section average: +6.0%."
+      "commentary": "Section broadly positive today (3 up / 1 down, avg +0.83%). Biggest mover: VIX (+2.32%). YTD section average: +6.0%."
     }
   },
   "news": [
+    {
+      "title": "Weekly Wrap: Bitcoin Slumps As Fed Turns Hawkish On Interest Rates",
+      "link": "https://www.cryptoprowl.com/releases/weekly-wrap-bitcoin-slumps-as-fed-turns-hawkish-on-interest-rates-5933?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 19 Jun 2026 22:40:00 +0000",
+      "description": "Bitcoin (CRYPTO: $BTC) ended the week on a down note as a tentative recovery stalled after the U.S. Federal Reserve...",
+      "category": "Energy"
+    },
+    {
+      "title": "3 Things to Watch in the Stock Market Next Week",
+      "link": "https://www.fool.com/investing/2026/06/19/3-things-to-watch-in-the-stock-market-next-week/?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 19 Jun 2026 21:51:00 +0000",
+      "description": "Two heavyweight earnings reports and a closely followed check on the banking system all land in the same few days.",
+      "category": "Energy"
+    },
     {
       "title": "360 Energy Pulse: What mattered in energy this week",
       "link": "https://finance.yahoo.com/energy/articles/360-energy-pulse-mattered-energy-213014601.html?.tsrc=rss",
@@ -11727,20 +11745,12 @@
       "category": "Energy"
     },
     {
-      "title": "Oil edges back up, shares steady after US-Iran talks postponed",
-      "link": "https://finance.yahoo.com/markets/world-indices/articles/seoul-record-leads-most-asian-031508279.html?.tsrc=rss",
+      "title": "Schwab Plans S&P 500 Prediction Markets as Event Trading Moves Mainstream",
+      "link": "https://www.cryptoprowl.com/releases/schwab-plans-sp-500-prediction-markets-as-event-trading-moves-mainstream-5931?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 19 Jun 2026 16:22:55 +0000",
-      "description": "Oil prices edged back up and stock markets stabilised Friday after postponement of US-Iran peace deal talks.Friday saw oil prices back up slightly as Brent stood up 0.7 percent at $80.41 a barrel while West Texas Intermediate gained 0.3 percent to $76.85.",
-      "category": "Energy"
-    },
-    {
-      "title": "Why Oil Prices Are Falling Even as Tankers Remain Trapped",
-      "link": "https://finance.yahoo.com/energy/articles/why-oil-prices-falling-even-161000542.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 19 Jun 2026 16:10:00 +0000",
-      "description": "Oil prices tumble as markets bet on a Hormuz reopening despite slow tanker movements following the U.S.-Iran ceasefire.",
-      "category": "Energy"
+      "date": "Fri, 19 Jun 2026 22:31:00 +0000",
+      "description": "Charles Schwab (NYSE: $SCHW) is preparing to enter the prediction-markets race with a product built around the S&am...",
+      "category": "Macro/Equity"
     },
     {
       "title": "Making Six Figures but Betting Everything on U.S. Stocks? AVUV Fixes That Problem",
@@ -11772,14 +11782,6 @@
       "source": "Yahoo Finance",
       "date": "Fri, 19 Jun 2026 21:00:05 +0000",
       "description": "Dow Jones futures fell slightly Friday, along with S&P 500 futures and Nasdaq futures. The stock market rebounded this past week, though the gains were concentrated in chips and AI-related plays, along with biotechs.",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "Stocks Stall as Iran Nuclear Talks Hit Early Snag: Markets Wrap",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/stocks-slide-focus-shifts-iran-080450531.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 19 Jun 2026 20:09:15 +0000",
-      "description": "(Bloomberg) -- Global stocks are ending a strong week on a cautious note as relief over an interim peace deal between the US and Iran gave way to a focus on the challenges of securing a lasting agreement.Most Read from BloombergRead the 14-Point Draft Memorandum Between the US and IranUS-Iran Nuclea",
       "category": "Macro/Equity"
     }
   ]
