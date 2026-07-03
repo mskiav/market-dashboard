@@ -1,5 +1,5 @@
 {
-  "updated": "03 Jul 2026 19:58 UTC",
+  "updated": "03 Jul 2026 21:19 UTC",
   "references": {
     "mtd": "30 Jun 2026",
     "qtd": "30 Jun 2026",
@@ -8,15 +8,15 @@
   },
   "patrimony": {
     "current_eur": 6000000,
-    "chf_amount": 3035041,
+    "chf_amount": 3033367,
     "eur_amount": 2400000,
-    "usd_amount": 262260,
+    "usd_amount": 262230,
     "changes": {
-      "1D": 0.04,
-      "MTD": 0.16,
-      "QTD": 0.16,
-      "YTD": 0.76,
-      "2Y": 2.67
+      "1D": 0.07,
+      "MTD": 0.19,
+      "QTD": 0.19,
+      "YTD": 0.79,
+      "2Y": 2.71
     }
   },
   "sections": {
@@ -28,13 +28,13 @@
           "section": "fx",
           "decimals": 4,
           "current": 1.0881,
-          "raw_current": 1.0872999429702759,
+          "raw_current": 1.0879000425338745,
           "changes": {
-            "1D": 0.12,
-            "MTD": 0.31,
-            "QTD": 0.31,
-            "YTD": 1.15,
-            "2Y": 5.62
+            "1D": 0.17,
+            "MTD": 0.36,
+            "QTD": 0.36,
+            "YTD": 1.2,
+            "2Y": 5.68
           },
           "series_1y": {
             "labels": [
@@ -171,7 +171,7 @@
               1.087,
               1.0852,
               1.084,
-              1.0873
+              1.0879
             ]
           },
           "series_2y": {
@@ -309,7 +309,7 @@
               1.0888,
               1.0857,
               1.0855,
-              1.0873
+              1.0879
             ]
           }
         },
@@ -319,13 +319,13 @@
           "section": "fx",
           "decimals": 4,
           "current": 1.1448,
-          "raw_current": 0.874199984701567,
+          "raw_current": 0.874100056362238,
           "changes": {
-            "1D": -0.53,
-            "MTD": -0.15,
-            "QTD": -0.15,
-            "YTD": 2.69,
-            "2Y": -6.04
+            "1D": -0.55,
+            "MTD": -0.16,
+            "QTD": -0.16,
+            "YTD": 2.68,
+            "2Y": -6.05
           },
           "series_1y": {
             "labels": [
@@ -462,7 +462,7 @@
               0.869,
               0.8788,
               0.8755,
-              0.8742
+              0.8741
             ]
           },
           "series_2y": {
@@ -600,7 +600,7 @@
               0.8614,
               0.8625,
               0.8802,
-              0.8742
+              0.8741
             ]
           }
         },
@@ -903,13 +903,13 @@
           "section": "fx",
           "decimals": 4,
           "current": 1.0881,
-          "raw_current": 1.0872999429702759,
+          "raw_current": 1.0879000425338745,
           "changes": {
-            "1D": 0.12,
-            "MTD": 0.31,
-            "QTD": 0.31,
-            "YTD": 1.15,
-            "2Y": 5.62
+            "1D": 0.17,
+            "MTD": 0.36,
+            "QTD": 0.36,
+            "YTD": 1.2,
+            "2Y": 5.68
           },
           "series_1y": {
             "labels": [
@@ -1046,7 +1046,7 @@
               1.087,
               1.0852,
               1.084,
-              1.0873
+              1.0879
             ]
           },
           "series_2y": {
@@ -1184,7 +1184,7 @@
               1.0888,
               1.0857,
               1.0855,
-              1.0873
+              1.0879
             ]
           }
         },
@@ -1194,13 +1194,13 @@
           "section": "fx",
           "decimals": 4,
           "current": 1.1448,
-          "raw_current": 0.874199984701567,
+          "raw_current": 0.874100056362238,
           "changes": {
-            "1D": -0.53,
-            "MTD": -0.15,
-            "QTD": -0.15,
-            "YTD": 2.69,
-            "2Y": -6.04
+            "1D": -0.55,
+            "MTD": -0.16,
+            "QTD": -0.16,
+            "YTD": 2.68,
+            "2Y": -6.05
           },
           "series_1y": {
             "labels": [
@@ -1337,7 +1337,7 @@
               0.869,
               0.8788,
               0.8755,
-              0.8742
+              0.8741
             ]
           },
           "series_2y": {
@@ -1475,7 +1475,7 @@
               0.8614,
               0.8625,
               0.8802,
-              0.8742
+              0.8741
             ]
           }
         },
@@ -1771,7 +1771,7 @@
           }
         }
       ],
-      "commentary": "Section mixed today (1 up / 2 down, avg -0.14%). Biggest mover: USD / EUR (-0.53%). YTD section average: +1.9%."
+      "commentary": "Section mixed today (1 up / 2 down, avg -0.13%). Biggest mover: USD / EUR (-0.55%). YTD section average: +1.9%."
     },
     "indices": {
       "instruments": [
@@ -8620,14 +8620,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54340.0,
-          "raw_current": 54340.1796875,
+          "current": 54729.0,
+          "raw_current": 54728.8203125,
           "changes": {
-            "1D": 0.95,
-            "MTD": 5.91,
-            "QTD": 5.91,
-            "YTD": -27.14,
-            "2Y": -2.55
+            "1D": 1.67,
+            "MTD": 6.67,
+            "QTD": 6.67,
+            "YTD": -26.62,
+            "2Y": -1.85
           },
           "series_1y": {
             "labels": [
@@ -8756,7 +8756,7 @@
               56504.5234,
               55968.3906,
               52289.2188,
-              54340.1797
+              54728.8203
             ]
           },
           "series_2y": {
@@ -8886,7 +8886,7 @@
               63236.4414,
               54909.3125,
               55072.4062,
-              54340.1797
+              54728.8203
             ]
           }
         },
@@ -8895,14 +8895,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1526.0,
-          "raw_current": 1525.699951171875,
+          "current": 1543.0,
+          "raw_current": 1542.949951171875,
           "changes": {
-            "1D": 2.63,
-            "MTD": 10.94,
-            "QTD": 10.94,
-            "YTD": -39.67,
-            "2Y": -50.0
+            "1D": 3.79,
+            "MTD": 12.19,
+            "QTD": 12.19,
+            "YTD": -38.99,
+            "2Y": -49.44
           },
           "series_1y": {
             "labels": [
@@ -9031,7 +9031,7 @@
               1542.1434,
               1510.975,
               1379.3,
-              1525.7
+              1542.95
             ]
           },
           "series_2y": {
@@ -9161,7 +9161,7 @@
               1731.4573,
               1444.6548,
               1463.5791,
-              1525.7
+              1542.95
             ]
           }
         }
@@ -9455,14 +9455,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54340.0,
-          "raw_current": 54340.1796875,
+          "current": 54729.0,
+          "raw_current": 54728.8203125,
           "changes": {
-            "1D": 0.95,
-            "MTD": 5.91,
-            "QTD": 5.91,
-            "YTD": -27.14,
-            "2Y": -2.55
+            "1D": 1.67,
+            "MTD": 6.67,
+            "QTD": 6.67,
+            "YTD": -26.62,
+            "2Y": -1.85
           },
           "series_1y": {
             "labels": [
@@ -9591,7 +9591,7 @@
               56504.5234,
               55968.3906,
               52289.2188,
-              54340.1797
+              54728.8203
             ]
           },
           "series_2y": {
@@ -9721,12 +9721,12 @@
               63236.4414,
               54909.3125,
               55072.4062,
-              54340.1797
+              54728.8203
             ]
           }
         }
       ],
-      "commentary": "Section broadly positive today (4 up / 0 down, avg +2.24%). Biggest mover: Silver USD/oz (+3.58%). YTD section average: -20.1%."
+      "commentary": "Section broadly positive today (4 up / 0 down, avg +2.71%). Biggest mover: Ethereum EUR (+3.79%). YTD section average: -19.8%."
     },
     "rates": {
       "instruments": [
@@ -11751,6 +11751,30 @@
       "category": "Energy"
     },
     {
+      "title": "Dow Jones Futures: Techs' Rise Signal AI Trend Isn't Over; Apple, Robinhood Flash Buy Signals",
+      "link": "https://finance.yahoo.com/m/c5c7ee9b-1c12-3518-9e81-d4125388c16f/dow-jones-futures%3A-techs%27.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 03 Jul 2026 20:53:55 +0000",
+      "description": "The stock market had strong weekly gains, but it didn't feel that way with Sandisk and other AI plays selling off Thursday.",
+      "category": "Macro/Equity"
+    },
+    {
+      "title": "Conagra (CAG) Stock May Be Below Fair Value As New Product Rollout Lands",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/conagra-cag-stock-may-below-201129544.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 03 Jul 2026 20:11:29 +0000",
+      "description": "Conagra Brands stock has had a tough run over the past few years, yet the current checks suggest the valuation now leans cheap rather than expensive. After years of weak share price returns, the question is whether today\u2019s lower price simply reflects pressure on the business or offers room for a re\u2011",
+      "category": "Macro/Equity"
+    },
+    {
+      "title": "3 Reasons ECHO is Risky and 1 Stock to Buy Instead",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-echo-risky-1-200206466.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 03 Jul 2026 20:02:06 +0000",
+      "description": "Over the past six months, EchoStar\u2019s stock price fell to $101.31. Shareholders have lost 8.5% of their capital, which is disappointing considering the S&P 500 has climbed by 8.4%. This may have investors wondering how to approach the situation.",
+      "category": "Macro/Equity"
+    },
+    {
       "title": "Western Alliance Bancorporation (WAL): Buy, Sell, or Hold Post Q1 Earnings?",
       "link": "https://finance.yahoo.com/markets/stocks/articles/western-alliance-bancorporation-wal-buy-195406236.html?.tsrc=rss",
       "source": "Yahoo Finance",
@@ -11764,30 +11788,6 @@
       "source": "Yahoo Finance",
       "date": "Fri, 03 Jul 2026 19:46:06 +0000",
       "description": "Old National Bank has had an impressive run over the past six months as its shares have beaten the S&P 500 by 5.1%. The stock now trades at $26, marking a 13.5% gain. This performance may have investors wondering how to approach the situation.",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "3 Reasons to Sell ARHS and 1 Stock to Buy Instead",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-arhs-1-193806482.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 03 Jul 2026 19:38:06 +0000",
-      "description": "Over the last six months, Arhaus\u2019s shares have sunk to $8.62, producing a disappointing 19% loss - a stark contrast to the S&P 500\u2019s 8.4% gain. This might have investors contemplating their next move.",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "3 Reasons to Avoid TFSL and 1 Stock to Buy Instead",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-avoid-tfsl-1-193006711.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 03 Jul 2026 19:30:06 +0000",
-      "description": "TFS Financial\u2019s 26.4% return over the past six months has outpaced the S&P 500 by 17.9%, and its stock price has climbed to $17.38 per share. This was partly thanks to its solid quarterly results, and the run-up might have investors contemplating their next move.",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "Prediction: This Oil Stock Will Beat the S&P 500 in the Second Half of 2026",
-      "link": "https://www.fool.com/investing/2026/07/03/prediction-this-oil-stock-will-beat-the-sp-500-in/?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 03 Jul 2026 19:25:00 +0000",
-      "description": "Exxon doesn't need higher oil prices to win.",
       "category": "Macro/Equity"
     }
   ]
