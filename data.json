@@ -1,5 +1,5 @@
 {
-  "updated": "10 Jul 2026 22:43 UTC",
+  "updated": "10 Jul 2026 23:42 UTC",
   "references": {
     "mtd": "30 Jun 2026",
     "qtd": "30 Jun 2026",
@@ -3763,14 +3763,14 @@
           "label": "FTSE 100",
           "section": "indices",
           "decimals": 0,
-          "current": 10497.0,
-          "raw_current": 10497.2900390625,
+          "current": 10472.0,
+          "raw_current": 10472.5,
           "changes": {
-            "1D": 0.24,
-            "MTD": 0.0,
-            "QTD": 0.0,
-            "YTD": 5.7,
-            "2Y": 28.12
+            "1D": -0.16,
+            "MTD": -0.23,
+            "QTD": -0.23,
+            "YTD": 5.45,
+            "2Y": 27.81
           },
           "series_1y": {
             "labels": [
@@ -3836,7 +3836,6 @@
               "Jun 26",
               "Jun 26",
               "Jun 26",
-              "Jul 26",
               "Jul 26",
               "Jul 26"
             ],
@@ -3904,8 +3903,7 @@
               10428.9004,
               10484.2002,
               10679.0,
-              10472.5,
-              10497.29
+              10472.5
             ]
           },
           "series_2y": {
@@ -4041,7 +4039,7 @@
               10494.2002,
               10508.0,
               10489.0,
-              10497.29
+              10472.5
             ]
           }
         },
@@ -6035,7 +6033,7 @@
           }
         }
       ],
-      "commentary": "Section broadly positive today (10 up / 1 down, avg +0.61%). Biggest mover: Nikkei 225 (+1.38%). YTD section average: +9.0%."
+      "commentary": "Section broadly positive today (9 up / 2 down, avg +0.57%). Biggest mover: Nikkei 225 (+1.38%). YTD section average: +9.0%."
     },
     "energy": {
       "instruments": [
@@ -8612,14 +8610,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 56165.0,
-          "raw_current": 56165.1796875,
+          "current": 56204.0,
+          "raw_current": 56203.6484375,
           "changes": {
-            "1D": 1.62,
-            "MTD": 9.47,
-            "QTD": 9.47,
-            "YTD": -24.7,
-            "2Y": 5.37
+            "1D": 1.69,
+            "MTD": 9.54,
+            "QTD": 9.54,
+            "YTD": -24.65,
+            "2Y": 5.44
           },
           "series_1y": {
             "labels": [
@@ -8748,7 +8746,7 @@
               55072.4062,
               52657.1641,
               55564.3633,
-              56165.1797
+              56203.6484
             ]
           },
           "series_2y": {
@@ -8878,7 +8876,7 @@
               52826.7656,
               54891.1367,
               51308.3945,
-              56165.1797
+              56203.6484
             ]
           }
         },
@@ -8887,14 +8885,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1571.0,
-          "raw_current": 1571.4100341796875,
+          "current": 1573.0,
+          "raw_current": 1572.9599609375,
           "changes": {
-            "1D": 2.99,
-            "MTD": 14.26,
-            "QTD": 14.26,
-            "YTD": -37.86,
-            "2Y": -45.13
+            "1D": 3.09,
+            "MTD": 14.38,
+            "QTD": 14.38,
+            "YTD": -37.8,
+            "2Y": -45.07
           },
           "series_1y": {
             "labels": [
@@ -9023,7 +9021,7 @@
               1463.5791,
               1409.8962,
               1559.007,
-              1571.41
+              1572.96
             ]
           },
           "series_2y": {
@@ -9153,7 +9151,7 @@
               1361.5319,
               1491.9475,
               1375.2458,
-              1571.41
+              1572.96
             ]
           }
         }
@@ -9447,14 +9445,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 56165.0,
-          "raw_current": 56165.1796875,
+          "current": 56204.0,
+          "raw_current": 56203.6484375,
           "changes": {
-            "1D": 1.62,
-            "MTD": 9.47,
-            "QTD": 9.47,
-            "YTD": -24.7,
-            "2Y": 5.37
+            "1D": 1.69,
+            "MTD": 9.54,
+            "QTD": 9.54,
+            "YTD": -24.65,
+            "2Y": 5.44
           },
           "series_1y": {
             "labels": [
@@ -9583,7 +9581,7 @@
               55072.4062,
               52657.1641,
               55564.3633,
-              56165.1797
+              56203.6484
             ]
           },
           "series_2y": {
@@ -9713,12 +9711,12 @@
               52826.7656,
               54891.1367,
               51308.3945,
-              56165.1797
+              56203.6484
             ]
           }
         }
       ],
-      "commentary": "Section broadly positive today (2 up / 2 down, avg +1.11%). Biggest mover: Ethereum EUR (+2.99%). YTD section average: -20.3%."
+      "commentary": "Section broadly positive today (2 up / 2 down, avg +1.15%). Biggest mover: Ethereum EUR (+3.09%). YTD section average: -20.3%."
     },
     "rates": {
       "instruments": [
@@ -11715,6 +11713,22 @@
   },
   "news": [
     {
+      "title": "Northern Oil And Gas (NOG) Could Be 48% Undervalued Following Its Duvernay Deal",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/northern-oil-gas-nog-could-231103165.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 10 Jul 2026 23:11:03 +0000",
+      "description": "Northern Oil and Gas (NOG) is back in focus after agreeing to acquire a 25% stake in Canadian Duvernay shale assets from Parallax Energy Operating, marking its first step outside its core US portfolio. See our latest analysis for Northern Oil and Gas. Northern Oil and Gas shares recently reacted to ",
+      "category": "Energy"
+    },
+    {
+      "title": "Weekly Wrap: Bitcoin Has A Winning Week",
+      "link": "https://www.cryptoprowl.com/releases/weekly-wrap-bitcoin-has-a-winning-week-6127?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 10 Jul 2026 22:47:00 +0000",
+      "description": "Bitcoin (CRYPTO: $BTC) is up 1% on July 10 and headed for a winning week as cryptocurrencies shake-off renewed tens...",
+      "category": "Energy"
+    },
+    {
       "title": "Bessent tells gas stations the savings better show up",
       "link": "https://www.thestreet.com/markets/bessent-tells-gas-stations-the-savings-better-show-up?.tsrc=rss",
       "source": "Yahoo Finance",
@@ -11739,20 +11753,20 @@
       "category": "Energy"
     },
     {
-      "title": "Global oil demand is dropping, but US drivers keep buying more gas",
-      "link": "https://finance.yahoo.com/energy/articles/global-oil-demand-dropping-us-211342726.html?.tsrc=rss",
+      "title": "Wall Street ends higher as investors turn to earnings season",
+      "link": "https://finance.yahoo.com/video/wall-street-ends-higher-investors-224020146.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 10 Jul 2026 21:13:42 +0000",
-      "description": "Global oil demand is set to decline this year for the first time since the height of the COVID-19 pandemic in 2020, according to a report from the International Energy Agency.  The drop, which the agency expects to amount to about 1 million barrels per day in 2026, is due to higher oil prices and di",
-      "category": "Energy"
+      "date": "Fri, 10 Jul 2026 22:40:20 +0000",
+      "description": "<body><p>STORY: U.S. stocks closed higher on Friday, with the Dow gaining nearly three-tenths of a percent, the S&P 500 adding more than four-tenths of a percent to end just short of a record high, and the Nasdaq climbing nearly three-tenths of a percent.</p><p>The AI trade returned to the spotlight",
+      "category": "Macro/Equity"
     },
     {
-      "title": "Update: US Equity Indexes Rise as Diplomatic Engagements Between Washington, Iran Send Crude Oil Lower",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-rise-diplomatic-204056155.html?.tsrc=rss",
+      "title": "Q2 Earnings Season Arrives: Can Results Match Upbeat Expectations?",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/q2-earnings-season-arrives-results-223200657.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 10 Jul 2026 20:40:56 +0000",
-      "description": "(Updates with index/price moves and company/geopolitical news from the first paragraph.) US equit",
-      "category": "Energy"
+      "date": "Fri, 10 Jul 2026 22:32:00 +0000",
+      "description": "The big banks dominate this week's reporting docket, though several notable companies from other sectors will also report, including Netflix, Johnson & Johnson, and others. With the outlook trending consistently higher, will companies be able to live up to expectations?",
+      "category": "Macro/Equity"
     },
     {
       "title": "3 Reasons I Think Meta Platforms is a Screaming Buy Right Now",
@@ -11763,35 +11777,19 @@
       "category": "Macro/Equity"
     },
     {
-      "title": "S&P 500, Nasdaq End Week Higher Following Strong SK Hynix Debut \u2014 META, SKHVY, CRCL, BA, DAL In Focus",
-      "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-nasdaq-end-week-higher-following-strong-sk-hynix-debut-meta-skhvy-crcl-ba-dal-in-focus/cZmr12VR78N?.tsrc=rss",
+      "title": "Why V.F. (VFC) Outpaced the Stock Market Today",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/why-v-f-vfc-outpaced-221505312.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 10 Jul 2026 21:31:32 +0000",
-      "description": "The S&P 500 and Nasdaq gained for the second straight week, while the Dow recorded weekly losses.",
+      "date": "Fri, 10 Jul 2026 22:15:05 +0000",
+      "description": "V.F. (VFC) closed the most recent trading day at $16.77, moving +1.45% from the previous trading session.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Stock Market Today, July 10: Markets Edge Higher and SK Hynix Soars on Debut",
-      "link": "https://www.fool.com/coverage/stock-market-today/2026/07/10/stock-market-today-july-10-markets-edge-higher-and-sk-hynix-soars-on-debut/?.tsrc=rss",
+      "title": "Astrazeneca (AZN) Stock Dips While Market Gains: Key Facts",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/astrazeneca-azn-stock-dips-while-221505061.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 10 Jul 2026 21:25:05 +0000",
-      "description": "On July 10, 2026, stock gained on renewed confidence as the S&P 500 edged back toward record highs.",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "Subversive Capital files 'Ex-Elon' ETFs with the SEC that strip Tesla and SpaceX from the S&P 500 and Nasdaq-100",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/subversive-capital-files-ex-elon-211500636.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 10 Jul 2026 21:15:00 +0000",
-      "description": "Two proposed index funds are banning Elon Musk\u2019s businesses. Find out how these anti-Elon ETFs work and whether they\u2019re a shrewd investment move.",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "This Stock Market Is Full of Bargains, Our Roundtable Pros Say. 45 Picks for the Second Half.",
-      "link": "https://finance.yahoo.com/m/aa78dafa-903a-3e36-9b9d-75bd26cb2f61/this-stock-market-is-full-of.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 10 Jul 2026 21:13:00 +0000",
-      "description": "The AI rally has left many other deserving stocks out in the cold. The case for Expedia Group, Total, Brink\u2019s, and more.",
+      "date": "Fri, 10 Jul 2026 22:15:05 +0000",
+      "description": "The latest trading day saw Astrazeneca (AZN) settling at $171.61, representing a -3.85% change from its previous close.",
       "category": "Macro/Equity"
     }
   ]
