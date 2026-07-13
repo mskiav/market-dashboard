@@ -1,5 +1,5 @@
 {
-  "updated": "13 Jul 2026 21:37 UTC",
+  "updated": "13 Jul 2026 22:39 UTC",
   "references": {
     "mtd": "30 Jun 2026",
     "qtd": "30 Jun 2026",
@@ -10,9 +10,9 @@
     "current_eur": 6000000,
     "chf_amount": 3061508,
     "eur_amount": 2400000,
-    "usd_amount": 263490,
+    "usd_amount": 263460,
     "changes": {
-      "1D": -0.3,
+      "1D": -0.31,
       "MTD": -0.29,
       "QTD": -0.29,
       "YTD": 0.3,
@@ -319,12 +319,12 @@
           "section": "fx",
           "decimals": 4,
           "current": 1.1424,
-          "raw_current": 0.8782999824101452,
+          "raw_current": 0.8782000339822449,
           "changes": {
-            "1D": 0.42,
-            "MTD": 0.32,
-            "QTD": 0.32,
-            "YTD": 3.18,
+            "1D": 0.41,
+            "MTD": 0.31,
+            "QTD": 0.31,
+            "YTD": 3.16,
             "2Y": null
           },
           "series_1y": {
@@ -462,7 +462,7 @@
               0.8783,
               0.8755,
               0.8755,
-              0.8783
+              0.8782
             ]
           },
           "series_2y": {
@@ -600,7 +600,7 @@
               0.8625,
               0.8802,
               0.8769,
-              0.8783
+              0.8782
             ]
           }
         },
@@ -610,12 +610,12 @@
           "section": "fx",
           "decimals": 4,
           "current": 1.1719,
-          "raw_current": 1.1719000339508057,
+          "raw_current": 1.1722999811172485,
           "changes": {
-            "1D": -0.09,
-            "MTD": 0.97,
-            "QTD": 0.97,
-            "YTD": 2.24,
+            "1D": -0.05,
+            "MTD": 1.01,
+            "QTD": 1.01,
+            "YTD": 2.27,
             "2Y": null
           },
           "series_1y": {
@@ -753,7 +753,7 @@
               1.1591,
               1.1677,
               1.1722,
-              1.1719
+              1.1723
             ]
           },
           "series_2y": {
@@ -891,7 +891,7 @@
               1.1573,
               1.1607,
               1.1704,
-              1.1719
+              1.1723
             ]
           }
         }
@@ -1194,12 +1194,12 @@
           "section": "fx",
           "decimals": 4,
           "current": 1.1424,
-          "raw_current": 0.8782999824101452,
+          "raw_current": 0.8782000339822449,
           "changes": {
-            "1D": 0.42,
-            "MTD": 0.32,
-            "QTD": 0.32,
-            "YTD": 3.18,
+            "1D": 0.41,
+            "MTD": 0.31,
+            "QTD": 0.31,
+            "YTD": 3.16,
             "2Y": null
           },
           "series_1y": {
@@ -1337,7 +1337,7 @@
               0.8783,
               0.8755,
               0.8755,
-              0.8783
+              0.8782
             ]
           },
           "series_2y": {
@@ -1475,7 +1475,7 @@
               0.8625,
               0.8802,
               0.8769,
-              0.8783
+              0.8782
             ]
           }
         },
@@ -1485,12 +1485,12 @@
           "section": "fx",
           "decimals": 4,
           "current": 1.1719,
-          "raw_current": 1.1719000339508057,
+          "raw_current": 1.1722999811172485,
           "changes": {
-            "1D": -0.09,
-            "MTD": 0.97,
-            "QTD": 0.97,
-            "YTD": 2.24,
+            "1D": -0.05,
+            "MTD": 1.01,
+            "QTD": 1.01,
+            "YTD": 2.27,
             "2Y": null
           },
           "series_1y": {
@@ -1628,7 +1628,7 @@
               1.1591,
               1.1677,
               1.1722,
-              1.1719
+              1.1723
             ]
           },
           "series_2y": {
@@ -1766,12 +1766,12 @@
               1.1573,
               1.1607,
               1.1704,
-              1.1719
+              1.1723
             ]
           }
         }
       ],
-      "commentary": "Section mixed today (1 up / 2 down, avg -0.09%). Biggest mover: CHF / EUR (-0.59%). YTD section average: +1.9%."
+      "commentary": "Section mixed today (1 up / 2 down, avg -0.08%). Biggest mover: CHF / EUR (-0.59%). YTD section average: +1.9%."
     },
     "indices": {
       "instruments": [
@@ -2346,13 +2346,13 @@
           "label": "EuroStoxx 50",
           "section": "indices",
           "decimals": 0,
-          "current": 6271.0,
-          "raw_current": 6271.02001953125,
+          "current": 6270.0,
+          "raw_current": 6269.97021484375,
           "changes": {
-            "1D": 0.02,
-            "MTD": -0.9,
-            "QTD": -0.9,
-            "YTD": 8.19,
+            "1D": -0.23,
+            "MTD": -0.92,
+            "QTD": -0.92,
+            "YTD": 8.17,
             "2Y": null
           },
           "series_1y": {
@@ -2484,7 +2484,7 @@
               6267.5298,
               6282.5,
               6319.8599,
-              6271.02
+              6269.9702
             ]
           },
           "series_2y": {
@@ -2616,7 +2616,7 @@
               6049.7402,
               6293.1299,
               6282.5,
-              6271.02
+              6269.9702
             ]
           }
         },
@@ -2625,13 +2625,13 @@
           "label": "FTSE MIB",
           "section": "indices",
           "decimals": 0,
-          "current": 52809.0,
-          "raw_current": 52809.3515625,
+          "current": 52614.0,
+          "raw_current": 52614.0,
           "changes": {
-            "1D": 0.37,
-            "MTD": 2.18,
-            "QTD": 2.18,
-            "YTD": 17.5,
+            "1D": 0.44,
+            "MTD": 1.8,
+            "QTD": 1.8,
+            "YTD": 17.06,
             "2Y": null
           },
           "series_1y": {
@@ -2765,7 +2765,7 @@
               51265.0,
               52428.0,
               51817.0,
-              52809.3516
+              52614.0
             ]
           },
           "series_2y": {
@@ -2899,7 +2899,7 @@
               50505.0,
               52024.0,
               52819.0,
-              52809.3516
+              52614.0
             ]
           }
         },
@@ -2908,13 +2908,13 @@
           "label": "DAX",
           "section": "indices",
           "decimals": 0,
-          "current": 25114.0,
-          "raw_current": 25114.25,
+          "current": 25067.0,
+          "raw_current": 25067.08984375,
           "changes": {
-            "1D": 0.19,
-            "MTD": 0.47,
-            "QTD": 0.47,
-            "YTD": 2.55,
+            "1D": -0.2,
+            "MTD": 0.29,
+            "QTD": 0.29,
+            "YTD": 2.35,
             "2Y": null
           },
           "series_1y": {
@@ -3048,7 +3048,7 @@
               24994.8301,
               25040.2793,
               25465.25,
-              25114.25
+              25067.0898
             ]
           },
           "series_2y": {
@@ -3182,7 +3182,7 @@
               24433.0605,
               24985.8203,
               25040.2793,
-              25114.25
+              25067.0898
             ]
           }
         },
@@ -3191,13 +3191,13 @@
           "label": "CAC 40",
           "section": "indices",
           "decimals": 0,
-          "current": 8365.0,
-          "raw_current": 8364.650390625,
+          "current": 8339.0,
+          "raw_current": 8338.9697265625,
           "changes": {
-            "1D": 0.31,
-            "MTD": -0.47,
-            "QTD": -0.47,
-            "YTD": 2.64,
+            "1D": 0.15,
+            "MTD": -0.77,
+            "QTD": -0.77,
+            "YTD": 2.32,
             "2Y": null
           },
           "series_1y": {
@@ -3333,7 +3333,7 @@
               8367.3301,
               8508.0703,
               8326.6201,
-              8364.6504
+              8338.9697
             ]
           },
           "series_2y": {
@@ -3469,7 +3469,7 @@
               8384.0098,
               8431.6104,
               8436.2402,
-              8364.6504
+              8338.9697
             ]
           }
         },
@@ -3478,13 +3478,13 @@
           "label": "SMI",
           "section": "indices",
           "decimals": 0,
-          "current": 14266.0,
-          "raw_current": 14266.1796875,
+          "current": 14235.0,
+          "raw_current": 14235.08984375,
           "changes": {
-            "1D": 0.22,
-            "MTD": 0.51,
-            "QTD": 0.51,
-            "YTD": 7.53,
+            "1D": 0.14,
+            "MTD": 0.29,
+            "QTD": 0.29,
+            "YTD": 7.29,
             "2Y": null
           },
           "series_1y": {
@@ -3616,7 +3616,7 @@
               14231.96,
               14114.0,
               14360.4502,
-              14266.1797
+              14235.0898
             ]
           },
           "series_2y": {
@@ -3748,7 +3748,7 @@
               13356.3096,
               13774.0195,
               14114.0,
-              14266.1797
+              14235.0898
             ]
           }
         },
@@ -5148,13 +5148,13 @@
           "label": "DAX",
           "section": "indices",
           "decimals": 0,
-          "current": 25114.0,
-          "raw_current": 25114.25,
+          "current": 25067.0,
+          "raw_current": 25067.08984375,
           "changes": {
-            "1D": 0.19,
-            "MTD": 0.47,
-            "QTD": 0.47,
-            "YTD": 2.55,
+            "1D": -0.2,
+            "MTD": 0.29,
+            "QTD": 0.29,
+            "YTD": 2.35,
             "2Y": null
           },
           "series_1y": {
@@ -5288,7 +5288,7 @@
               24994.8301,
               25040.2793,
               25465.25,
-              25114.25
+              25067.0898
             ]
           },
           "series_2y": {
@@ -5422,7 +5422,7 @@
               24433.0605,
               24985.8203,
               25040.2793,
-              25114.25
+              25067.0898
             ]
           }
         },
@@ -5431,13 +5431,13 @@
           "label": "FTSE MIB",
           "section": "indices",
           "decimals": 0,
-          "current": 52809.0,
-          "raw_current": 52809.3515625,
+          "current": 52614.0,
+          "raw_current": 52614.0,
           "changes": {
-            "1D": 0.37,
-            "MTD": 2.18,
-            "QTD": 2.18,
-            "YTD": 17.5,
+            "1D": 0.44,
+            "MTD": 1.8,
+            "QTD": 1.8,
+            "YTD": 17.06,
             "2Y": null
           },
           "series_1y": {
@@ -5571,7 +5571,7 @@
               51265.0,
               52428.0,
               51817.0,
-              52809.3516
+              52614.0
             ]
           },
           "series_2y": {
@@ -5705,7 +5705,7 @@
               50505.0,
               52024.0,
               52819.0,
-              52809.3516
+              52614.0
             ]
           }
         },
@@ -5985,7 +5985,7 @@
           }
         }
       ],
-      "commentary": "Section mixed today (8 up / 3 down, avg -0.13%). Biggest mover: CSI 300 (-1.96%). YTD section average: +9.0%."
+      "commentary": "Section mixed today (6 up / 5 down, avg -0.20%). Biggest mover: CSI 300 (-1.96%). YTD section average: +8.9%."
     },
     "energy": {
       "instruments": [
@@ -5994,13 +5994,13 @@
           "label": "Brent USD/bbl",
           "section": "energy",
           "decimals": 2,
-          "current": 83.18,
-          "raw_current": 83.18000030517578,
+          "current": 83.28,
+          "raw_current": 83.27999877929688,
           "changes": {
-            "1D": 9.43,
-            "MTD": 14.07,
-            "QTD": 14.07,
-            "YTD": 36.7,
+            "1D": 9.56,
+            "MTD": 14.21,
+            "QTD": 14.21,
+            "YTD": 36.86,
             "2Y": null
           },
           "series_1y": {
@@ -6134,7 +6134,7 @@
               71.99,
               71.8,
               76.3,
-              83.18
+              83.28
             ]
           },
           "series_2y": {
@@ -6268,7 +6268,7 @@
               93.1,
               77.08,
               71.99,
-              83.18
+              83.28
             ]
           }
         },
@@ -6277,13 +6277,13 @@
           "label": "WTI USD/bbl",
           "section": "energy",
           "decimals": 2,
-          "current": 78.0,
-          "raw_current": 78.0,
+          "current": 78.16,
+          "raw_current": 78.16000366210938,
           "changes": {
-            "1D": 9.23,
-            "MTD": 12.23,
-            "QTD": 12.23,
-            "YTD": 35.84,
+            "1D": 9.45,
+            "MTD": 12.46,
+            "QTD": 12.46,
+            "YTD": 36.12,
             "2Y": null
           },
           "series_1y": {
@@ -6417,7 +6417,7 @@
               69.23,
               68.69,
               72.08,
-              78.0
+              78.16
             ]
           },
           "series_2y": {
@@ -6551,7 +6551,7 @@
               90.03,
               73.21,
               68.55,
-              78.0
+              78.16
             ]
           }
         },
@@ -6843,13 +6843,13 @@
           "label": "Nat Gas USD",
           "section": "energy",
           "decimals": 2,
-          "current": 2.9,
-          "raw_current": 2.9019999504089355,
+          "current": 2.89,
+          "raw_current": 2.8949999809265137,
           "changes": {
-            "1D": -1.29,
-            "MTD": -11.39,
-            "QTD": -11.39,
-            "YTD": -21.27,
+            "1D": -1.53,
+            "MTD": -11.6,
+            "QTD": -11.6,
+            "YTD": -21.46,
             "2Y": null
           },
           "series_1y": {
@@ -6983,7 +6983,7 @@
               3.231,
               3.196,
               3.012,
-              2.902
+              2.895
             ]
           },
           "series_2y": {
@@ -7117,7 +7117,7 @@
               3.185,
               3.147,
               3.245,
-              2.902
+              2.895
             ]
           }
         },
@@ -7126,7 +7126,7 @@
           "label": "Brent \u2212 WTI",
           "section": "energy",
           "decimals": 2,
-          "current": 5.18,
+          "current": 5.12,
           "changes": {
             "1D": null,
             "MTD": null,
@@ -7142,13 +7142,13 @@
           "label": "Brent USD/bbl",
           "section": "energy",
           "decimals": 2,
-          "current": 83.18,
-          "raw_current": 83.18000030517578,
+          "current": 83.28,
+          "raw_current": 83.27999877929688,
           "changes": {
-            "1D": 9.43,
-            "MTD": 14.07,
-            "QTD": 14.07,
-            "YTD": 36.7,
+            "1D": 9.56,
+            "MTD": 14.21,
+            "QTD": 14.21,
+            "YTD": 36.86,
             "2Y": null
           },
           "series_1y": {
@@ -7282,7 +7282,7 @@
               71.99,
               71.8,
               76.3,
-              83.18
+              83.28
             ]
           },
           "series_2y": {
@@ -7416,7 +7416,7 @@
               93.1,
               77.08,
               71.99,
-              83.18
+              83.28
             ]
           }
         },
@@ -7425,13 +7425,13 @@
           "label": "WTI USD/bbl",
           "section": "energy",
           "decimals": 2,
-          "current": 78.0,
-          "raw_current": 78.0,
+          "current": 78.16,
+          "raw_current": 78.16000366210938,
           "changes": {
-            "1D": 9.23,
-            "MTD": 12.23,
-            "QTD": 12.23,
-            "YTD": 35.84,
+            "1D": 9.45,
+            "MTD": 12.46,
+            "QTD": 12.46,
+            "YTD": 36.12,
             "2Y": null
           },
           "series_1y": {
@@ -7565,7 +7565,7 @@
               69.23,
               68.69,
               72.08,
-              78.0
+              78.16
             ]
           },
           "series_2y": {
@@ -7699,7 +7699,7 @@
               90.03,
               73.21,
               68.55,
-              78.0
+              78.16
             ]
           }
         },
@@ -7987,7 +7987,7 @@
           }
         }
       ],
-      "commentary": "Section broadly positive today (3 up / 1 down, avg +5.75%). Biggest mover: Brent USD/bbl (+9.43%). YTD section average: +33.4%."
+      "commentary": "Section broadly positive today (3 up / 1 down, avg +5.78%). Biggest mover: Brent USD/bbl (+9.56%). YTD section average: +33.5%."
     },
     "crypto": {
       "instruments": [
@@ -7996,13 +7996,13 @@
           "label": "Gold USD/oz",
           "section": "crypto",
           "decimals": 0,
-          "current": 4009.0,
-          "raw_current": 4008.699951171875,
+          "current": 4011.0,
+          "raw_current": 4011.199951171875,
           "changes": {
-            "1D": -2.32,
-            "MTD": -0.35,
-            "QTD": -0.35,
-            "YTD": -7.33,
+            "1D": -2.26,
+            "MTD": -0.29,
+            "QTD": -0.29,
+            "YTD": -7.27,
             "2Y": null
           },
           "series_1y": {
@@ -8136,7 +8136,7 @@
               4078.7,
               4112.7002,
               4130.6001,
-              4008.7
+              4011.2
             ]
           },
           "series_2y": {
@@ -8270,7 +8270,7 @@
               4108.2002,
               4129.8999,
               4155.1001,
-              4008.7
+              4011.2
             ]
           }
         },
@@ -8279,13 +8279,13 @@
           "label": "Silver USD/oz",
           "section": "crypto",
           "decimals": 2,
-          "current": 57.98,
-          "raw_current": 57.97999954223633,
+          "current": 58.01,
+          "raw_current": 58.005001068115234,
           "changes": {
-            "1D": -3.06,
-            "MTD": -2.52,
-            "QTD": -2.52,
-            "YTD": -17.33,
+            "1D": -3.02,
+            "MTD": -2.47,
+            "QTD": -2.47,
+            "YTD": -17.29,
             "2Y": null
           },
           "series_1y": {
@@ -8419,7 +8419,7 @@
               59.217,
               60.643,
               60.378,
-              57.98
+              58.005
             ]
           },
           "series_2y": {
@@ -8553,7 +8553,7 @@
               64.599,
               62.02,
               61.92,
-              57.98
+              58.005
             ]
           }
         },
@@ -8562,14 +8562,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54463.0,
-          "raw_current": 54462.83984375,
+          "current": 54485.0,
+          "raw_current": 54484.78125,
           "changes": {
-            "1D": -2.58,
-            "MTD": 6.15,
-            "QTD": 6.15,
-            "YTD": -26.98,
-            "2Y": 0.41
+            "1D": -2.54,
+            "MTD": 6.19,
+            "QTD": 6.19,
+            "YTD": -26.95,
+            "2Y": 0.45
           },
           "series_1y": {
             "labels": [
@@ -8698,7 +8698,7 @@
               52682.4219,
               53827.5508,
               54508.0,
-              54462.8398
+              54484.7812
             ]
           },
           "series_2y": {
@@ -8828,7 +8828,7 @@
               53440.2266,
               55168.9336,
               54664.3203,
-              54462.8398
+              54484.7812
             ]
           }
         },
@@ -8837,14 +8837,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1543.0,
-          "raw_current": 1542.760009765625,
+          "current": 1548.0,
+          "raw_current": 1547.949951171875,
           "changes": {
-            "1D": -2.57,
-            "MTD": 12.18,
-            "QTD": 12.18,
-            "YTD": -38.99,
-            "2Y": -46.97
+            "1D": -2.24,
+            "MTD": 12.56,
+            "QTD": 12.56,
+            "YTD": -38.79,
+            "2Y": -46.79
           },
           "series_1y": {
             "labels": [
@@ -8973,7 +8973,7 @@
               1383.9536,
               1486.6692,
               1525.7561,
-              1542.76
+              1547.95
             ]
           },
           "series_2y": {
@@ -9103,7 +9103,7 @@
               1419.7606,
               1487.0897,
               1535.2167,
-              1542.76
+              1547.95
             ]
           }
         }
@@ -9114,13 +9114,13 @@
           "label": "Gold USD/oz",
           "section": "crypto",
           "decimals": 0,
-          "current": 4009.0,
-          "raw_current": 4008.699951171875,
+          "current": 4011.0,
+          "raw_current": 4011.199951171875,
           "changes": {
-            "1D": -2.32,
-            "MTD": -0.35,
-            "QTD": -0.35,
-            "YTD": -7.33,
+            "1D": -2.26,
+            "MTD": -0.29,
+            "QTD": -0.29,
+            "YTD": -7.27,
             "2Y": null
           },
           "series_1y": {
@@ -9254,7 +9254,7 @@
               4078.7,
               4112.7002,
               4130.6001,
-              4008.7
+              4011.2
             ]
           },
           "series_2y": {
@@ -9388,7 +9388,7 @@
               4108.2002,
               4129.8999,
               4155.1001,
-              4008.7
+              4011.2
             ]
           }
         },
@@ -9397,14 +9397,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54463.0,
-          "raw_current": 54462.83984375,
+          "current": 54485.0,
+          "raw_current": 54484.78125,
           "changes": {
-            "1D": -2.58,
-            "MTD": 6.15,
-            "QTD": 6.15,
-            "YTD": -26.98,
-            "2Y": 0.41
+            "1D": -2.54,
+            "MTD": 6.19,
+            "QTD": 6.19,
+            "YTD": -26.95,
+            "2Y": 0.45
           },
           "series_1y": {
             "labels": [
@@ -9533,7 +9533,7 @@
               52682.4219,
               53827.5508,
               54508.0,
-              54462.8398
+              54484.7812
             ]
           },
           "series_2y": {
@@ -9663,12 +9663,12 @@
               53440.2266,
               55168.9336,
               54664.3203,
-              54462.8398
+              54484.7812
             ]
           }
         }
       ],
-      "commentary": "Section broadly negative today (0 up / 4 down, avg -2.63%). Biggest mover: Silver USD/oz (-3.06%). YTD section average: -22.7%."
+      "commentary": "Section broadly negative today (0 up / 4 down, avg -2.51%). Biggest mover: Silver USD/oz (-3.02%). YTD section average: -22.6%."
     },
     "rates": {
       "instruments": [
@@ -11665,11 +11665,27 @@
   },
   "news": [
     {
+      "title": "Wall Street ends lower as Iran tensions dampen risk appetite",
+      "link": "https://finance.yahoo.com/video/wall-street-ends-lower-iran-222620456.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Mon, 13 Jul 2026 22:26:20 +0000",
+      "description": "<body><p>STORY: U.S. stocks ended lower on Monday, with the Dow losing about a quarter of a percent, the S&P 500 falling roughly eight-tenths of a percent and the Nasdaq dropping more than one-and-a-half percent.</p><p>:: Archive</p><p>Oil prices jumped after President Donald Trump announced he woul",
+      "category": "Energy"
+    },
+    {
       "title": "Oil Surges As Trump Asserts Control Over Strait Of Hormuz; What Happens Now",
       "link": "https://finance.yahoo.com/m/97f5e136-6c23-3394-9cd9-787789a56ec9/oil-surges-as-trump-asserts.html?.tsrc=rss",
       "source": "Yahoo Finance",
       "date": "Mon, 13 Jul 2026 21:35:28 +0000",
       "description": "Oil prices surged on Monday as President Donald Trump said the U.S. will reimpose a blockade on Iranian ports on Tuesday and provide other countries safe passage \u2014for a fee \u2014 through the Strait of Hormuz.  The announcement follows an escalation of U.S.-Iran military strikes after Tehran had targeted",
+      "category": "Energy"
+    },
+    {
+      "title": "America\u2019s oil safety net is wearing thin",
+      "link": "https://finance.yahoo.com/energy/articles/america-oil-safety-net-wearing-213019227.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Mon, 13 Jul 2026 21:30:19 +0000",
+      "description": "(By Oil & Gas 360) \u2013 The U.S. Strategic Petroleum Reserve was created in the aftermath of the 1973 Arab [\u2026]",
       "category": "Energy"
     },
     {
@@ -11689,59 +11705,43 @@
       "category": "Energy"
     },
     {
-      "title": "Investors Buy the Semiconductor Dip in $40 Billion Flows Week",
-      "link": "http://www.etf.com/sections/weekly-etf-flows/investors-buy-semiconductor-dip-40-billion-flows-week?utm_source=yahoo-finance&utm_medium=rss&utm_campaign=yahoo-finance-rss&.tsrc=rss",
+      "title": "Wall Street ends lower as Iran tensions dampen risk appetite",
+      "link": "https://finance.yahoo.com/video/wall-street-ends-lower-iran-222620456.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 13 Jul 2026 21:00:18 +0000",
-      "description": "<p>Year-to-date inflows topped $1.1 trillion as fixed income led categories and SOXX led individual funds.</p>",
-      "category": "Energy"
-    },
-    {
-      "title": "Energy Infrastructure Stock Targa Resources Teases A Breakout",
-      "link": "https://finance.yahoo.com/m/57eec07b-d20e-3f65-b0eb-25a00f64a240/energy-infrastructure-stock.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Mon, 13 Jul 2026 20:58:50 +0000",
-      "description": "Top-rated energy infrastructure stock Targa Resources flirted with a breakout on Monday.  Also on Monday, Barclays analyst Theresa Chen said that Targa stock remains well positioned to benefit from \"resilient\" Permian basin growth.  Drivers for that performance include the U.S.-Iran war and the nati",
-      "category": "Energy"
-    },
-    {
-      "title": "3 Reasons WST is Risky and 1 Stock to Buy Instead",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-wst-risky-1-211039744.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Mon, 13 Jul 2026 21:10:39 +0000",
-      "description": "Over the past six months, West Pharmaceutical Services has been a great trade, beating the S&P 500 by 21.8%. Its stock price has climbed to $353.68, representing a healthy 30.1% increase. This was partly thanks to its solid quarterly results, and the run-up might have investors contemplating their n",
+      "date": "Mon, 13 Jul 2026 22:26:20 +0000",
+      "description": "<body><p>STORY: U.S. stocks ended lower on Monday, with the Dow losing about a quarter of a percent, the S&P 500 falling roughly eight-tenths of a percent and the Nasdaq dropping more than one-and-a-half percent.</p><p>:: Archive</p><p>Oil prices jumped after President Donald Trump announced he woul",
       "category": "Macro/Equity"
     },
     {
-      "title": "Update: US Equity Indexes Slump, Crude Oil Soars as Trump Plans to Reinstate Iran Blockade, Impose 20% Toll on Hormuz Cargo",
-      "link": "https://finance.yahoo.com/markets/articles/us-equity-indexes-slump-crude-210947416.html?.tsrc=rss",
+      "title": "RSP\u2019s Equal-Weight Trap: How a $10,000 Investment Lost $27,800 to Fees and Rebalancing Drag Over a Decade",
+      "link": "https://247wallst.com/investing/etf/2026/07/13/rsps-equal-weight-trap-how-a-10000-investment-lost-27800-to-fees-and-rebalancing-drag-over-a-decade/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 13 Jul 2026 21:09:47 +0000",
-      "description": "(Updates with index/price moves, analyst comments, and geopolitical news from the first paragraph.)",
+      "date": "Mon, 13 Jul 2026 22:17:30 +0000",
+      "description": "RSP promises diversification away from mega-cap dominance, but the costs hiding beneath its expense ratio tell a story most investors never think to ask about before buying in.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Goldman Sachs does an about-face on overlooked software stock",
-      "link": "https://www.thestreet.com/investing/stocks/goldman-sachs-upgrades-toast-tost-stock-buy-rating-price-target?.tsrc=rss",
+      "title": "Two Income ETFs Retirees Can Buy Inside a Roth IRA to Generate Tax Free Cash for Life",
+      "link": "https://247wallst.com/investing/2026/07/13/two-income-etfs-retirees-can-buy-inside-a-roth-ira-to-generate-tax-free-cash-for-life/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 13 Jul 2026 21:03:00 +0000",
-      "description": "Toast (TOST) has been one of the market's overlooked names this year. While AI stocks pulled in more investor money, Toast, the company behind the tablets at your local restaurant, drifted lower. TOST fell roughly 19% over the past six months, even as the S&P 500 gained 7.4%. Then Goldman ...",
+      "date": "Mon, 13 Jul 2026 22:10:39 +0000",
+      "description": "Retirees chasing yield often hand a significant slice of their income straight to the IRS, but the account where you hold a fund can matter just as much as the fund itself.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Investors Buy the Semiconductor Dip in $40 Billion Flows Week",
-      "link": "http://www.etf.com/sections/weekly-etf-flows/investors-buy-semiconductor-dip-40-billion-flows-week?utm_source=yahoo-finance&utm_medium=rss&utm_campaign=yahoo-finance-rss&.tsrc=rss",
+      "title": "Here's Why USA Rare Earth Stock Rocketed 81% Higher in the First Half of 2026",
+      "link": "https://www.fool.com/investing/2026/07/13/heres-why-usa-rare-earth-stock-rocketed-81-higher/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 13 Jul 2026 21:00:18 +0000",
-      "description": "<p>Year-to-date inflows topped $1.1 trillion as fixed income led categories and SOXX led individual funds.</p>",
+      "date": "Mon, 13 Jul 2026 21:53:06 +0000",
+      "description": "There's more than a couple of catalysts behind this rare-earth stock's rise.",
       "category": "Macro/Equity"
     },
     {
-      "title": "3 Reasons We Love BGC (BGC)",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-love-bgc-bgc-205439307.html?.tsrc=rss",
+      "title": "How Lowe's Stock Is Compounding Value Without The Sales Boom",
+      "link": "https://www.trefis.com/articles/606802/how-lowes-stock-is-compounding-value-without-the-sales-boom/2026-07-13?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Mon, 13 Jul 2026 20:54:39 +0000",
-      "description": "BGC has had an impressive run over the past six months as its shares have beaten the S&P 500 by 16.3%. The stock now trades at $10.79, marking a 24.7% gain. This performance may have investors wondering how to approach the situation.",
+      "date": "Mon, 13 Jul 2026 21:33:36 +0000",
+      "description": "The market is focused on sluggish top-line growth, but a different number reveals how the company is quietly creating shareholder value.",
       "category": "Macro/Equity"
     }
   ]
