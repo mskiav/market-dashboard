@@ -1,5 +1,5 @@
 {
-  "updated": "17 Jul 2026 22:07 UTC",
+  "updated": "17 Jul 2026 23:10 UTC",
   "references": {
     "mtd": "30 Jun 2026",
     "qtd": "30 Jun 2026",
@@ -3763,14 +3763,14 @@
           "label": "FTSE 100",
           "section": "indices",
           "decimals": 0,
-          "current": 10600.0,
-          "raw_current": 10600.3701171875,
+          "current": 10572.0,
+          "raw_current": 10572.2001953125,
           "changes": {
-            "1D": 0.27,
-            "MTD": 0.98,
-            "QTD": 0.98,
-            "YTD": 6.74,
-            "2Y": 29.47
+            "1D": 0.54,
+            "MTD": 0.72,
+            "QTD": 0.72,
+            "YTD": 6.45,
+            "2Y": 29.13
           },
           "series_1y": {
             "labels": [
@@ -3835,7 +3835,6 @@
               "Jun 26",
               "Jun 26",
               "Jun 26",
-              "Jul 26",
               "Jul 26",
               "Jul 26",
               "Jul 26"
@@ -3904,8 +3903,7 @@
               10497.0996,
               10651.7998,
               10497.2998,
-              10572.2002,
-              10600.3701
+              10572.2002
             ]
           },
           "series_2y": {
@@ -4041,7 +4039,7 @@
               10428.9004,
               10679.0,
               10515.9004,
-              10600.3701
+              10572.2002
             ]
           }
         },
@@ -6035,7 +6033,7 @@
           }
         }
       ],
-      "commentary": "Section broadly negative today (3 up / 8 down, avg -0.55%). Biggest mover: Nikkei 225 (-2.79%). YTD section average: +8.7%."
+      "commentary": "Section broadly negative today (3 up / 8 down, avg -0.52%). Biggest mover: Nikkei 225 (-2.79%). YTD section average: +8.7%."
     },
     "energy": {
       "instruments": [
@@ -8612,14 +8610,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 56012.0,
-          "raw_current": 56011.6484375,
+          "current": 55863.0,
+          "raw_current": 55862.9296875,
           "changes": {
-            "1D": 0.5,
-            "MTD": 9.17,
-            "QTD": 9.17,
-            "YTD": -24.9,
-            "2Y": -4.43
+            "1D": 0.23,
+            "MTD": 8.88,
+            "QTD": 8.88,
+            "YTD": -25.1,
+            "2Y": -4.68
           },
           "series_1y": {
             "labels": [
@@ -8748,7 +8746,7 @@
               51308.3945,
               55932.3477,
               55907.2227,
-              56011.6484
+              55862.9297
             ]
           },
           "series_2y": {
@@ -8878,7 +8876,7 @@
               55682.0586,
               52564.75,
               55516.9453,
-              56011.6484
+              55862.9297
             ]
           }
         },
@@ -8887,14 +8885,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1609.0,
-          "raw_current": 1609.3299560546875,
+          "current": 1605.0,
+          "raw_current": 1605.280029296875,
           "changes": {
-            "1D": -1.14,
-            "MTD": 17.02,
-            "QTD": 17.02,
-            "YTD": -36.36,
-            "2Y": -48.04
+            "1D": -1.39,
+            "MTD": 16.73,
+            "QTD": 16.73,
+            "YTD": -36.52,
+            "2Y": -48.17
           },
           "series_1y": {
             "labels": [
@@ -9023,7 +9021,7 @@
               1375.2458,
               1571.0992,
               1583.4287,
-              1609.33
+              1605.28
             ]
           },
           "series_2y": {
@@ -9153,7 +9151,7 @@
               1452.28,
               1377.2922,
               1551.1278,
-              1609.33
+              1605.28
             ]
           }
         }
@@ -9447,14 +9445,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 56012.0,
-          "raw_current": 56011.6484375,
+          "current": 55863.0,
+          "raw_current": 55862.9296875,
           "changes": {
-            "1D": 0.5,
-            "MTD": 9.17,
-            "QTD": 9.17,
-            "YTD": -24.9,
-            "2Y": -4.43
+            "1D": 0.23,
+            "MTD": 8.88,
+            "QTD": 8.88,
+            "YTD": -25.1,
+            "2Y": -4.68
           },
           "series_1y": {
             "labels": [
@@ -9583,7 +9581,7 @@
               51308.3945,
               55932.3477,
               55907.2227,
-              56011.6484
+              55862.9297
             ]
           },
           "series_2y": {
@@ -9713,12 +9711,12 @@
               55682.0586,
               52564.75,
               55516.9453,
-              56011.6484
+              55862.9297
             ]
           }
         }
       ],
-      "commentary": "Section broadly positive today (3 up / 1 down, avg +0.22%). Biggest mover: Ethereum EUR (-1.14%). YTD section average: -22.0%."
+      "commentary": "Section mixed today (3 up / 1 down, avg +0.09%). Biggest mover: Ethereum EUR (-1.39%). YTD section average: -22.1%."
     },
     "rates": {
       "instruments": [
@@ -11715,83 +11713,83 @@
   },
   "news": [
     {
-      "title": "8x8, DoubleVerify, and Upstart Shares Are Falling, What You Need To Know",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/8x8-doubleverify-upstart-shares-falling-215346075.html?.tsrc=rss",
+      "title": "Unity, The Trade Desk, and GoDaddy Stocks Trade Down, What You Need To Know",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/unity-trade-desk-godaddy-stocks-224146672.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:53:46 +0000",
+      "date": "Fri, 17 Jul 2026 22:41:46 +0000",
+      "description": "A number of stocks fell in the afternoon session after sentiment continued to weaken as tech stocks faced a dual headwind of deteriorating macro conditions and an unwinding of retail leverage. The fundamental pressure stems from a sudden oil shock. A reinstated U.S. naval blockade on Iran pushed Bre",
+      "category": "Energy"
+    },
+    {
+      "title": "PagerDuty, Asure Software, and Pegasystems Stocks Trade Down, What You Need To Know",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/pagerduty-asure-software-pegasystems-stocks-222546668.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 17 Jul 2026 22:25:46 +0000",
       "description": "A number of stocks fell in the afternoon session after sentiment continued to weaken as tech stocks faced a dual headwind of deteriorating macro conditions and an unwinding of retail leverage.",
       "category": "Energy"
     },
     {
-      "title": "Cadence Design Systems, Domo, and PubMatic Shares Plummet, What You Need To Know",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/cadence-design-systems-domo-pubmatic-214546308.html?.tsrc=rss",
+      "title": "Zoom, AppLovin, and Doximity Shares Are Falling, What You Need To Know",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/zoom-applovin-doximity-shares-falling-221746535.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:45:46 +0000",
+      "date": "Fri, 17 Jul 2026 22:17:46 +0000",
       "description": "A number of stocks fell in the afternoon session after sentiment continued to weaken as tech stocks faced a dual headwind of deteriorating macro conditions and an unwinding of retail leverage.",
       "category": "Energy"
     },
     {
-      "title": "360 Energy Pulse: What mattered this week in energy",
-      "link": "https://finance.yahoo.com/energy/articles/360-energy-pulse-mattered-week-213057889.html?.tsrc=rss",
+      "title": "Goldman sends a fresh warning to the oil market",
+      "link": "https://www.thestreet.com/markets/goldman-sends-a-fresh-warning-to-the-oil-market?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:30:57 +0000",
-      "description": "(By Oil & Gas 360) \u2013 Energy markets spent another week caught between tightening fundamentals and volatile geopolitics. Oil briefly [\u2026]",
+      "date": "Fri, 17 Jul 2026 22:17:00 +0000",
+      "description": "Oil is the one price nobody votes for, but everybody pays for. It sits underneath the grocery run, the summer road trip, the box that lands on the porch, and the airfare that somehow costs more than it did last spring. Most of the time it fades into background noise, a number scrolling across a ...",
       "category": "Energy"
     },
     {
-      "title": "Vista Energy SAB de CV (VIST) Q2 2026 Earnings Call Highlights: Record Revenue and Production Surge",
-      "link": "https://finance.yahoo.com/energy/articles/vista-energy-sab-cv-vist-210021575.html?.tsrc=rss",
+      "title": "Health Catalyst, Commerce, and Paycom Shares Plummet, What You Need To Know",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/health-catalyst-commerce-paycom-shares-220946897.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:00:21 +0000",
-      "description": "Vista Energy SAB de CV (VIST) reports an impressive 89% revenue growth and a 32% increase in total production, marking a robust quarter amid strategic acquisitions and operational efficiencies.",
+      "date": "Fri, 17 Jul 2026 22:09:46 +0000",
+      "description": "A number of stocks fell in the afternoon session after sentiment continued to weaken as tech stocks faced a dual headwind of deteriorating macro conditions and an unwinding of retail leverage.",
       "category": "Energy"
     },
     {
-      "title": "Update: US Equity Indexes Drop as Chipmakers Head for Bear Market, Crude Oil Surges After Iran Expands Attack in Middle East",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-indexes-drop-chipmakers-205129832.html?.tsrc=rss",
+      "title": "The Unanswered Questions Driving the Stock Market Drop",
+      "link": "https://finance.yahoo.com/m/f9d7e95b-822a-34b7-81a7-9173da9359fb/the-unanswered-questions.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 20:51:29 +0000",
-      "description": "(Updates with index/price moves, macroeconomic data and company/geopolitical news from the first par",
-      "category": "Energy"
-    },
-    {
-      "title": "Stock Market Today, July 17: Stocks Slide as Semiconductor Rout Deepens",
-      "link": "https://www.fool.com/coverage/stock-market-today/2026/07/17/stock-market-today-july-17-stocks-slide-as-semiconductor-rout-deepens/?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:33:59 +0000",
-      "description": "Chip stocks tumbled amid geopolitical tensions and valuation concerns, while Travelers surged on earnings, today, July 17, 2026.",
+      "date": "Fri, 17 Jul 2026 22:17:00 +0000",
+      "description": "The biggest problems aren\u2019t caused by what you don\u2019t know, but what, as Mark Twain put it, \u201cyou know for sure that just ain\u2019t so.\u201d  Chip stocks were supposed to be unstoppable, driven by shortages and insatiable demand for artificial intelligence.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Fanatics Fest traders on sports cards vs. stocks",
-      "link": "https://finance.yahoo.com/video/fanatics-fest-traders-on-sports-cards-vs-stocks-212906436.html?.tsrc=rss",
+      "title": "Wall St ends lower for the day and week as chip selloff broadens",
+      "link": "https://finance.yahoo.com/video/wall-st-ends-lower-day-221449448.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:29:06 +0000",
-      "description": "At Fanatics Fest, prominent sports card traders and dealers discuss the massive growth of the alternative collectibles market, highlighting cards that fetch upwards of a million dollars. They also debate the high volatility of sports card investing compared to traditional stock market assets, sharin",
+      "date": "Fri, 17 Jul 2026 22:14:49 +0000",
+      "description": "<body><p>STORY: Wall Street ended the week with another down day on Friday, as the Dow dropped more than three-quarters of a percent, the S&P 500 shed 1% and the Nasdaq lost 1.4%.</p><p>All three indexes also posted weekly losses.</p><p>Semiconductor shares initially led the selloff, which broadened",
       "category": "Macro/Equity"
     },
     {
-      "title": "ETFs Offer an Easier Way to Hold Physical Metal. Is Buying Gold or Silver the Better Bet in 2026?",
-      "link": "https://www.fool.com/coverage/etfs/2026/07/17/etfs-offer-an-easier-way-to-hold-physical-metal-is-buying-gold-or-silver-the-better-bet-in-2026/?.tsrc=rss",
+      "title": "Stock Market Today, July 17: UiPath Gains on Retail AI Partnership",
+      "link": "https://www.fool.com/coverage/stock-market-today/2026/07/17/stock-market-today-july-17-uipath-gains-on-retail-ai-partnership/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:22:01 +0000",
-      "description": "SIVR offers cheaper access at 0.30% expense ratio, while GLD delivers lower volatility. Both track physical metals with comparable 5-year returns.",
+      "date": "Fri, 17 Jul 2026 22:12:56 +0000",
+      "description": "Today, July 17, 2026, this week's AI pricing deal with a U.K. retailer boosted the stock as the automation provider navigates revenue headwinds.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Stock Market Today, July 17: Netflix Plunges, but Are Investors Missing the Point?",
-      "link": "https://www.fool.com/coverage/stock-market-today/2026/07/17/stock-market-today-july-17-netflix-plunges-but-are-investors-missing-the-point/?.tsrc=rss",
+      "title": "Why the Market Dipped But Petrobras (PBR) Gained Today",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/why-market-dipped-petrobras-pbr-215006228.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:18:14 +0000",
-      "description": "Today, July 17, 2026, the streaming giant's guidance miss triggered a stock slide as investors reassess near-term growth momentum.",
+      "date": "Fri, 17 Jul 2026 21:50:06 +0000",
+      "description": "Petrobras (PBR) closed at $17.97 in the latest trading session, marking a +2.86% move from the prior day.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Dow Jones Futures: Google, Tesla, AMD Loom After AI Stock Sell-Off",
-      "link": "https://finance.yahoo.com/m/6c8dacfc-1037-32fc-a343-353600ff0076/dow-jones-futures%3A-google%2C.html?.tsrc=rss",
+      "title": "Cloudflare (NET) Gains As Market Dips: What You Should Know",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/cloudflare-net-gains-market-dips-215006128.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 17 Jul 2026 21:01:14 +0000",
-      "description": "Google earnings and capex guidance will be key for battered AI stocks. Tesla, Intel, GE Vernova also will report.",
+      "date": "Fri, 17 Jul 2026 21:50:06 +0000",
+      "description": "Cloudflare (NET) closed at $277.66 in the latest trading session, marking a +1.91% move from the prior day.",
       "category": "Macro/Equity"
     }
   ]
