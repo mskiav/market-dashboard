@@ -79,7 +79,7 @@ else:
 def pat_chg(period):
     chf_chg = chf_inst.get("changes",{}).get(period) if chf_inst else None
     usd_chg = usd_inst.get("changes",{}).get(period) if usd_inst else None
-    if chg_chg is None or usd_chg is None: return None
+    if chf_chg is None or usd_chg is None: return None
     chf_base = chf_eur_now/(1+chf_chg/100) if chf_eur_now else None
     usd_base = usd_eur_now/(1+usd_chg/100) if usd_eur_now else None
     if not chf_base or not usd_base: return None
