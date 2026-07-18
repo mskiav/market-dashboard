@@ -1,5 +1,5 @@
 {
-  "updated": "18 Jul 2026 15:59 UTC",
+  "updated": "18 Jul 2026 16:04 UTC",
   "references": {
     "mtd": "30 Jun 2026",
     "qtd": "30 Jun 2026",
@@ -2055,289 +2055,6 @@
               7499.3599,
               7515.3398,
               7457.6899
-            ]
-          }
-        },
-        {
-          "symbol": "^IXIC",
-          "label": "Nasdaq",
-          "section": "indices",
-          "decimals": 0,
-          "current": 25520.0,
-          "raw_current": 25520.240234375,
-          "changes": {
-            "1D": -1.4,
-            "MTD": -2.65,
-            "QTD": -2.65,
-            "YTD": 9.8,
-            "2Y": 42.8
-          },
-          "series_1y": {
-            "labels": [
-              "Jul 25",
-              "Jul 25",
-              "Jul 25",
-              "Aug 25",
-              "Aug 25",
-              "Aug 25",
-              "Aug 25",
-              "Aug 25",
-              "Sep 25",
-              "Sep 25",
-              "Sep 25",
-              "Sep 25",
-              "Sep 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Nov 25",
-              "Nov 25",
-              "Nov 25",
-              "Nov 25",
-              "Nov 25",
-              "Dec 25",
-              "Dec 25",
-              "Dec 25",
-              "Dec 25",
-              "Dec 25",
-              "Jan 26",
-              "Jan 26",
-              "Jan 26",
-              "Jan 26",
-              "Jan 26",
-              "Feb 26",
-              "Feb 26",
-              "Feb 26",
-              "Feb 26",
-              "Feb 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Apr 26",
-              "Apr 26",
-              "Apr 26",
-              "Apr 26",
-              "Apr 26",
-              "May 26",
-              "May 26",
-              "May 26",
-              "May 26",
-              "May 26",
-              "Jun 26",
-              "Jun 26",
-              "Jun 26",
-              "Jun 26",
-              "Jun 26",
-              "Jul 26",
-              "Jul 26",
-              "Jul 26",
-              "Jul 26"
-            ],
-            "values": [
-              20895.6504,
-              21057.9609,
-              21129.6699,
-              20916.5508,
-              21385.4004,
-              21622.9805,
-              21100.3105,
-              21590.1406,
-              21497.7305,
-              21879.4902,
-              22348.75,
-              22631.4805,
-              22384.6992,
-              22755.1602,
-              22788.3594,
-              22694.6094,
-              22679.9707,
-              22941.8008,
-              23958.4707,
-              23348.6406,
-              23527.1699,
-              22900.5898,
-              22078.0508,
-              23214.6895,
-              23454.0898,
-              23576.4902,
-              23057.4102,
-              23307.6191,
-              23593.0996,
-              23235.6309,
-              23480.0195,
-              23471.75,
-              23224.8203,
-              23817.0996,
-              23592.1094,
-              23031.2109,
-              22597.1504,
-              22682.7305,
-              23152.0801,
-              22516.6895,
-              22695.9492,
-              22105.3594,
-              22090.6895,
-              21929.8203,
-              21590.6309,
-              22017.8496,
-              23183.7402,
-              24468.4805,
-              24438.5,
-              24673.2402,
-              25326.1309,
-              26274.1309,
-              26225.1406,
-              26293.0996,
-              26917.4707,
-              26853.9805,
-              25678.8203,
-              26683.9395,
-              26166.5996,
-              25297.6191,
-              25832.6699,
-              26206.8906,
-              26269.2305,
-              25520.2402
-            ]
-          },
-          "series_2y": {
-            "labels": [
-              "Jul 24",
-              "Jul 24",
-              "Aug 24",
-              "Aug 24",
-              "Sep 24",
-              "Sep 24",
-              "Sep 24",
-              "Oct 24",
-              "Oct 24",
-              "Oct 24",
-              "Nov 24",
-              "Nov 24",
-              "Dec 24",
-              "Dec 24",
-              "Dec 24",
-              "Jan 25",
-              "Jan 25",
-              "Feb 25",
-              "Feb 25",
-              "Feb 25",
-              "Mar 25",
-              "Mar 25",
-              "Apr 25",
-              "Apr 25",
-              "Apr 25",
-              "May 25",
-              "May 25",
-              "May 25",
-              "Jun 25",
-              "Jun 25",
-              "Jul 25",
-              "Jul 25",
-              "Jul 25",
-              "Aug 25",
-              "Aug 25",
-              "Aug 25",
-              "Sep 25",
-              "Sep 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Nov 25",
-              "Nov 25",
-              "Dec 25",
-              "Dec 25",
-              "Dec 25",
-              "Jan 26",
-              "Jan 26",
-              "Jan 26",
-              "Feb 26",
-              "Feb 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Apr 26",
-              "Apr 26",
-              "May 26",
-              "May 26",
-              "May 26",
-              "Jun 26",
-              "Jun 26",
-              "Jun 26",
-              "Jul 26",
-              "Jul 26"
-            ],
-            "values": [
-              17871.2207,
-              17147.4199,
-              16745.3008,
-              17918.9902,
-              17136.3008,
-              17683.9805,
-              18082.2109,
-              17923.9004,
-              18373.6094,
-              18712.75,
-              19286.7793,
-              18966.1406,
-              19480.9102,
-              19926.7207,
-              20020.3594,
-              19478.8809,
-              20009.3398,
-              19391.9609,
-              19945.6406,
-              19075.2598,
-              17468.3203,
-              17691.6309,
-              17449.8906,
-              16724.4609,
-              17166.0391,
-              17689.6602,
-              19211.0996,
-              19175.8691,
-              19714.9902,
-              19630.9707,
-              20601.0996,
-              20730.4902,
-              21178.5801,
-              21242.6992,
-              21314.9492,
-              21455.5508,
-              22043.0703,
-              22573.4707,
-              22780.5098,
-              22670.0801,
-              23637.4609,
-              23053.9902,
-              22432.8496,
-              23275.9199,
-              23593.8594,
-              23561.8398,
-              23547.1699,
-              23515.3906,
-              23685.1191,
-              23102.4707,
-              22627.2695,
-              22748.9902,
-              22479.5293,
-              20948.3594,
-              22822.4199,
-              24259.9609,
-              25114.4395,
-              26402.3398,
-              26656.1797,
-              25709.4297,
-              26021.6602,
-              26213.7207,
-              25873.1797,
-              25520.2402
             ]
           }
         },
@@ -6051,7 +5768,7 @@
           }
         }
       ],
-      "commentary": "Section broadly negative today (2 up / 9 down, avg -1.09%). Biggest mover: Nikkei 225 (-4.03%). YTD section average: +7.9%."
+      "commentary": "Section broadly negative today (2 up / 8 down, avg -1.06%). Biggest mover: Nikkei 225 (-4.03%). YTD section average: +7.7%."
     },
     "energy": {
       "instruments": [
@@ -8628,14 +8345,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 56038.0,
-          "raw_current": 56038.37109375,
+          "current": 56018.0,
+          "raw_current": 56017.7890625,
           "changes": {
-            "1D": 0.33,
-            "MTD": 9.22,
-            "QTD": 9.22,
-            "YTD": -24.87,
-            "2Y": -4.52
+            "1D": 0.29,
+            "MTD": 9.18,
+            "QTD": 9.18,
+            "YTD": -24.9,
+            "2Y": -4.55
           },
           "series_1y": {
             "labels": [
@@ -8764,7 +8481,7 @@
               52738.7422,
               55516.9453,
               54675.5742,
-              56038.3711
+              56017.7891
             ]
           },
           "series_2y": {
@@ -8894,7 +8611,7 @@
               56631.5234,
               52682.4219,
               54508.0,
-              56038.3711
+              56017.7891
             ]
           }
         },
@@ -8903,14 +8620,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1612.0,
-          "raw_current": 1611.6500244140625,
+          "current": 1611.0,
+          "raw_current": 1610.760009765625,
           "changes": {
-            "1D": 0.15,
-            "MTD": 17.19,
-            "QTD": 17.19,
-            "YTD": -36.27,
-            "2Y": -48.73
+            "1D": 0.09,
+            "MTD": 17.13,
+            "QTD": 17.13,
+            "YTD": -36.31,
+            "2Y": -48.75
           },
           "series_1y": {
             "labels": [
@@ -9039,7 +8756,7 @@
               1414.1542,
               1551.1278,
               1557.9778,
-              1611.65
+              1610.76
             ]
           },
           "series_2y": {
@@ -9169,7 +8886,7 @@
               1486.332,
               1383.9536,
               1525.7561,
-              1611.65
+              1610.76
             ]
           }
         }
@@ -9463,14 +9180,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 56038.0,
-          "raw_current": 56038.37109375,
+          "current": 56018.0,
+          "raw_current": 56017.7890625,
           "changes": {
-            "1D": 0.33,
-            "MTD": 9.22,
-            "QTD": 9.22,
-            "YTD": -24.87,
-            "2Y": -4.52
+            "1D": 0.29,
+            "MTD": 9.18,
+            "QTD": 9.18,
+            "YTD": -24.9,
+            "2Y": -4.55
           },
           "series_1y": {
             "labels": [
@@ -9599,7 +9316,7 @@
               52738.7422,
               55516.9453,
               54675.5742,
-              56038.3711
+              56017.7891
             ]
           },
           "series_2y": {
@@ -9729,12 +9446,12 @@
               56631.5234,
               52682.4219,
               54508.0,
-              56038.3711
+              56017.7891
             ]
           }
         }
       ],
-      "commentary": "Section broadly positive today (4 up / 0 down, avg +0.35%). Biggest mover: Gold USD/oz (+0.68%). YTD section average: -22.1%."
+      "commentary": "Section broadly positive today (4 up / 0 down, avg +0.33%). Biggest mover: Gold USD/oz (+0.68%). YTD section average: -22.1%."
     },
     "rates": {
       "instruments": [
@@ -11771,6 +11488,14 @@
       "category": "Energy"
     },
     {
+      "title": "Go Big or Go Bigger: Is the Vanguard Mega Cap Growth ETF or S&P 500 Growth ETF the Better Buy?",
+      "link": "https://www.fool.com/coverage/etfs/2026/07/18/go-big-or-go-bigger-is-the-vanguard-mega-cap-growth-etf-or-s-and-p-500-growth-etf-the-better-buy/?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Sat, 18 Jul 2026 15:56:01 +0000",
+      "description": "MGK concentrates on 56 mega-cap names with a 0.05% fee, while VOOG spreads across 148 holdings at 0.07%. VOOG delivered stronger 1-year returns despite higher volatility.",
+      "category": "Macro/Equity"
+    },
+    {
       "title": "This \"Hands-Off\" ETF Could Be Your Ticket to Becoming a Millionaire",
       "link": "https://www.fool.com/investing/2026/07/18/this-etf-could-be-your-ticket-to-becoming-a-millio/?.tsrc=rss",
       "source": "Yahoo Finance",
@@ -11800,14 +11525,6 @@
       "source": "Yahoo Finance",
       "date": "Sat, 18 Jul 2026 15:05:00 +0000",
       "description": "It's a good idea for investors to look outside the U.S. for investment opportunities.",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "Gold's Returns Are Shining: Is It Better to Invest With a Physical Gold or Mining Stock ETF in 2026?",
-      "link": "https://www.fool.com/coverage/etfs/2026/07/18/gold-s-returns-are-shining-is-it-better-to-invest-with-a-physical-gold-or-mining-stock-etf-in-2026/?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Sat, 18 Jul 2026 15:00:01 +0000",
-      "description": "GDX delivered 44.4% returns over the past year but experienced a 46.5% drawdown, while GLD's lower volatility came with 21.4% gains.",
       "category": "Macro/Equity"
     }
   ]
