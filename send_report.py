@@ -104,7 +104,7 @@ SECTION_TITLES = {
     "rates":   ("RATES & RISK",         "#a02020", "#fdeaea"),
 }
 
-time_of_day = "Morning" if datetime.utcnow().hour < 10 else "Afternoon"
+subject_tag = "Morning" if now_hour < 8 else "Afternoon" if now_hour < 14 else "Evening"
 
 html = f"""<!DOCTYPE html>
 <html>
