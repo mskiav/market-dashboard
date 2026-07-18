@@ -3,6 +3,8 @@ name: Fetch market data
 on:
   schedule:
     - cron: '*/15 * * * 1-5'
+    - cron: '0 5 * * 1-5'
+    - cron: '0 14 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -23,6 +25,14 @@ jobs:
 
       - name: Fetch data
         run: python fetch_data.py
+
+      - name: Send email report
+        if: github.event.schedule == '0 5 * * 1-5' || github.event.schedule == '0 14 * * 1-5'
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          MAIL_TO: ${{ secrets.MAIL_TO }}
+        run: python send_report.py
 
       - name: Commit and push
         run: |
