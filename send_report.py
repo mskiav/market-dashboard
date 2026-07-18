@@ -6,10 +6,10 @@ from email.mime.multipart import MIMEMultipart
 from datetime import datetime
 
 def fmt_chg(v):
-    if v is None: return '<span style="color:#666">—</span>'
+    if v is None: return '<span style="color:#999">—</span>'
     sign = "+" if v > 0 else ""
-    color = "#00c87a" if v > 0 else "#ff5566" if v < 0 else "#888"
-    return f'<span style="color:{color};font-weight:600">{sign}{v:.2f}%</span>'
+    color = "#1a7a4a" if v > 0 else "#c0392b" if v < 0 else "#666"
+    return f'<span style="color:{color};font-weight:700">{sign}{v:.2f}%</span>'
 
 def fmt_val(v, dec=2):
     if v is None: return "—"
@@ -98,82 +98,119 @@ avg_ytd = avg_chg(all_instruments, "YTD")
 start_fmt = datetime.strptime(cfg["start_date"], "%Y-%m-%d").strftime("%d %b %Y")
 
 SECTION_TITLES = {
-    "fx":      ("FX", "#5aa7ff"),
-    "indices": ("GLOBAL INDICES", "#00d488"),
-    "energy":  ("ENERGY & COMMODITIES", "#ffb84d"),
-    "crypto":  ("METALS & CRYPTO", "#bf76ff"),
-    "rates":   ("RATES & RISK", "#ff5566"),
+    "fx":      ("FX",                  "#1a5fa8", "#e8f0fa"),
+    "indices": ("GLOBAL INDICES",      "#1a7a4a", "#e8f5ee"),
+    "energy":  ("ENERGY & COMMODITIES","#a06010", "#fdf3e3"),
+    "crypto":  ("6e2da8", "METALS & CRYPTO",   "#f3eafd"),
+    "rates":   ("RATES & RISK",        "#a02020", "#fdeaea"),
 }
 
-def chg_row(label, v):
-    if v is None: return ""
-    sign = "+" if v >= 0 else ""
-    col  = "#00c87a" if v >= 0 else "#ff5566"
-    eur_delta = round(eur_now * v / 100)
-    eur_sign  = "+" if eur_delta >= 0 else ""
-    return f"""
-    <tr>
-      <td style="padding:4px 10px;color:#aaa;font-size:13px">{label}</td>
-      <td style="padding:4px 10px;color:{col};font-weight:700;font-size:15px;text-align:right">{sign}{v:.2f}%</td>
-      <td style="padding:4px 10px;color:{col};font-size:13px;text-align:right">{eur_sign}€ {abs(eur_delta):,}</td>
-    </tr>"""
+# Fix section titles dict (color first for crypto was wrong above)
+SECTION_TITLES = {
+    "fx":      ("FX",                   "#1a5fa8", "#e8f0fa"),
+    "indices": ("GLOBAL INDICES",       "#1a7a4a", "#e8f5ee"),
+    "energy":  ("ENERGY & COMMODITIES", "#a06010", "#fdf3e3"),
+    "crypto":  ("METALS & CRYPTO",      "#6e2da8", "#f3eafd"),
+    "rates":   ("RATES & RISK",         "#a02020", "#fdeaea"),
+}
+
+def delta_cell(v, eur_val):
+    if v is None: return '<td style="padding:3px 8px;text-align:right;color:#999;font-size:12px">—</td>'
+    sign  = "+" if v >= 0 else ""
+    col   = "#1a7a4a" if v >= 0 else "#c0392b"
+    edelt = round(eur_val * v / 100)
+    esign = "+" if edelt >= 0 else ""
+    return f'<td style="padding:3px 8px;text-align:right;font-size:12px"><span style="color:{col};font-weight:700">{sign}{v:.2f}%</span><br><span style="color:{col};font-size:10px">{esign}€{abs(edelt):,}</span></td>'
+
+# ============ HTML ============
+time_of_day = "Morning" if datetime.utcnow().hour < 10 else "Afternoon"
 
 html = f"""<!DOCTYPE html>
 <html>
-<head><meta charset="utf-8"></head>
-<body style="margin:0;padding:0;background:#06080a;font-family:'Courier New',monospace;color:#eef2f7">
-<div style="max-width:680px;margin:0 auto;padding:20px">
+<head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+<body style="margin:0;padding:0;background:#f0f2f5;font-family:Arial,Helvetica,sans-serif;color:#1a1a2e">
+<div style="max-width:660px;margin:0 auto;padding:16px">
 
-  <div style="background:#0e1116;border:1px solid #2a3340;border-radius:8px;padding:20px 24px;margin-bottom:16px">
-    <div style="font-size:11px;color:#475568;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px">Market Dashboard</div>
-    <div style="font-size:22px;font-weight:700;color:#eef2f7">{"Morning" if datetime.utcnow().hour < 10 else "Afternoon"} Report</div>
-    <div style="font-size:12px;color:#475568;margin-top:4px">{updated}</div>
-  </div>
-
-  <div style="background:#0e1116;border:1px solid #2a3340;border-radius:8px;padding:20px 24px;margin-bottom:16px">
-    <div style="font-size:10px;color:#ffb84d;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:14px">&#9658; Patrimony</div>
-    <div style="font-size:11px;color:#475568;margin-bottom:10px">EUR {cfg['eur']:,} &nbsp;&middot;&nbsp; CHF {cfg['chf']:,} &nbsp;&middot;&nbsp; USD {cfg['usd']:,}</div>
-    <div style="font-size:32px;font-weight:700;color:#eef2f7;letter-spacing:-0.02em">&#8364; {round(eur_now):,}</div>
-    {'<div style="font-size:13px;color:#475568;margin-top:6px">Start value '+ start_fmt +': &#8364; '+ f"{round(eur_then):,}" +'&nbsp;&nbsp;<span style="color:' + ("#00c87a" if delta>=0 else "#ff5566") + ';font-weight:600">' + ("+" if delta>=0 else "") + f"&#8364; {abs(round(delta)):,} ({delta_pct:+.2f}%)</span></div>" if eur_then else ""}
-    <table style="width:100%;margin-top:16px;border-collapse:collapse">
-      <tr style="border-bottom:1px solid #1e2630">
-        <td style="padding:6px 10px;color:#475568;font-size:11px;letter-spacing:0.1em">PERIOD</td>
-        <td style="padding:6px 10px;color:#475568;font-size:11px;letter-spacing:0.1em;text-align:right">CHANGE %</td>
-        <td style="padding:6px 10px;color:#475568;font-size:11px;letter-spacing:0.1em;text-align:right">CHANGE &#8364;</td>
-      </tr>
-      {chg_row("1D", pat_1d)}
-      {chg_row("MTD", pat_mtd)}
-      {chg_row("YTD", pat_ytd)}
-    </table>
-    <div style="margin-top:12px;font-size:11px;color:#475568">
-      CHF/EUR: {f"{chf_eur_now:.4f}" if chf_eur_now else "&#8212;"}
-      {f"(start: {chf_eur_then:.4f})" if chf_eur_then else ""}
-      &nbsp;&middot;&nbsp;
-      USD/EUR: {f"{usd_eur_now:.4f}" if usd_eur_now else "&#8212;"}
-      {f"(start: {usd_eur_then:.4f})" if usd_eur_then else ""}
+  <!-- Header -->
+  <div style="background:#1a1a2e;border-radius:8px;padding:16px 20px;margin-bottom:12px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <div style="font-size:10px;color:#888;letter-spacing:0.15em;text-transform:uppercase">Market Dashboard</div>
+      <div style="font-size:20px;font-weight:700;color:#fff;margin-top:2px">{time_of_day} Report</div>
+    </div>
+    <div style="text-align:right">
+      <div style="font-size:11px;color:#aaa">{updated}</div>
+      <a href="https://mskiav.github.io/market-dashboard/" style="font-size:11px;color:#ffb84d;text-decoration:none">Open dashboard &#8594;</a>
     </div>
   </div>
 
-  <div style="background:#0e1116;border:1px solid #2a3340;border-radius:8px;padding:16px 24px;margin-bottom:16px">
-    <div style="font-size:10px;color:#ffb84d;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:12px">&#9658; Market averages (all instruments)</div>
+  <!-- Patrimony -->
+  <div style="background:#fff;border-radius:8px;padding:16px 20px;margin-bottom:12px;border-left:4px solid #ffb84d">
+    <div style="font-size:10px;color:#ffb84d;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:10px">&#9658; Patrimony</div>
+    <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:8px">
+      <div style="font-size:28px;font-weight:700;color:#1a1a2e">&#8364; {round(eur_now):,}</div>
+      {'<div style="font-size:12px;color:#666">Start '+ start_fmt +': &#8364; '+ f"{round(eur_then):,}" +'&nbsp;&nbsp;<span style="color:' + ("#1a7a4a" if delta>=0 else "#c0392b") + ';font-weight:700">' + ("+" if delta>=0 else "") + f"&#8364; {abs(round(delta)):,} ({delta_pct:+.2f}%)</span></div>" if eur_then else ""}
+    </div>
+    <div style="font-size:11px;color:#888;margin-bottom:10px">EUR {cfg['eur']:,} &nbsp;&middot;&nbsp; CHF {cfg['chf']:,} &nbsp;&middot;&nbsp; USD {cfg['usd']:,}</div>
+    <table style="width:100%;border-collapse:collapse;font-size:13px">
+      <tr style="background:#f8f8f8">
+        <td style="padding:5px 8px;color:#666;font-size:11px;font-weight:700;width:15%">PERIOD</td>
+        <td style="padding:5px 8px;color:#666;font-size:11px;font-weight:700;text-align:right;width:25%">CHANGE %</td>
+        <td style="padding:5px 8px;color:#666;font-size:11px;font-weight:700;text-align:right">CHANGE &#8364;</td>
+        <td style="padding:5px 8px;color:#666;font-size:11px;font-weight:700;text-align:right">CHF/EUR</td>
+        <td style="padding:5px 8px;color:#666;font-size:11px;font-weight:700;text-align:right">USD/EUR</td>
+      </tr>"""
+
+for period, pval, chf_v, usd_v in [
+    ("1D",  pat_1d,  chf_inst.get("changes",{}).get("1D")  if chf_inst else None, usd_inst.get("changes",{}).get("1D")  if usd_inst else None),
+    ("MTD", pat_mtd, chf_inst.get("changes",{}).get("MTD") if chf_inst else None, usd_inst.get("changes",{}).get("MTD") if usd_inst else None),
+    ("YTD", pat_ytd, chf_inst.get("changes",{}).get("YTD") if chf_inst else None, usd_inst.get("changes",{}).get("YTD") if usd_inst else None),
+]:
+    def fc(v):
+        if v is None: return '<span style="color:#999">—</span>'
+        col = "#1a7a4a" if v>=0 else "#c0392b"
+        return f'<span style="color:{col};font-weight:700">{"+" if v>=0 else ""}{v:.2f}%</span>'
+    def fe(v):
+        if v is None: return "—"
+        e = round(eur_now*v/100)
+        col = "#1a7a4a" if e>=0 else "#c0392b"
+        return f'<span style="color:{col};font-weight:700">{"+" if e>=0 else ""}&#8364;{abs(e):,}</span>'
+    html += f"""
+      <tr style="border-top:1px solid #eee">
+        <td style="padding:5px 8px;font-weight:700;font-size:12px">{period}</td>
+        <td style="padding:5px 8px;text-align:right">{fc(pval)}</td>
+        <td style="padding:5px 8px;text-align:right">{fe(pval)}</td>
+        <td style="padding:5px 8px;text-align:right;font-size:12px">{fc(chf_v)}</td>
+        <td style="padding:5px 8px;text-align:right;font-size:12px">{fc(usd_v)}</td>
+      </tr>"""
+
+html += f"""
+    </table>
+  </div>
+
+  <!-- Market Averages -->
+  <div style="background:#fff;border-radius:8px;padding:12px 20px;margin-bottom:12px">
+    <div style="font-size:10px;color:#888;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:8px">&#9658; Market averages — all instruments</div>
     <table style="width:100%;border-collapse:collapse">
       <tr>
-        <td style="padding:4px 10px;color:#475568;font-size:12px;width:30%">1D average</td>
-        <td style="padding:4px 10px;font-size:15px;font-weight:700">{fmt_chg(avg_1d)}</td>
+        <td style="padding:3px 8px;color:#666;font-size:11px;font-weight:700;width:20%"></td>
+        <td style="padding:3px 8px;color:#666;font-size:11px;font-weight:700;text-align:center;width:26%">1D</td>
+        <td style="padding:3px 8px;color:#666;font-size:11px;font-weight:700;text-align:center;width:26%">MTD</td>
+        <td style="padding:3px 8px;color:#666;font-size:11px;font-weight:700;text-align:center">YTD</td>
       </tr>
-      <tr>
-        <td style="padding:4px 10px;color:#475568;font-size:12px">MTD average</td>
-        <td style="padding:4px 10px;font-size:15px;font-weight:700">{fmt_chg(avg_mtd)}</td>
-      </tr>
-      <tr>
-        <td style="padding:4px 10px;color:#475568;font-size:12px">YTD average</td>
-        <td style="padding:4px 10px;font-size:15px;font-weight:700">{fmt_chg(avg_ytd)}</td>
+      <tr style="background:#f8f8f8;border-radius:4px">
+        <td style="padding:6px 8px;font-size:12px;font-weight:700">Average</td>
+        <td style="padding:6px 8px;text-align:center;font-size:14px">{fmt_chg(avg_1d)}</td>
+        <td style="padding:6px 8px;text-align:center;font-size:14px">{fmt_chg(avg_mtd)}</td>
+        <td style="padding:6px 8px;text-align:center;font-size:14px">{fmt_chg(avg_ytd)}</td>
       </tr>
     </table>
   </div>
 """
 
-for sec_key, (title, color) in SECTION_TITLES.items():
+# Sections
+for sec_key, (title, color, bg) in SECTION_TITLES.items():
     sec = sections.get(sec_key, {})
     instruments = sec.get("instruments", [])
     if not instruments: continue
@@ -181,7 +218,6 @@ for sec_key, (title, color) in SECTION_TITLES.items():
     s1d  = avg_chg(instruments, "1D")
     smtd = avg_chg(instruments, "MTD")
     sytd = avg_chg(instruments, "YTD")
-    commentary = sec.get("commentary", "")
 
     rows = ""
     for inst in instruments:
@@ -191,58 +227,68 @@ for sec_key, (title, color) in SECTION_TITLES.items():
         chg_1d  = inst.get("changes",{}).get("1D")
         chg_mtd = inst.get("changes",{}).get("MTD")
         chg_ytd = inst.get("changes",{}).get("YTD")
-        val_str = fmt_val(val,dec) if isinstance(val,(int,float)) else str(val) if val else "&#8212;"
+        val_str = fmt_val(val,dec) if isinstance(val,(int,float)) else str(val) if val else "—"
+
+        def fc2(v):
+            if v is None: return '<span style="color:#999">—</span>'
+            col = "#1a7a4a" if v>=0 else "#c0392b"
+            return f'<span style="color:{col};font-weight:700">{"+" if v>=0 else ""}{v:.2f}%</span>'
+
         rows += f"""
-        <tr style="border-bottom:1px solid #1a2030">
-          <td style="padding:7px 10px;color:#ccc;font-size:13px">{label}</td>
-          <td style="padding:7px 10px;color:#eef2f7;font-size:13px;text-align:right;font-weight:600">{val_str}</td>
-          <td style="padding:7px 10px;text-align:right;font-size:13px">{fmt_chg(chg_1d)}</td>
-          <td style="padding:7px 10px;text-align:right;font-size:13px">{fmt_chg(chg_mtd)}</td>
-          <td style="padding:7px 10px;text-align:right;font-size:13px">{fmt_chg(chg_ytd)}</td>
+        <tr style="border-top:1px solid #eee">
+          <td style="padding:5px 8px;color:#333;font-size:12px">{label}</td>
+          <td style="padding:5px 8px;color:#1a1a2e;font-size:13px;text-align:right;font-weight:700">{val_str}</td>
+          <td style="padding:5px 8px;text-align:right;font-size:12px">{fc2(chg_1d)}</td>
+          <td style="padding:5px 8px;text-align:right;font-size:12px">{fc2(chg_mtd)}</td>
+          <td style="padding:5px 8px;text-align:right;font-size:12px">{fc2(chg_ytd)}</td>
         </tr>"""
 
     html += f"""
-  <div style="background:#0e1116;border:1px solid #2a3340;border-left:3px solid {color};border-radius:8px;padding:16px 24px;margin-bottom:12px">
-    <div style="font-size:10px;color:{color};letter-spacing:0.18em;text-transform:uppercase;margin-bottom:12px">&#9658; {title}</div>
-    <div style="font-size:11px;color:#475568;margin-bottom:10px">avg &nbsp; 1D: {fmt_chg(s1d)} &nbsp;&middot;&nbsp; MTD: {fmt_chg(smtd)} &nbsp;&middot;&nbsp; YTD: {fmt_chg(sytd)}</div>
-    <table style="width:100%;border-collapse:collapse">
-      <tr style="border-bottom:1px solid #2a3340">
-        <th style="padding:5px 10px;color:#475568;font-size:10px;letter-spacing:0.1em;text-align:left;font-weight:400">INSTRUMENT</th>
-        <th style="padding:5px 10px;color:#475568;font-size:10px;letter-spacing:0.1em;text-align:right;font-weight:400">VALUE</th>
-        <th style="padding:5px 10px;color:#475568;font-size:10px;letter-spacing:0.1em;text-align:right;font-weight:400">1D</th>
-        <th style="padding:5px 10px;color:#475568;font-size:10px;letter-spacing:0.1em;text-align:right;font-weight:400">MTD</th>
-        <th style="padding:5px 10px;color:#475568;font-size:10px;letter-spacing:0.1em;text-align:right;font-weight:400">YTD</th>
+  <div style="background:{bg};border-radius:8px;padding:12px 16px;margin-bottom:10px;border-left:4px solid {color}">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px;flex-wrap:wrap;gap:6px">
+      <div style="font-size:10px;color:{color};letter-spacing:0.15em;text-transform:uppercase;font-weight:700">{title}</div>
+      <div style="font-size:11px;color:#666">avg &nbsp; 1D: {fmt_chg(s1d)} &nbsp;&middot;&nbsp; MTD: {fmt_chg(smtd)} &nbsp;&middot;&nbsp; YTD: {fmt_chg(sytd)}</div>
+    </div>
+    <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:6px;overflow:hidden">
+      <tr style="background:#f0f0f0">
+        <th style="padding:4px 8px;color:#666;font-size:10px;letter-spacing:0.08em;text-align:left;font-weight:600">INSTRUMENT</th>
+        <th style="padding:4px 8px;color:#666;font-size:10px;letter-spacing:0.08em;text-align:right;font-weight:600">VALUE</th>
+        <th style="padding:4px 8px;color:#666;font-size:10px;letter-spacing:0.08em;text-align:right;font-weight:600">1D</th>
+        <th style="padding:4px 8px;color:#666;font-size:10px;letter-spacing:0.08em;text-align:right;font-weight:600">MTD</th>
+        <th style="padding:4px 8px;color:#666;font-size:10px;letter-spacing:0.08em;text-align:right;font-weight:600">YTD</th>
       </tr>
       {rows}
     </table>
-    {f'<div style="margin-top:10px;font-size:11px;color:#475568;font-style:italic">{commentary}</div>' if commentary else ""}
   </div>"""
 
+# News
 news = d.get("news", [])
 if news:
     news_rows = ""
-    for n in news[:6]:
+    for i, n in enumerate(news[:6]):
         title_text = n.get("title","")
         source     = n.get("source","")
         link       = n.get("link","")
+        bg_row = "#fff" if i % 2 == 0 else "#f8f8f8"
         news_rows += f"""
-        <tr style="border-bottom:1px solid #1a2030">
-          <td style="padding:8px 10px">
-            {'<a href="'+link+'" style="color:#eef2f7;text-decoration:none;font-size:13px;font-weight:500">'+title_text+'</a>' if link else '<span style="font-size:13px">'+title_text+'</span>'}
-            <div style="font-size:11px;color:#475568;margin-top:3px">{source}</div>
+        <tr style="background:{bg_row};border-top:1px solid #eee">
+          <td style="padding:7px 10px">
+            {'<a href="'+link+'" style="color:#1a1a2e;text-decoration:none;font-size:12px;font-weight:600">'+title_text+'</a>' if link else '<span style="font-size:12px;font-weight:600">'+title_text+'</span>'}
+            <span style="font-size:10px;color:#888;margin-left:6px">{source}</span>
           </td>
         </tr>"""
     html += f"""
-  <div style="background:#0e1116;border:1px solid #2a3340;border-radius:8px;padding:16px 24px;margin-bottom:16px">
-    <div style="font-size:10px;color:#ffb84d;letter-spacing:0.18em;text-transform:uppercase;margin-bottom:12px">&#9658; Headlines</div>
+  <div style="background:#fff;border-radius:8px;padding:12px 16px;margin-bottom:12px">
+    <div style="font-size:10px;color:#888;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:8px">&#9658; Headlines</div>
     <table style="width:100%;border-collapse:collapse">{news_rows}</table>
   </div>"""
 
 html += f"""
-  <div style="text-align:center;padding:16px;font-size:11px;color:#475568">
-    <a href="https://mskiav.github.io/market-dashboard/" style="color:#ffb84d;text-decoration:none">Open full dashboard &#8594;</a>
-    <div style="margin-top:6px">Generated automatically &middot; {updated}</div>
+  <div style="text-align:center;padding:12px;font-size:11px;color:#888">
+    <a href="https://mskiav.github.io/market-dashboard/" style="color:#1a5fa8;text-decoration:none;font-weight:600">Open full dashboard &#8594;</a>
+    &nbsp;&middot;&nbsp; {updated}
   </div>
+
 </div>
 </body>
 </html>"""
@@ -261,24 +307,15 @@ msg["To"]      = mail_to
 msg["Subject"] = subject
 msg.attach(MIMEText(html, "html", "utf-8"))
 
-print(f"Connecting to Gmail SMTP...")
-print(f"From: {gmail_user}")
-print(f"To: {mail_to}")
-print(f"HTML length: {len(html)} chars")
-
+print(f"Sending to {mail_to}...")
 try:
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as server:
-        print("Connected to SMTP server")
         server.login(gmail_user, gmail_pwd)
-        print("Logged in successfully")
         server.sendmail(gmail_user, mail_to, msg.as_string())
         print(f"Email sent to {mail_to}")
 except smtplib.SMTPAuthenticationError as e:
-    print(f"AUTH ERROR: {e} — check GMAIL_APP_PASSWORD secret")
-    raise
-except smtplib.SMTPException as e:
-    print(f"SMTP ERROR: {e}")
+    print(f"AUTH ERROR: {e}")
     raise
 except Exception as e:
-    print(f"GENERAL ERROR: {type(e).__name__}: {e}")
+    print(f"ERROR: {type(e).__name__}: {e}")
     raise
