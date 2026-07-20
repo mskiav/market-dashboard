@@ -27,8 +27,20 @@ jobs:
       - name: Fetch data
         run: python fetch_data.py
 
+      - name: Check if email time
+        id: check_time
+        run: |
+          HOUR=$(date -u +%H)
+          MIN=$(date -u +%M)
+          echo "UTC hour: $HOUR, minute: $MIN"
+          if [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
+            echo "send_email=true" >> $GITHUB_OUTPUT
+          else
+            echo "send_email=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Send email report
-        if: github.event.schedule == '0 6 * * 1-5' || github.event.schedule == '0 12 * * 1-5' || github.event.schedule == '0 18 * * 1-5'
+        if: steps.check_time.outputs.send_email == 'true'
         env:
           GMAIL_USER: ${{ secrets.GMAIL_USER }}
           GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
