@@ -40,6 +40,7 @@ def find_fx_rate(series, target_date_str):
             best_idx = i
     return series["values"][best_idx] if series["values"] else None
 
+# Load
 with open("data.json") as f:
     d = json.load(f)
 with open("patrimony_config.json") as f:
@@ -47,6 +48,8 @@ with open("patrimony_config.json") as f:
 
 updated  = d.get("updated", "—")
 sections = d.get("sections", {})
+now_hour    = datetime.utcnow().hour
+time_of_day = "Morning" if now_hour < 8 else "Afternoon" if now_hour < 14 else "Evening"
 
 def get_inst(sym):
     for sec in sections.values():
@@ -103,8 +106,6 @@ SECTION_TITLES = {
     "crypto":  ("METALS & CRYPTO",      "#6e2da8", "#f3eafd"),
     "rates":   ("RATES & RISK",         "#a02020", "#fdeaea"),
 }
-
-subject_tag = "Morning" if now_hour < 8 else "Afternoon" if now_hour < 14 else "Evening"
 
 html = f"""<!DOCTYPE html>
 <html>
@@ -269,8 +270,7 @@ html += f"""
 gmail_user  = os.environ["GMAIL_USER"]
 gmail_pwd   = os.environ["GMAIL_APP_PASSWORD"]
 mail_to     = os.environ["MAIL_TO"]
-now_hour    = datetime.utcnow().hour
-subject_tag = "Morning" if now_hour < 10 else "Afternoon"
+subject_tag = "Morning" if now_hour < 8 else "Afternoon" if now_hour < 14 else "Evening"
 subject     = f"[Market] {subject_tag} Report — {updated}"
 
 msg = MIMEMultipart("alternative")
@@ -279,7 +279,7 @@ msg["To"]      = mail_to
 msg["Subject"] = subject
 msg.attach(MIMEText(html, "html", "utf-8"))
 
-print(f"Sending to {mail_to}...")
+print(f"Sending {subject_tag} report to {mail_to}...")
 try:
     with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as server:
         server.login(gmail_user, gmail_pwd)
