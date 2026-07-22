@@ -27,12 +27,12 @@ jobs:
       - name: Fetch data
         run: python fetch_data.py
 
-      - name: Check if email time
+- name: Check if email time
         id: check_time
         run: |
           HOUR=$(date -u +%H)
           echo "UTC hour: $HOUR"
-          if [ "$HOUR" = "06" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "18" ]; then
+          if [ "$HOUR" = "06" ] || [ "$HOUR" = "07" ] || [ "$HOUR" = "12" ] || [ "$HOUR" = "13" ] || [ "$HOUR" = "18" ] || [ "$HOUR" = "19" ]; then
             echo "send_email=true" >> $GITHUB_OUTPUT
           else
             echo "send_email=false" >> $GITHUB_OUTPUT
