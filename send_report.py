@@ -46,8 +46,8 @@ with open("data.json") as f:
 with open("patrimony_config.json") as f:
     cfg = json.load(f)
 
-updated  = d.get("updated", "—")
-sections = d.get("sections", {})
+updated     = d.get("updated", "—")
+sections    = d.get("sections", {})
 now_hour    = datetime.utcnow().hour
 time_of_day = "Morning" if now_hour < 8 else "Afternoon" if now_hour < 14 else "Evening"
 
@@ -90,22 +90,31 @@ def pat_chg(period):
 
 pat_1d  = pat_chg("1D")
 pat_mtd = pat_chg("MTD")
-pat_ytd = pat_chg("YTD")
+# YTD patrimony: use start_date (31 Dec) which now matches YTD reference
+pat_ytd = delta_pct  # same as total delta since start_date = 31 Dec
 
 all_instruments = [i for sec in sections.values() for i in sec.get("instruments",[])]
-avg_1d  = avg_chg(all_instruments, "1D")
-avg_mtd = avg_chg(all_instruments, "MTD")
-avg_ytd = avg_chg(all_instruments, "YTD")
 
 start_fmt = datetime.strptime(cfg["start_date"], "%Y-%m-%d").strftime("%d %b %Y")
 
 SECTION_TITLES = {
-    "fx":      ("FX",                   "#1a5fa8", "#e8f0fa"),
-    "indices": ("GLOBAL INDICES",       "#1a7a4a", "#e8f5ee"),
-    "energy":  ("ENERGY & COMMODITIES", "#a06010", "#fdf3e3"),
-    "crypto":  ("METALS & CRYPTO",      "#6e2da8", "#f3eafd"),
-    "rates":   ("RATES & RISK",         "#a02020", "#fdeaea"),
+    "fx":      ("FX",                   "#1a5fa8", "#e8f0fa", "#d0e4f7"),
+    "indices": ("GLOBAL INDICES",       "#1a7a4a", "#e8f5ee", "#c8eeda"),
+    "energy":  ("ENERGY & COMMODITIES", "#a06010", "#fdf3e3", "#f9e0b8"),
+    "crypto":  ("METALS & CRYPTO",      "#6e2da8", "#f3eafd", "#e4d0f9"),
+    "rates":   ("RATES & RISK",         "#a02020", "#fdeaea", "#f9cccc"),
 }
+
+def fc(v):
+    if v is None: return '<span style="color:#999">—</span>'
+    col = "#1a7a4a" if v>=0 else "#c0392b"
+    return f'<span style="color:{col};font-weight:700">{"+" if v>=0 else ""}{v:.2f}%</span>'
+
+def fe(v):
+    if v is None: return "—"
+    e = round(eur_now*v/100)
+    col = "#1a7a4a" if e>=0 else "#c0392b"
+    return f'<span style="color:{col};font-weight:700">{"+" if e>=0 else ""}&#8364;{abs(e):,}</span>'
 
 html = f"""<!DOCTYPE html>
 <html>
@@ -128,7 +137,7 @@ html = f"""<!DOCTYPE html>
     <div style="font-size:10px;color:#ffb84d;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:8px">&#9658; Patrimony</div>
     <div style="display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px">
       <div style="font-size:26px;font-weight:700;color:#1a1a2e">&#8364; {round(eur_now):,}</div>
-      {'<div style="font-size:12px;color:#666">Start '+ start_fmt +': &#8364; '+ f"{round(eur_then):,}" +'&nbsp;&nbsp;<span style="color:' + ("#1a7a4a" if delta>=0 else "#c0392b") + ';font-weight:700">' + ("+" if delta>=0 else "") + f"&#8364; {abs(round(delta)):,} ({delta_pct:+.2f}%)</span></div>" if eur_then else ""}
+      {'<div style="font-size:12px;color:#666">YTD start '+ start_fmt +': &#8364; '+ f"{round(eur_then):,}" +'&nbsp;&nbsp;<span style="color:' + ("#1a7a4a" if delta>=0 else "#c0392b") + ';font-weight:700">' + ("+" if delta>=0 else "") + f"&#8364; {abs(round(delta)):,} ({delta_pct:+.2f}%)</span></div>" if eur_then else ""}
     </div>
     <div style="font-size:10px;color:#888;margin-bottom:8px">EUR {cfg['eur']:,} &nbsp;&middot;&nbsp; CHF {cfg['chf']:,} &nbsp;&middot;&nbsp; USD {cfg['usd']:,}</div>
     <table style="width:100%;border-collapse:collapse;font-size:12px">
@@ -145,15 +154,6 @@ for period, pval, chf_v, usd_v in [
     ("MTD", pat_mtd, chf_inst.get("changes",{}).get("MTD") if chf_inst else None, usd_inst.get("changes",{}).get("MTD") if usd_inst else None),
     ("YTD", pat_ytd, chf_inst.get("changes",{}).get("YTD") if chf_inst else None, usd_inst.get("changes",{}).get("YTD") if usd_inst else None),
 ]:
-    def fc(v):
-        if v is None: return '<span style="color:#999">—</span>'
-        col = "#1a7a4a" if v>=0 else "#c0392b"
-        return f'<span style="color:{col};font-weight:700">{"+" if v>=0 else ""}{v:.2f}%</span>'
-    def fe(v):
-        if v is None: return "—"
-        e = round(eur_now*v/100)
-        col = "#1a7a4a" if e>=0 else "#c0392b"
-        return f'<span style="color:{col};font-weight:700">{"+" if e>=0 else ""}&#8364;{abs(e):,}</span>'
     html += f"""
       <tr style="border-top:1px solid #eee">
         <td style="padding:3px 8px;font-weight:700;font-size:12px">{period}</td>
@@ -163,30 +163,13 @@ for period, pval, chf_v, usd_v in [
         <td style="padding:3px 8px;text-align:right;font-size:11px">{fc(usd_v)}</td>
       </tr>"""
 
-html += f"""
-    </table>
-  </div>
-
-  <div style="background:#fff;border-radius:8px;padding:10px 16px;margin-bottom:10px">
-    <div style="font-size:10px;color:#888;letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:6px">&#9658; Market averages — all instruments</div>
-    <table style="width:100%;border-collapse:collapse">
-      <tr>
-        <td style="padding:2px 8px;color:#666;font-size:10px;font-weight:700;width:20%"></td>
-        <td style="padding:2px 8px;color:#666;font-size:10px;font-weight:700;text-align:center;width:26%">1D</td>
-        <td style="padding:2px 8px;color:#666;font-size:10px;font-weight:700;text-align:center;width:26%">MTD</td>
-        <td style="padding:2px 8px;color:#666;font-size:10px;font-weight:700;text-align:center">YTD</td>
-      </tr>
-      <tr style="background:#f8f8f8">
-        <td style="padding:3px 8px;font-size:12px;font-weight:700">Average</td>
-        <td style="padding:3px 8px;text-align:center;font-size:13px">{fmt_chg(avg_1d)}</td>
-        <td style="padding:3px 8px;text-align:center;font-size:13px">{fmt_chg(avg_mtd)}</td>
-        <td style="padding:3px 8px;text-align:center;font-size:13px">{fmt_chg(avg_ytd)}</td>
-      </tr>
+html += """
     </table>
   </div>
 """
 
-for sec_key, (title, color, bg) in SECTION_TITLES.items():
+# Sections — no more global market averages block
+for sec_key, (title, color, bg, avg_bg) in SECTION_TITLES.items():
     sec = sections.get(sec_key, {})
     instruments = sec.get("instruments", [])
     if not instruments: continue
@@ -194,6 +177,11 @@ for sec_key, (title, color, bg) in SECTION_TITLES.items():
     s1d  = avg_chg(instruments, "1D")
     smtd = avg_chg(instruments, "MTD")
     sytd = avg_chg(instruments, "YTD")
+
+    def fc2(v):
+        if v is None: return '<span style="color:#999">—</span>'
+        col = "#1a7a4a" if v>=0 else "#c0392b"
+        return f'<span style="color:{col};font-weight:700">{"+" if v>=0 else ""}{v:.2f}%</span>'
 
     rows = ""
     for inst in instruments:
@@ -204,12 +192,6 @@ for sec_key, (title, color, bg) in SECTION_TITLES.items():
         chg_mtd = inst.get("changes",{}).get("MTD")
         chg_ytd = inst.get("changes",{}).get("YTD")
         val_str = fmt_val(val,dec) if isinstance(val,(int,float)) else str(val) if val else "—"
-
-        def fc2(v):
-            if v is None: return '<span style="color:#999">—</span>'
-            col = "#1a7a4a" if v>=0 else "#c0392b"
-            return f'<span style="color:{col};font-weight:700">{"+" if v>=0 else ""}{v:.2f}%</span>'
-
         rows += f"""
         <tr style="border-top:1px solid #eee">
           <td style="padding:3px 8px;color:#333;font-size:12px">{label}</td>
@@ -221,10 +203,7 @@ for sec_key, (title, color, bg) in SECTION_TITLES.items():
 
     html += f"""
   <div style="background:{bg};border-radius:8px;padding:10px 14px;margin-bottom:8px;border-left:4px solid {color}">
-    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:5px;flex-wrap:wrap;gap:4px">
-      <div style="font-size:10px;color:{color};letter-spacing:0.15em;text-transform:uppercase;font-weight:700">{title}</div>
-      <div style="font-size:10px;color:#666">avg &nbsp; 1D: {fmt_chg(s1d)} &nbsp;&middot;&nbsp; MTD: {fmt_chg(smtd)} &nbsp;&middot;&nbsp; YTD: {fmt_chg(sytd)}</div>
-    </div>
+    <div style="font-size:10px;color:{color};letter-spacing:0.15em;text-transform:uppercase;font-weight:700;margin-bottom:6px">{title}</div>
     <table style="width:100%;border-collapse:collapse;background:#fff;border-radius:6px;overflow:hidden">
       <tr style="background:#f0f0f0">
         <th style="padding:2px 8px;color:#666;font-size:10px;text-align:left;font-weight:600">INSTRUMENT</th>
@@ -232,6 +211,13 @@ for sec_key, (title, color, bg) in SECTION_TITLES.items():
         <th style="padding:2px 8px;color:#666;font-size:10px;text-align:right;font-weight:600">1D</th>
         <th style="padding:2px 8px;color:#666;font-size:10px;text-align:right;font-weight:600">MTD</th>
         <th style="padding:2px 8px;color:#666;font-size:10px;text-align:right;font-weight:600">YTD</th>
+      </tr>
+      <tr style="background:{avg_bg}">
+        <td style="padding:3px 8px;font-size:11px;font-weight:700;color:{color}">Section avg</td>
+        <td style="padding:3px 8px;text-align:right">—</td>
+        <td style="padding:3px 8px;text-align:right;font-size:11px">{fc2(s1d)}</td>
+        <td style="padding:3px 8px;text-align:right;font-size:11px">{fc2(smtd)}</td>
+        <td style="padding:3px 8px;text-align:right;font-size:11px">{fc2(sytd)}</td>
       </tr>
       {rows}
     </table>
