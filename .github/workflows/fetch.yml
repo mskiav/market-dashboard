@@ -27,7 +27,7 @@ jobs:
       - name: Fetch data
         run: python fetch_data.py
 
-- name: Check if email time
+      - name: Check if email time
         id: check_time
         run: |
           HOUR=$(date -u +%H)
