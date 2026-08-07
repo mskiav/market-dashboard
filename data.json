@@ -1,5 +1,5 @@
 {
-  "updated": "07 Aug 2026 22:38 UTC",
+  "updated": "07 Aug 2026 23:17 UTC",
   "references": {
     "mtd": "31 Jul 2026",
     "qtd": "30 Jun 2026",
@@ -3767,14 +3767,14 @@
           "label": "FTSE 100",
           "section": "indices",
           "decimals": 0,
-          "current": 10901.0,
-          "raw_current": 10901.08984375,
+          "current": 10868.0,
+          "raw_current": 10867.900390625,
           "changes": {
-            "1D": 0.31,
-            "MTD": 0.3,
-            "QTD": 3.85,
-            "YTD": 9.76,
-            "2Y": 33.48
+            "1D": -0.19,
+            "MTD": -0.0,
+            "QTD": 3.53,
+            "YTD": 9.43,
+            "2Y": 33.07
           },
           "series_1y": {
             "labels": [
@@ -3841,7 +3841,6 @@
               "Jul 26",
               "Jul 26",
               "Jul 26",
-              "Aug 26",
               "Aug 26"
             ],
             "values": [
@@ -3908,8 +3907,7 @@
               10585.9004,
               10781.7998,
               10868.0996,
-              10867.9004,
-              10901.0898
+              10867.9004
             ]
           },
           "series_2y": {
@@ -4045,7 +4043,7 @@
               10529.4004,
               10736.2002,
               10888.2998,
-              10901.0898
+              10867.9004
             ]
           }
         },
@@ -6047,7 +6045,7 @@
           }
         }
       ],
-      "commentary": "Section broadly negative today (7 up / 4 down, avg -0.25%). Biggest mover: CSI 300 (-3.60%). YTD section average: +10.9%."
+      "commentary": "Section broadly negative today (6 up / 5 down, avg -0.30%). Biggest mover: CSI 300 (-3.60%). YTD section average: +10.9%."
     },
     "energy": {
       "instruments": [
@@ -8624,14 +8622,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 56116.0,
-          "raw_current": 56116.2890625,
+          "current": 56122.0,
+          "raw_current": 56122.12890625,
           "changes": {
-            "1D": 0.63,
-            "MTD": 3.06,
-            "QTD": 9.37,
+            "1D": 0.64,
+            "MTD": 3.08,
+            "QTD": 9.38,
             "YTD": -24.76,
-            "2Y": 11.44
+            "2Y": 11.45
           },
           "series_1y": {
             "labels": [
@@ -8760,7 +8758,7 @@
               58325.3906,
               56051.5273,
               54991.3438,
-              56116.2891
+              56122.1289
             ]
           },
           "series_2y": {
@@ -8890,7 +8888,7 @@
               55163.9727,
               55734.7969,
               56094.5781,
-              56116.2891
+              56122.1289
             ]
           }
         },
@@ -8899,14 +8897,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1656.0,
-          "raw_current": 1655.949951171875,
+          "current": 1657.0,
+          "raw_current": 1657.18994140625,
           "changes": {
-            "1D": 0.33,
-            "MTD": 2.69,
-            "QTD": 20.41,
-            "YTD": -34.52,
-            "2Y": -22.56
+            "1D": 0.4,
+            "MTD": 2.77,
+            "QTD": 20.5,
+            "YTD": -34.47,
+            "2Y": -22.5
           },
           "series_1y": {
             "labels": [
@@ -9035,7 +9033,7 @@
               1691.2041,
               1662.9572,
               1630.7366,
-              1655.95
+              1657.1899
             ]
           },
           "series_2y": {
@@ -9165,7 +9163,7 @@
               1555.574,
               1627.9335,
               1686.1813,
-              1655.95
+              1657.1899
             ]
           }
         }
@@ -9459,14 +9457,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 56116.0,
-          "raw_current": 56116.2890625,
+          "current": 56122.0,
+          "raw_current": 56122.12890625,
           "changes": {
-            "1D": 0.63,
-            "MTD": 3.06,
-            "QTD": 9.37,
+            "1D": 0.64,
+            "MTD": 3.08,
+            "QTD": 9.38,
             "YTD": -24.76,
-            "2Y": 11.44
+            "2Y": 11.45
           },
           "series_1y": {
             "labels": [
@@ -9595,7 +9593,7 @@
               58325.3906,
               56051.5273,
               54991.3438,
-              56116.2891
+              56122.1289
             ]
           },
           "series_2y": {
@@ -9725,12 +9723,12 @@
               55163.9727,
               55734.7969,
               56094.5781,
-              56116.2891
+              56122.1289
             ]
           }
         }
       ],
-      "commentary": "Section broadly positive today (4 up / 0 down, avg +2.14%). Biggest mover: Silver USD/oz (+3.84%). YTD section average: -16.6%."
+      "commentary": "Section broadly positive today (4 up / 0 down, avg +2.16%). Biggest mover: Silver USD/oz (+3.84%). YTD section average: -16.6%."
     },
     "rates": {
       "instruments": [
@@ -11727,6 +11725,30 @@
   },
   "news": [
     {
+      "title": "Petroleo Brasileiro SA Petrobras (PBR) (Q2 2026) Earnings Call Highlights: Record Profit and ...",
+      "link": "https://finance.yahoo.com/energy/articles/petroleo-brasileiro-sa-petrobras-pbr-230138168.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 07 Aug 2026 23:01:38 +0000",
+      "description": "Petroleo Brasileiro SA Petrobras (PBR) posts historic quarterly net income and record gross profit, driven by operational efficiency and surpassing production guidance.",
+      "category": "Energy"
+    },
+    {
+      "title": "Kodiak Gas Services Inc (KGS) (Q2 2026) Earnings Call Highlights: Record EBITDA and Strategic ...",
+      "link": "https://finance.yahoo.com/energy/articles/kodiak-gas-services-inc-kgs-230028140.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 07 Aug 2026 23:00:28 +0000",
+      "description": "Kodiak Gas Services Inc (KGS) raises full-year guidance on record adjusted EBITDA, secures 1 GW turbine supply deal, and advances data center projects despite lube oil cost headwinds.",
+      "category": "Energy"
+    },
+    {
+      "title": "Stock market hits records as Fed removes key safety net",
+      "link": "https://www.thestreet.com/investing/stock-market-hits-records-as-fed-reduces-forward-guidance?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 07 Aug 2026 22:33:00 +0000",
+      "description": "Wall Street just got the milestone investors have been waiting for. The S&P 500hit new highs this week, and the Dow Jones Industrial Average closed above 54,000 for the first time. The Nasdaq also jumped as technology and artificial-intelligence stocks bounced back from their summer slump. If ...",
+      "category": "Energy"
+    },
+    {
       "title": "360 Energy Pulse: What mattered this week in energy",
       "link": "https://finance.yahoo.com/energy/articles/360-energy-pulse-mattered-week-213043744.html?.tsrc=rss",
       "source": "Yahoo Finance",
@@ -11743,51 +11765,19 @@
       "category": "Energy"
     },
     {
-      "title": "Plains All American Pipeline LP (PAA) (Q2 2026) Earnings Call Highlights: Strong Crude ...",
-      "link": "https://finance.yahoo.com/energy/articles/plains-american-pipeline-lp-paa-210537087.html?.tsrc=rss",
+      "title": "S&P closes at record high as soft jobs report eases rate-hike concerns",
+      "link": "https://finance.yahoo.com/video/p-closes-record-high-soft-224314395.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 07 Aug 2026 21:05:37 +0000",
-      "description": "PAA delivers solid Q2 results with adjusted EBITDA of $738 million, raises Permian production outlook, and advances high-return projects while maintaining a strong balance sheet.",
-      "category": "Energy"
-    },
-    {
-      "title": "Plains GP Holdings LP (PAGP) (Q2 2026) Earnings Call Highlights: Strong EBITDA and Strategic ...",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/plains-gp-holdings-lp-pagp-210429726.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 07 Aug 2026 21:04:29 +0000",
-      "description": "Plains GP Holdings LP (PAGP) reports robust Q2 2026 results, raises growth capital guidance, and accelerates Permian production forecasts.",
-      "category": "Energy"
-    },
-    {
-      "title": "Mach Natural Resources LP (MNR) (Q2 2026) Earnings Call Highlights: Strategic Capital ...",
-      "link": "https://finance.yahoo.com/energy/articles/mach-natural-resources-lp-mnr-210352827.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 07 Aug 2026 21:03:52 +0000",
-      "description": "The company reported $182 million in adjusted EBITDA and a $0.36 per unit distribution, while outlining a flexible drilling strategy to navigate weak gas prices and reduce leverage.",
-      "category": "Energy"
-    },
-    {
-      "title": "Stock Market Today, Aug. 7: Markets Rally on Jobs Shock and Atlassian Surges 35%",
-      "link": "https://www.fool.com/coverage/stock-market-today/2026/08/07/stock-market-today-aug-7-markets-rally-on-jobs-shock-and-atlassian-surges-35/?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 07 Aug 2026 21:38:00 +0000",
-      "description": "Today, Aug. 7, 2026, July payrolls fell unexpectedly, fueling investor optimism for lower interest rates and boosting major indexes.",
+      "date": "Fri, 07 Aug 2026 22:43:14 +0000",
+      "description": "<body><p>STORY: U.S. stocks rallied on Friday, with the Dow gaining more than a quarter of a percent, the S&P 500 adding about six-tenths of a percent to notch a record high close, and the Nasdaq climbing 1.3%.</p><p>Data from the Labor Department showed the U.S. economy unexpectedly shed jobs last ",
       "category": "Macro/Equity"
     },
     {
-      "title": "S&P 500 Ends At Record High, Clocks Strongest Week Since April As Poor Jobs Data Calms Rate Hike Fear \u2014 SEZL, SPCX, RDW, PLTR, TTD In Focus",
-      "link": "https://stocktwits.com/news-articles/markets/equity/s-and-p-500-ends-at-record-high-clocks-strongest-week-since-april-as-poor-jobs-data-calms-rate-hike-fear-sezl-spcx-rdw-pltr-ttd-in-focus/cZof1R8RJ9w?.tsrc=rss",
+      "title": "Which Is the Better International ETF: State Street's Climate-Focused NZAC or iShares' Emerging Markets IEMG?",
+      "link": "https://www.fool.com/coverage/etfs/2026/08/07/which-is-the-better-international-etf-state-street-s-climate-focused-nzac-or-ishares-emerging-markets-iemg/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 07 Aug 2026 21:24:45 +0000",
-      "description": "Nonfarm payrolls fell 23,000 last month, following substantial downward revisions to the prior two months, Bureau of Labor Statistics data showed on Friday.",
-      "category": "Macro/Equity"
-    },
-    {
-      "title": "European Stocks Close Higher in Friday Trading as Investors Monitor Middle East Developments",
-      "link": "https://finance.yahoo.com/markets/world-indices/articles/european-stocks-close-higher-friday-154635559.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 07 Aug 2026 15:46:35 +0000",
-      "description": "The European stock markets closed higher Friday as investors eye developments in the Middle East and",
+      "date": "Fri, 07 Aug 2026 22:37:12 +0000",
+      "description": "IEMG offers lower costs and higher yields, while NZAC delivered stronger five-year growth with less volatility.",
       "category": "Macro/Equity"
     },
     {
@@ -11796,6 +11786,14 @@
       "source": "Yahoo Finance",
       "date": "Fri, 07 Aug 2026 22:26:00 +0000",
       "description": "Although some brand-name companies expect to receive up to $2.4 billion in IEEPA tariff refunds, it doesn't mean that tariffs are yesterday's news.",
+      "category": "Macro/Equity"
+    },
+    {
+      "title": "Stock Market Today, Aug. 7: Space Exploration Technologies Surges on Q2 Revenue Beat, Lockup Relief, and Terafab Update",
+      "link": "https://www.fool.com/coverage/stock-market-today/2026/08/07/stock-market-today-aug-7-space-exploration-technologies-surges-on-q2-revenue-beat-lockup-relief-and-terafab-update/?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 07 Aug 2026 22:19:15 +0000",
+      "description": "A confluence of forces paired to help send SPCX shares higher, today, Aug. 7, 2026.",
       "category": "Macro/Equity"
     },
     {
