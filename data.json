@@ -1,5 +1,5 @@
 {
-  "updated": "14 Aug 2026 22:49 UTC",
+  "updated": "14 Aug 2026 23:21 UTC",
   "references": {
     "mtd": "31 Jul 2026",
     "qtd": "30 Jun 2026",
@@ -3193,293 +3193,6 @@
           }
         },
         {
-          "symbol": "^FCHI",
-          "label": "CAC 40",
-          "section": "indices",
-          "decimals": 0,
-          "current": 8651.0,
-          "raw_current": 8650.5595703125,
-          "changes": {
-            "1D": -0.28,
-            "MTD": 1.66,
-            "QTD": 2.93,
-            "YTD": 6.15,
-            "2Y": 17.96
-          },
-          "series_1y": {
-            "labels": [
-              "Aug 25",
-              "Aug 25",
-              "Aug 25",
-              "Sep 25",
-              "Sep 25",
-              "Sep 25",
-              "Sep 25",
-              "Sep 25",
-              "Sep 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Oct 25",
-              "Nov 25",
-              "Nov 25",
-              "Nov 25",
-              "Nov 25",
-              "Nov 25",
-              "Dec 25",
-              "Dec 25",
-              "Dec 25",
-              "Dec 25",
-              "Dec 25",
-              "Jan 26",
-              "Jan 26",
-              "Jan 26",
-              "Jan 26",
-              "Jan 26",
-              "Feb 26",
-              "Feb 26",
-              "Feb 26",
-              "Feb 26",
-              "Feb 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Mar 26",
-              "Apr 26",
-              "Apr 26",
-              "Apr 26",
-              "Apr 26",
-              "Apr 26",
-              "May 26",
-              "May 26",
-              "May 26",
-              "May 26",
-              "May 26",
-              "Jun 26",
-              "Jun 26",
-              "Jun 26",
-              "Jun 26",
-              "Jun 26",
-              "Jul 26",
-              "Jul 26",
-              "Jul 26",
-              "Jul 26",
-              "Jul 26",
-              "Jul 26",
-              "Aug 26",
-              "Aug 26",
-              "Aug 26"
-            ],
-            "values": [
-              7870.3398,
-              7973.0298,
-              7709.8101,
-              7707.8999,
-              7674.7798,
-              7823.52,
-              7786.98,
-              7872.02,
-              7880.8701,
-              8081.54,
-              8041.3599,
-              8077.0,
-              8258.8604,
-              8239.1797,
-              8121.0698,
-              7964.77,
-              8241.2402,
-              7967.9302,
-              7959.6699,
-              8122.71,
-              8122.0298,
-              8022.6899,
-              8106.1602,
-              8121.0698,
-              8168.1499,
-              8237.4297,
-              8358.7598,
-              8258.9404,
-              8148.8901,
-              8066.6802,
-              8179.5,
-              8323.2803,
-              8311.7402,
-              8398.7803,
-              8559.0703,
-              8103.8398,
-              7915.3599,
-              7911.5298,
-              7807.8701,
-              7846.5498,
-              7816.9399,
-              8263.8701,
-              8327.8604,
-              8331.0498,
-              8157.8198,
-              8114.8398,
-              8202.0801,
-              8007.9702,
-              7981.7598,
-              8258.2598,
-              8183.3398,
-              8244.29,
-              8161.8301,
-              8447.2695,
-              8400.1104,
-              8384.8701,
-              8474.8604,
-              8252.6602,
-              8366.8496,
-              8340.1104,
-              8372.2803,
-              8485.6396,
-              8669.2998,
-              8714.9404,
-              8650.5596
-            ]
-          },
-          "series_2y": {
-            "labels": [
-              "Aug 24",
-              "Aug 24",
-              "Sep 24",
-              "Sep 24",
-              "Sep 24",
-              "Oct 24",
-              "Oct 24",
-              "Oct 24",
-              "Nov 24",
-              "Nov 24",
-              "Dec 24",
-              "Dec 24",
-              "Dec 24",
-              "Jan 25",
-              "Jan 25",
-              "Feb 25",
-              "Feb 25",
-              "Feb 25",
-              "Mar 25",
-              "Mar 25",
-              "Mar 25",
-              "Apr 25",
-              "Apr 25",
-              "May 25",
-              "May 25",
-              "May 25",
-              "Jun 25",
-              "Jun 25",
-              "Jul 25",
-              "Jul 25",
-              "Jul 25",
-              "Aug 25",
-              "Aug 25",
-              "Aug 25",
-              "Sep 25",
-              "Sep 25",
-              "Sep 25",
-              "Oct 25",
-              "Oct 25",
-              "Nov 25",
-              "Nov 25",
-              "Nov 25",
-              "Dec 25",
-              "Dec 25",
-              "Dec 25",
-              "Jan 26",
-              "Jan 26",
-              "Feb 26",
-              "Feb 26",
-              "Feb 26",
-              "Mar 26",
-              "Mar 26",
-              "Apr 26",
-              "Apr 26",
-              "Apr 26",
-              "May 26",
-              "May 26",
-              "Jun 26",
-              "Jun 26",
-              "Jun 26",
-              "Jul 26",
-              "Jul 26",
-              "Jul 26",
-              "Aug 26",
-              "Aug 26"
-            ],
-            "values": [
-              7333.3599,
-              7590.3701,
-              7431.96,
-              7487.4199,
-              7791.79,
-              7560.0898,
-              7536.23,
-              7350.3701,
-              7226.98,
-              7255.0098,
-              7303.2798,
-              7357.0801,
-              7313.5601,
-              7431.04,
-              7837.3999,
-              7854.9199,
-              8164.1099,
-              8051.0698,
-              8120.7998,
-              8171.4702,
-              7790.71,
-              7126.02,
-              7502.7798,
-              7626.8398,
-              7883.6299,
-              7779.7202,
-              7804.3301,
-              7589.6602,
-              7738.4199,
-              7808.1699,
-              7818.2798,
-              7621.04,
-              7923.4502,
-              7743.9302,
-              7734.8398,
-              7854.6099,
-              7895.9399,
-              7918.0,
-              8206.8701,
-              8109.79,
-              8232.4902,
-              8025.7998,
-              8114.7402,
-              8086.0498,
-              8149.5,
-              8347.2002,
-              8143.0498,
-              8262.1602,
-              8316.5,
-              8620.9297,
-              8057.3599,
-              7665.6201,
-              7981.27,
-              8274.5703,
-              8141.9199,
-              8112.5698,
-              8117.4199,
-              8146.5898,
-              8200.7998,
-              8340.71,
-              8508.0703,
-              8382.4297,
-              8406.0596,
-              8699.71,
-              8650.5596
-            ]
-          }
-        },
-        {
           "symbol": "^SSMI",
           "label": "SMI",
           "section": "indices",
@@ -3767,14 +3480,14 @@
           "label": "FTSE 100",
           "section": "indices",
           "decimals": 0,
-          "current": 10750.0,
-          "raw_current": 10750.1103515625,
+          "current": 10773.0,
+          "raw_current": 10772.7001953125,
           "changes": {
-            "1D": -0.21,
-            "MTD": -1.09,
-            "QTD": 2.41,
-            "YTD": 8.24,
-            "2Y": 29.82
+            "1D": -0.56,
+            "MTD": -0.88,
+            "QTD": 2.63,
+            "YTD": 8.47,
+            "2Y": 30.09
           },
           "series_1y": {
             "labels": [
@@ -3839,7 +3552,6 @@
               "Jul 26",
               "Jul 26",
               "Jul 26",
-              "Aug 26",
               "Aug 26",
               "Aug 26",
               "Aug 26"
@@ -3908,8 +3620,7 @@
               10871.0,
               10857.7002,
               10901.0996,
-              10772.7002,
-              10750.1104
+              10772.7002
             ]
           },
           "series_2y": {
@@ -4045,7 +3756,7 @@
               10585.9004,
               10868.0996,
               10833.2002,
-              10750.1104
+              10772.7002
             ]
           }
         },
@@ -6043,7 +5754,7 @@
           }
         }
       ],
-      "commentary": "Section broadly negative today (3 up / 8 down, avg -0.30%). Biggest mover: CSI 300 (-3.60%). YTD section average: +11.3%."
+      "commentary": "Section broadly negative today (3 up / 7 down, avg -0.34%). Biggest mover: CSI 300 (-3.60%). YTD section average: +11.9%."
     },
     "energy": {
       "instruments": [
@@ -8620,14 +8331,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54318.0,
-          "raw_current": 54317.8203125,
+          "current": 54303.0,
+          "raw_current": 54303.3203125,
           "changes": {
-            "1D": -1.19,
-            "MTD": -0.24,
-            "QTD": 5.87,
-            "YTD": -27.17,
-            "2Y": 1.83
+            "1D": -1.21,
+            "MTD": -0.27,
+            "QTD": 5.84,
+            "YTD": -27.19,
+            "2Y": 1.8
           },
           "series_1y": {
             "labels": [
@@ -8756,7 +8467,7 @@
               56094.5781,
               55149.3594,
               56115.5312,
-              54317.8203
+              54303.3203
             ]
           },
           "series_2y": {
@@ -8886,7 +8597,7 @@
               55890.7031,
               57177.0586,
               55545.0938,
-              54317.8203
+              54303.3203
             ]
           }
         },
@@ -8895,14 +8606,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1623.0,
-          "raw_current": 1623.3399658203125,
+          "current": 1624.0,
+          "raw_current": 1623.6700439453125,
           "changes": {
-            "1D": -0.62,
-            "MTD": 0.67,
-            "QTD": 18.04,
-            "YTD": -35.81,
-            "2Y": -32.87
+            "1D": -0.6,
+            "MTD": 0.69,
+            "QTD": 18.06,
+            "YTD": -35.8,
+            "2Y": -32.86
           },
           "series_1y": {
             "labels": [
@@ -9031,7 +8742,7 @@
               1686.1813,
               1614.8788,
               1651.7378,
-              1623.34
+              1623.67
             ]
           },
           "series_2y": {
@@ -9161,7 +8872,7 @@
               1566.3788,
               1650.0481,
               1620.1409,
-              1623.34
+              1623.67
             ]
           }
         }
@@ -9455,14 +9166,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54318.0,
-          "raw_current": 54317.8203125,
+          "current": 54303.0,
+          "raw_current": 54303.3203125,
           "changes": {
-            "1D": -1.19,
-            "MTD": -0.24,
-            "QTD": 5.87,
-            "YTD": -27.17,
-            "2Y": 1.83
+            "1D": -1.21,
+            "MTD": -0.27,
+            "QTD": 5.84,
+            "YTD": -27.19,
+            "2Y": 1.8
           },
           "series_1y": {
             "labels": [
@@ -9591,7 +9302,7 @@
               56094.5781,
               55149.3594,
               56115.5312,
-              54317.8203
+              54303.3203
             ]
           },
           "series_2y": {
@@ -9721,7 +9432,7 @@
               55890.7031,
               57177.0586,
               55545.0938,
-              54317.8203
+              54303.3203
             ]
           }
         }
@@ -11723,11 +11434,27 @@
   },
   "news": [
     {
-      "title": "The US dollar is caught between 2 competing forces",
-      "link": "https://finance.yahoo.com/markets/currencies/article/the-us-dollar-is-caught-between-2-competing-forces-090000679.html?.tsrc=rss",
+      "title": "Former Boston Fed Pres.: Investment spend a catalyst",
+      "link": "https://finance.yahoo.com/video/former-boston-fed-pres-investment-221642451.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 09:00:00 +0000",
-      "description": "The dollar is caught between two forces, Rabobank says: oil prices and the Federal Reserve.",
+      "date": "Fri, 14 Aug 2026 22:16:42 +0000",
+      "description": "Former Boston Federal Reserve President Eric Rosengren isn't surprised by a weaker retail sales number with the American consumer dealing with higher oil prices while AI and tech investment drive a large portion of investment spending. He speaks to Romaine Bostick and Isabelle Lee on Bloomberg's 'Th",
+      "category": "Energy"
+    },
+    {
+      "title": "Stock Market Today: Nasdaq Slips On Retail Sales Gloom; Nvidia Eyes Robotics Wave",
+      "link": "https://finance.yahoo.com/m/00339b32-5e9a-331a-9223-dd02518723a7/stock-market-today%3A-nasdaq.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 14 Aug 2026 21:05:08 +0000",
+      "description": "Stock Market Today: The Dow Jones index falls Friday on soft economic data. AI chip equipment giant Applied Materials dives on earnings.",
+      "category": "Energy"
+    },
+    {
+      "title": "Stocks slip in cautious trading after weak US retail sales data",
+      "link": "https://finance.yahoo.com/markets/world-indices/articles/most-asian-stocks-track-wall-024850728.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 14 Aug 2026 20:37:02 +0000",
+      "description": "Stock markets retreated in sparse summer trading Friday, with the uncertain outlook for the Middle East war and the US economy prompting investor caution ahead of the weekend.\"We continue to monitor oil prices and developments in the Middle East as well as Treasury behavior after the weak auction\" e",
       "category": "Energy"
     },
     {
@@ -11747,59 +11474,43 @@
       "category": "Energy"
     },
     {
-      "title": "US Equity Markets End Lower Amid Weak Retail Sales Data, Rise in Crude Oil Prices",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/us-equity-markets-end-lower-200704074.html?.tsrc=rss",
+      "title": "Wall Street ends lower as investors weigh data, Middle East tensions",
+      "link": "https://finance.yahoo.com/video/wall-street-ends-lower-investors-225242650.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 20:07:04 +0000",
-      "description": "US equity indexes ended lower Friday amid a drop in retail sales and after crude oil prices rose fol",
-      "category": "Energy"
-    },
-    {
-      "title": "Sector Update: Energy Stocks Rise Friday",
-      "link": "https://finance.yahoo.com/energy/articles/sector-energy-stocks-rise-friday-200618620.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 20:06:18 +0000",
-      "description": "Energy stocks rose Friday with the NYSE Energy Sector Index gaining 1.3% and the State Street Energy",
-      "category": "Energy"
-    },
-    {
-      "title": "3 Reasons CSWC is Risky and 1 Stock to Buy Instead",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-cswc-risky-1-224500202.html?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 22:45:00 +0000",
-      "description": "Capital Southwest trades at $25.05 per share and has stayed right on track with the overall market, gaining 8.6% over the last six months. At the same time, the S&P 500 has returned 13.5%.",
+      "date": "Fri, 14 Aug 2026 22:53:02 +0000",
+      "description": "VIDEO SHOWS: n/a STORY: U.S. stocks ended lower on Friday, with the Dow, S&P 500 and Nasdaq each down less than three-tenths of a percent. The S&P 500 dropped marginally a day after its record high close. Shares of chipmakers dropped, with investors nervous about high valuations of AI-related stocks",
       "category": "Macro/Equity"
     },
     {
-      "title": "nCino (NCNO): Buy, Sell, or Hold Post Q1 Earnings?",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/ncino-ncno-buy-sell-hold-222900586.html?.tsrc=rss",
+      "title": "Two Funds Promise 20% Income From the S&P 500. One Caps Your Upside, One Doesn\u2019t, and It Charges Less",
+      "link": "https://247wallst.com/investing/2026/08/14/two-funds-promise-20-income-from-the-sp-500-one-caps-your-upside-one-doesnt-and-it-charges-less/?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 22:29:00 +0000",
-      "description": "nCino has had an impressive run over the past six months as its shares have beaten the S&P 500 by 7.4%. The stock now trades at $19.16, marking a 20.9% gain. This was partly due to its solid quarterly results, and the run-up might have investors contemplating their next move.",
+      "date": "Fri, 14 Aug 2026 21:35:08 +0000",
+      "description": "Two ETFs are racing to deliver 20% annual income from the S&P 500, but they take fundamentally different bets to get there, and the gap between them is costing some investors real money.",
       "category": "Macro/Equity"
     },
     {
-      "title": "3 Reasons to Sell LOVE and 1 Stock to Buy Instead",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-love-1-222100236.html?.tsrc=rss",
+      "title": "European Stocks Close Mostly Lower in Friday Trading; Euro Area, EU GDP Growth Accelerates in Q2",
+      "link": "https://finance.yahoo.com/economy/articles/european-stocks-close-mostly-lower-154921684.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 22:21:00 +0000",
-      "description": "Over the past six months, Lovesac has been a great trade, beating the S&P 500 by 21.6%. Its stock price has climbed to $17.60, representing a healthy 35.1% increase. This performance may have investors wondering how to approach the situation.",
+      "date": "Fri, 14 Aug 2026 15:49:21 +0000",
+      "description": "European stock markets closed mostly lower in Friday trading, as investors digested ongoing events i",
       "category": "Macro/Equity"
     },
     {
-      "title": "2 Reasons to Like ONB (and 1 Not So Much)",
-      "link": "https://finance.yahoo.com/markets/stocks/articles/2-reasons-onb-1-not-221300728.html?.tsrc=rss",
+      "title": "3 Reasons to Sell PVH and 1 Stock to Buy Instead",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/3-reasons-sell-pvh-1-230100390.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 22:13:00 +0000",
-      "description": "Old National Bank trades at $26.83 per share and has stayed right on track with the overall market, gaining 10.1% over the last six months. At the same time, the S&P 500 has returned 13.5%.",
+      "date": "Fri, 14 Aug 2026 23:01:00 +0000",
+      "description": "Over the past six months, PVH has been a great trade, beating the S&P 500 by 11.1%. Its stock price has climbed to $84.88, representing a healthy 24.5% increase. This was partly due to its solid quarterly results, and the performance may have investors wondering how to approach the situation.",
       "category": "Macro/Equity"
     },
     {
-      "title": "Why Oracle Stock Got Trounced Today",
-      "link": "https://www.fool.com/investing/2026/08/14/why-oracle-stock-got-trounced-today/?.tsrc=rss",
+      "title": "Here's Why SentinelOne (S) Fell More Than Broader Market",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/heres-why-sentinelone-fell-more-220001690.html?.tsrc=rss",
       "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 22:02:45 +0000",
-      "description": "The company's major plans for its data center future suffered a setback.",
+      "date": "Fri, 14 Aug 2026 22:00:01 +0000",
+      "description": "In the most recent trading session, SentinelOne (S) closed at $23.11, indicating a -3.06% shift from the previous trading day.",
       "category": "Macro/Equity"
     }
   ]
