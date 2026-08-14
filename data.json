@@ -1,5 +1,5 @@
 {
-  "updated": "14 Aug 2026 23:21 UTC",
+  "updated": "14 Aug 2026 23:48 UTC",
   "references": {
     "mtd": "31 Jul 2026",
     "qtd": "30 Jun 2026",
@@ -3193,6 +3193,293 @@
           }
         },
         {
+          "symbol": "^FCHI",
+          "label": "CAC 40",
+          "section": "indices",
+          "decimals": 0,
+          "current": 8651.0,
+          "raw_current": 8650.5595703125,
+          "changes": {
+            "1D": -0.28,
+            "MTD": 1.66,
+            "QTD": 2.93,
+            "YTD": 6.15,
+            "2Y": 17.96
+          },
+          "series_1y": {
+            "labels": [
+              "Aug 25",
+              "Aug 25",
+              "Aug 25",
+              "Sep 25",
+              "Sep 25",
+              "Sep 25",
+              "Sep 25",
+              "Sep 25",
+              "Sep 25",
+              "Oct 25",
+              "Oct 25",
+              "Oct 25",
+              "Oct 25",
+              "Oct 25",
+              "Oct 25",
+              "Nov 25",
+              "Nov 25",
+              "Nov 25",
+              "Nov 25",
+              "Nov 25",
+              "Dec 25",
+              "Dec 25",
+              "Dec 25",
+              "Dec 25",
+              "Dec 25",
+              "Jan 26",
+              "Jan 26",
+              "Jan 26",
+              "Jan 26",
+              "Jan 26",
+              "Feb 26",
+              "Feb 26",
+              "Feb 26",
+              "Feb 26",
+              "Feb 26",
+              "Mar 26",
+              "Mar 26",
+              "Mar 26",
+              "Mar 26",
+              "Mar 26",
+              "Mar 26",
+              "Apr 26",
+              "Apr 26",
+              "Apr 26",
+              "Apr 26",
+              "Apr 26",
+              "May 26",
+              "May 26",
+              "May 26",
+              "May 26",
+              "May 26",
+              "Jun 26",
+              "Jun 26",
+              "Jun 26",
+              "Jun 26",
+              "Jun 26",
+              "Jul 26",
+              "Jul 26",
+              "Jul 26",
+              "Jul 26",
+              "Jul 26",
+              "Jul 26",
+              "Aug 26",
+              "Aug 26",
+              "Aug 26"
+            ],
+            "values": [
+              7870.3398,
+              7973.0298,
+              7709.8101,
+              7707.8999,
+              7674.7798,
+              7823.52,
+              7786.98,
+              7872.02,
+              7880.8701,
+              8081.54,
+              8041.3599,
+              8077.0,
+              8258.8604,
+              8239.1797,
+              8121.0698,
+              7964.77,
+              8241.2402,
+              7967.9302,
+              7959.6699,
+              8122.71,
+              8122.0298,
+              8022.6899,
+              8106.1602,
+              8121.0698,
+              8168.1499,
+              8237.4297,
+              8358.7598,
+              8258.9404,
+              8148.8901,
+              8066.6802,
+              8179.5,
+              8323.2803,
+              8311.7402,
+              8398.7803,
+              8559.0703,
+              8103.8398,
+              7915.3599,
+              7911.5298,
+              7807.8701,
+              7846.5498,
+              7816.9399,
+              8263.8701,
+              8327.8604,
+              8331.0498,
+              8157.8198,
+              8114.8398,
+              8202.0801,
+              8007.9702,
+              7981.7598,
+              8258.2598,
+              8183.3398,
+              8244.29,
+              8161.8301,
+              8447.2695,
+              8400.1104,
+              8384.8701,
+              8474.8604,
+              8252.6602,
+              8366.8496,
+              8340.1104,
+              8372.2803,
+              8485.6396,
+              8669.2998,
+              8714.9404,
+              8650.5596
+            ]
+          },
+          "series_2y": {
+            "labels": [
+              "Aug 24",
+              "Aug 24",
+              "Sep 24",
+              "Sep 24",
+              "Sep 24",
+              "Oct 24",
+              "Oct 24",
+              "Oct 24",
+              "Nov 24",
+              "Nov 24",
+              "Dec 24",
+              "Dec 24",
+              "Dec 24",
+              "Jan 25",
+              "Jan 25",
+              "Feb 25",
+              "Feb 25",
+              "Feb 25",
+              "Mar 25",
+              "Mar 25",
+              "Mar 25",
+              "Apr 25",
+              "Apr 25",
+              "May 25",
+              "May 25",
+              "May 25",
+              "Jun 25",
+              "Jun 25",
+              "Jul 25",
+              "Jul 25",
+              "Jul 25",
+              "Aug 25",
+              "Aug 25",
+              "Aug 25",
+              "Sep 25",
+              "Sep 25",
+              "Sep 25",
+              "Oct 25",
+              "Oct 25",
+              "Nov 25",
+              "Nov 25",
+              "Nov 25",
+              "Dec 25",
+              "Dec 25",
+              "Dec 25",
+              "Jan 26",
+              "Jan 26",
+              "Feb 26",
+              "Feb 26",
+              "Feb 26",
+              "Mar 26",
+              "Mar 26",
+              "Apr 26",
+              "Apr 26",
+              "Apr 26",
+              "May 26",
+              "May 26",
+              "Jun 26",
+              "Jun 26",
+              "Jun 26",
+              "Jul 26",
+              "Jul 26",
+              "Jul 26",
+              "Aug 26",
+              "Aug 26"
+            ],
+            "values": [
+              7333.3599,
+              7590.3701,
+              7431.96,
+              7487.4199,
+              7791.79,
+              7560.0898,
+              7536.23,
+              7350.3701,
+              7226.98,
+              7255.0098,
+              7303.2798,
+              7357.0801,
+              7313.5601,
+              7431.04,
+              7837.3999,
+              7854.9199,
+              8164.1099,
+              8051.0698,
+              8120.7998,
+              8171.4702,
+              7790.71,
+              7126.02,
+              7502.7798,
+              7626.8398,
+              7883.6299,
+              7779.7202,
+              7804.3301,
+              7589.6602,
+              7738.4199,
+              7808.1699,
+              7818.2798,
+              7621.04,
+              7923.4502,
+              7743.9302,
+              7734.8398,
+              7854.6099,
+              7895.9399,
+              7918.0,
+              8206.8701,
+              8109.79,
+              8232.4902,
+              8025.7998,
+              8114.7402,
+              8086.0498,
+              8149.5,
+              8347.2002,
+              8143.0498,
+              8262.1602,
+              8316.5,
+              8620.9297,
+              8057.3599,
+              7665.6201,
+              7981.27,
+              8274.5703,
+              8141.9199,
+              8112.5698,
+              8117.4199,
+              8146.5898,
+              8200.7998,
+              8340.71,
+              8508.0703,
+              8382.4297,
+              8406.0596,
+              8699.71,
+              8650.5596
+            ]
+          }
+        },
+        {
           "symbol": "^SSMI",
           "label": "SMI",
           "section": "indices",
@@ -5754,7 +6041,7 @@
           }
         }
       ],
-      "commentary": "Section broadly negative today (3 up / 7 down, avg -0.34%). Biggest mover: CSI 300 (-3.60%). YTD section average: +11.9%."
+      "commentary": "Section broadly negative today (3 up / 8 down, avg -0.33%). Biggest mover: CSI 300 (-3.60%). YTD section average: +11.3%."
     },
     "energy": {
       "instruments": [
@@ -8331,14 +8618,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54303.0,
-          "raw_current": 54303.3203125,
+          "current": 54438.0,
+          "raw_current": 54437.69140625,
           "changes": {
-            "1D": -1.21,
-            "MTD": -0.27,
-            "QTD": 5.84,
-            "YTD": -27.19,
-            "2Y": 1.8
+            "1D": -0.97,
+            "MTD": -0.02,
+            "QTD": 6.1,
+            "YTD": -27.01,
+            "2Y": 2.05
           },
           "series_1y": {
             "labels": [
@@ -8467,7 +8754,7 @@
               56094.5781,
               55149.3594,
               56115.5312,
-              54303.3203
+              54437.6914
             ]
           },
           "series_2y": {
@@ -8597,7 +8884,7 @@
               55890.7031,
               57177.0586,
               55545.0938,
-              54303.3203
+              54437.6914
             ]
           }
         },
@@ -8606,14 +8893,14 @@
           "label": "Ethereum EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 1624.0,
-          "raw_current": 1623.6700439453125,
+          "current": 1625.0,
+          "raw_current": 1624.699951171875,
           "changes": {
-            "1D": -0.6,
-            "MTD": 0.69,
-            "QTD": 18.06,
-            "YTD": -35.8,
-            "2Y": -32.86
+            "1D": -0.54,
+            "MTD": 0.75,
+            "QTD": 18.14,
+            "YTD": -35.75,
+            "2Y": -32.82
           },
           "series_1y": {
             "labels": [
@@ -8742,7 +9029,7 @@
               1686.1813,
               1614.8788,
               1651.7378,
-              1623.67
+              1624.7
             ]
           },
           "series_2y": {
@@ -8872,7 +9159,7 @@
               1566.3788,
               1650.0481,
               1620.1409,
-              1623.67
+              1624.7
             ]
           }
         }
@@ -9166,14 +9453,14 @@
           "label": "Bitcoin EUR",
           "section": "crypto",
           "decimals": 0,
-          "current": 54303.0,
-          "raw_current": 54303.3203125,
+          "current": 54438.0,
+          "raw_current": 54437.69140625,
           "changes": {
-            "1D": -1.21,
-            "MTD": -0.27,
-            "QTD": 5.84,
-            "YTD": -27.19,
-            "2Y": 1.8
+            "1D": -0.97,
+            "MTD": -0.02,
+            "QTD": 6.1,
+            "YTD": -27.01,
+            "2Y": 2.05
           },
           "series_1y": {
             "labels": [
@@ -9302,7 +9589,7 @@
               56094.5781,
               55149.3594,
               56115.5312,
-              54303.3203
+              54437.6914
             ]
           },
           "series_2y": {
@@ -9432,12 +9719,12 @@
               55890.7031,
               57177.0586,
               55545.0938,
-              54303.3203
+              54437.6914
             ]
           }
         }
       ],
-      "commentary": "Section mixed today (1 up / 3 down, avg -0.08%). Biggest mover: Gold USD/oz (+1.57%). YTD section average: -17.0%."
+      "commentary": "Section mixed today (1 up / 3 down, avg -0.00%). Biggest mover: Gold USD/oz (+1.57%). YTD section average: -17.0%."
     },
     "rates": {
       "instruments": [
@@ -11482,14 +11769,6 @@
       "category": "Macro/Equity"
     },
     {
-      "title": "Two Funds Promise 20% Income From the S&P 500. One Caps Your Upside, One Doesn\u2019t, and It Charges Less",
-      "link": "https://247wallst.com/investing/2026/08/14/two-funds-promise-20-income-from-the-sp-500-one-caps-your-upside-one-doesnt-and-it-charges-less/?.tsrc=rss",
-      "source": "Yahoo Finance",
-      "date": "Fri, 14 Aug 2026 21:35:08 +0000",
-      "description": "Two ETFs are racing to deliver 20% annual income from the S&P 500, but they take fundamentally different bets to get there, and the gap between them is costing some investors real money.",
-      "category": "Macro/Equity"
-    },
-    {
       "title": "European Stocks Close Mostly Lower in Friday Trading; Euro Area, EU GDP Growth Accelerates in Q2",
       "link": "https://finance.yahoo.com/economy/articles/european-stocks-close-mostly-lower-154921684.html?.tsrc=rss",
       "source": "Yahoo Finance",
@@ -11503,6 +11782,14 @@
       "source": "Yahoo Finance",
       "date": "Fri, 14 Aug 2026 23:01:00 +0000",
       "description": "Over the past six months, PVH has been a great trade, beating the S&P 500 by 11.1%. Its stock price has climbed to $84.88, representing a healthy 24.5% increase. This was partly due to its solid quarterly results, and the performance may have investors wondering how to approach the situation.",
+      "category": "Macro/Equity"
+    },
+    {
+      "title": "MongoDB (MDB) Dips More Than Broader Market: What You Should Know",
+      "link": "https://finance.yahoo.com/markets/stocks/articles/mongodb-mdb-dips-more-broader-221501517.html?.tsrc=rss",
+      "source": "Yahoo Finance",
+      "date": "Fri, 14 Aug 2026 22:15:01 +0000",
+      "description": "MongoDB (MDB) reached $460.33 at the closing of the latest trading day, reflecting a -2.53% change compared to its last close.",
       "category": "Macro/Equity"
     },
     {
